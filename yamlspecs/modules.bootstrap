@@ -1,0 +1,6 @@
+# Modules to add to Perl locally
+App::CPANtoRPM
+Test::TinyMocker
+MetaCPAN::API
+YAML
+YAML::Dump
