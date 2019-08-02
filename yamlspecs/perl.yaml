@@ -1,0 +1,37 @@
+---
+- package: Perl Programming Language {{ version }} 
+  name: perl
+  category: programming language
+  versions: !include perl_versions.yaml 
+  version: "{{ versions.perl }}"
+  compiler: gcc
+  compiler_version: "{{ versions.gcc }}"
+  extension: tar.gz
+  vendor_source: https://www.cpan.org/src/5.0/{{ name }}-{{ version }}.{{ extension }}
+  pkgname: "{{ name }}_{{ version }}"
+  description: >
+    Perl version {{ version }}
+
+  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}/"
+  prefix: "{{ root }}" 
+
+  addfile: 
+    - filter-requires-{{ name }}.sh
+  build:
+    configure: ./Configure
+    configure_args: -des -Dprefix=$(PKGROOT) -Dnoextensions= Mac VMS
+    modules: 
+      - "{{ compiler }}/{{ compiler_version }}"
+    target: 
+
+  install:
+    makeinstall: $(MAKE); $(MAKE) DESTDIR=$(ROOT) install 
+
+  files:
+    - "{{ root }}*" 
+
+  rpm: !include rpm.extras.filter.yaml
+#  rpm: !include rpm.extras.yaml
+#  requires:
+#    - "{{ compiler }}/{{ compiler_version }}"
+#    configure_args: -Dprefix=$(PKGROOT) -Dusethreads -des -Dotherlibdirs={{ root }}/lib/perl5/site_perl/$(VERSION) 
