@@ -1,6 +1,10 @@
+# Modules to build and install locally in this order
+perl
+perl-module
+
 # Modules to add to Perl locally
-App::CPANtoRPM
-Test::TinyMocker
-MetaCPAN::API
-YAML
-YAML::Dump
+#App::CPANtoRPM
+#Test::TinyMocker
+#MetaCPAN::API
+#YAML
+#YAML::Dump
