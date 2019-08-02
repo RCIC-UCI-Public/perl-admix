@@ -1,9 +1,10 @@
 #! /bin/bash
 #
 # remove requirements for perl 
-# /usr/lib/rpm/find-requires $* | sed -e '/perl(Math::Random)/d' | sed -e '/^[[:space:]]*$/d' | sed -e '/^#/d'
+#
+# using beow gives erroneous perl(x) lines
+# /usr/lib/rpm/perl.req $* | sed  \
 
-#/usr/lib/rpm/perl.req $* | sed  \
 /usr/lib/rpm/find-requires $* | sed  \
     -e '/perl(s)/d' \
     -e '/perl(unicore::Name)/d' \
