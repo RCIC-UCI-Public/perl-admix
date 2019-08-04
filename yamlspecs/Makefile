@@ -5,5 +5,24 @@
 
 include $(YAML2RPM_HOME)/sys/Makefile
 
+SHELL = /bin/bash
+PERLVER = $(shell $(GENERATE) --query=version perl.yaml)
+
+FILTERS = filter-provides-perl.sh filter-requires-perl.sh
+
+.PHONY: buildall
+
+all: prep
+	
+prep: $(FILTERS) MyConfig.pm
+
 MyConfig.pm: MyConfig.pm.in
 	sed 's%/root/%$(PWD)/%g' MyConfig.pm.in > MyConfig.pm
+
+%.sh: %.sh.in
+	echo $(PERLVER)
+	sed 's/@VERSION@/$(PERLVER)/' $^ > $@
+
+clean:
+	-/bin/rm $(FILTERS) 
+	-/bin/rm MyConfig.pm

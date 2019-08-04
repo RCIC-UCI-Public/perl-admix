@@ -17,9 +17,10 @@
 
   addfile: 
     - filter-requires-{{ name }}.sh
+    - filter-provides-{{ name }}.sh
   build:
     configure: ./Configure
-    configure_args: -des -Dprefix=$(PKGROOT) -Dnoextensions= Mac VMS
+    configure_args: -des -Dprefix=$(PKGROOT) -Dusethreads -Duseshrplib
     modules: 
       - "{{ compiler }}/{{ compiler_version }}"
     target: 
@@ -30,8 +31,9 @@
   files:
     - "{{ root }}*" 
 
-  rpm: !include rpm.extras.filter.yaml
-#  rpm: !include rpm.extras.yaml
+  rpm: !include rpm.extras.yaml
+
+#  rpm: !include rpm.extras.filter.yaml
 #  requires:
 #    - "{{ compiler }}/{{ compiler_version }}"
 #    configure_args: -Dprefix=$(PKGROOT) -Dusethreads -des -Dotherlibdirs={{ root }}/lib/perl5/site_perl/$(VERSION) 
