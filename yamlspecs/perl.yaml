@@ -12,7 +12,7 @@
   description: >
     Perl version {{ version }}
 
-  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}/"
+  root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
   prefix: "{{ root }}" 
 
   addfile: 
