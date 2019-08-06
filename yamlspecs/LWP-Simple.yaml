@@ -1,0 +1,46 @@
+---
+- package: LWP::Simple - simple procedural interface to LWP
+  common_name: libwww-perl
+  name: libwww-perl
+  category: perl module
+  versions: !include perl_versions.yaml 
+  version: "{{ versions.libwww_perl }}"
+  compiler: perl
+  compiler_version: "{{ versions.perl }}"
+  extension: tar.gz
+  download_file: "{{ common_name }}-{{ version  }}.{{ extension }}"
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/{{ download_file }}
+
+
+  src_tarball: "{{ download_file }}"
+  pkgname: "{{ compiler }}_{{ compiler_version }}-{{ name }}"
+  description: |
+    LWP::Simple - simple procedural interface to LWP.  Version {{ version }}
+    This module is meant for people who want a simplified view of the libwww-perl library.
+
+  root: "{{ pkg_defaults.app_path }}/{{ compiler }}/{{ compiler_version }}"
+  prefix: "{{ root }}" 
+
+  addfile: 
+    - filter-requires-perlmodules.sh
+    - filter-provides-perlmodules.sh
+
+  build:
+    configure: perl
+    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
+    modules: 
+      - "{{ compiler }}/{{ compiler_version }}"
+    target: 
+ 
+  install:
+    makeinstall: $(MAKE); $(MAKE) DESTDIR=$(ROOT) pure_install; find $(ROOT) -type f -name .packlist -delete
+
+  files:
+    - "{{ root }}/bin/*" 
+    - "{{ root }}/lib/site_perl/{{ compiler_version }}/LWP*" 
+    - "{{ root }}/lib/site_perl/{{ compiler_version }}/libww*" 
+    - "{{ root }}/man/man1/*" 
+    - "{{ root }}/man/man3/*" 
+
+  rpm: !include rpm.extras.perlmodules.yaml
+

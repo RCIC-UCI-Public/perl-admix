@@ -1,0 +1,44 @@
+---
+- package: cpanminus is a script to get, unpack, build and install modules from CPAN and does nothing else.
+  common_name: App-cpanminus
+  name: App-cpanminus
+  category: perl module
+  versions: !include perl_versions.yaml 
+  version: "{{ versions.app_cpanminus }}"
+  compiler: perl
+  compiler_version: "{{ versions.perl }}"
+  extension: tar.gz
+  download_file: "{{ common_name }}-{{ version  }}.{{ extension }}"
+  vendor_source: https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/{{ download_file }}
+  src_tarball: "{{ download_file }}"
+  pkgname: "{{ compiler }}_{{ compiler_version }}-{{ name }}"
+  description: >
+    Cpanminus version {{ version }}
+
+  root: "{{ pkg_defaults.app_path }}/{{ compiler }}/{{ compiler_version }}"
+  prefix: "{{ root }}" 
+
+  addfile: 
+    - filter-requires-perlmodules.sh
+    - filter-provides-perlmodules.sh
+
+  build:
+    configure: perl
+    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
+    modules: 
+      - "{{ compiler }}/{{ compiler_version }}"
+    target: 
+
+  install:
+    makeinstall: $(MAKE); $(MAKE) DESTDIR=$(ROOT) install 
+
+  files:
+    - "{{ root }}/bin/*" 
+    - "{{ root }}/lib/{{ compiler_version }}/x86_64-linux-thread-multi/*" 
+    - "{{ root }}/lib/site_perl/{{ compiler_version }}/*" 
+    - "{{ root }}/lib/site_perl/{{ compiler_version }}/x86_64-linux-thread-multi/*" 
+    - "{{ root }}/man/man1/*" 
+    - "{{ root }}/man/man3/*" 
+
+  rpm: !include rpm.extras.perlmodules.yaml
+

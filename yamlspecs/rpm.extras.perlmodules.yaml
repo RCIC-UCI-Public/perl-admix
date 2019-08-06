@@ -1,0 +1,20 @@
+---
+## redefine the __spec_install_post macro to load the correct modules so that 
+### brp-python-bytecompile can access libraries and correct version of python
+#  Provides: perl(unicore::Name) perl(s) perl(VMS::Stdio) perl(VMS::Filespec) perl(Mac::InternetConfig) perl(Mac::BuildTools)
+extras: |
+  %define _python_bytecompile_errors_terminate_build 0\n\
+  %define __spec_install_post \
+  %{?__debug_package:%{__debug_install_post}}\
+  module load {{ build.modules }};\
+  %{__arch_install_post}\
+  %{__os_install_post}\
+  module unload {{ build.modules }}\
+  %{nil}\n\
+  %define _use_internal_dependency_generator 0\n\
+  %define __find_requires %{_builddir}/%{name}-%{version}/filter-requires-perlmodules.sh\n\
+  %define __find_provides %{_builddir}/%{name}-%{version}/filter-provides-perlmodules.sh\n\
+  %global __provides_exclude_from %{perl_vendorarch}/auto/.*\\.so$|%{perl_archlib}/.*\\.so$|%{_docdir}\n\
+  %global __requires_exclude_from %{_docdir}
+
+#  %install find $RPM_BUILD_ROOT -type f -name .packlist -delete
