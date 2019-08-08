@@ -1,0 +1,26 @@
+---
+- category: perl module
+  versions: !include perl_versions.yaml 
+  extension: tar.gz
+  download_file: "{{ name }}-{{ version  }}.{{ extension }}"
+  src_tarball: "{{ download_file }}"
+  pkgname: "perl_{{ versions.perl }}-{{ name }}"
+
+  root: "{{ pkg_defaults.app_path }}/perl/{{ versions.perl }}"
+  prefix: "{{ root }}" 
+
+  addfile: 
+    - filter-requires-perlmodules.sh
+    - filter-provides-perlmodules.sh
+
+  build:
+    configure: perl
+    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
+    modules: 
+      - "perl/{{ versions.perl }}"
+    target: 
+
+  install:
+    makeinstall: $(MAKE); $(MAKE) DESTDIR=$(ROOT) pure_install; find $(ROOT) -type f -name .packlist -delete; find $(ROOT) -depth -type d -empty -delete
+
+  rpm: !include rpm.extras.perlmodules.yaml

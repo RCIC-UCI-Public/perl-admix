@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Type::Tiny Perl module 
+  name: Type-Tiny
+  version: "{{ versions.type_tiny }}"
+  vendor_source: http://www.cpan.org/authors/id/T/TO/TOBYINK/{{ download_file }}
+  description: >
+     Type::Tiny - tiny, yet Moo(se)-compatible type constraint
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/Type/Tiny*"
+    - "{{ root }}/man/man3/*" 

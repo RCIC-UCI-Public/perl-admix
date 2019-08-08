@@ -1,0 +1,14 @@
+!include common.yaml
+---
+- package: Devel::GlobalDestruction Perl module 
+  name: Devel-GlobalDestruction
+  version: "{{ versions.devel_globaldestruction }}"
+  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/{{ download_file }}
+  description: >
+    Provides function returning the equivalent of ${^GLOBAL_PHASE} eq 'DESTRUCT' for older perls.
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/Devel/GlobalDestruction*"
+    - "{{ root }}/man/man3/*" 
+  requires:
+    - perl_{{ versions.perl }}-Sub-Exporter-Progressive

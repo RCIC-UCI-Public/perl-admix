@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Sub::Exporter::Progressive Perl module 
+  name: Sub-Exporter-Progressive
+  version: "{{ versions.sub_exporter_progressive }}"
+  vendor_source: https://cpan.metacpan.org/authors/id/F/FR/FREW/{{ download_file }}
+  description: >
+      Sub::Exporter::Progressive - a Sub::Exporter wrapper. Only use Sub::Exporter if you need it
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/Sub/Exporter/Progressive*"
+    - "{{ root }}/man/man3/*" 
