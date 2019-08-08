@@ -3,8 +3,20 @@ perl
 perl-module
 
 # Modules to add to Perl locally
+# These work on its own with no dependencies
+# App::cpanminus provides cpanm
+# YAML::LibYAML this is YAML::XS as a replacement of YAML
+
+# MetaCPAN::Client as a replacement of MetaCPAN::API
+# partial dependencies list:
+#   Moo
+#      Sub::Quote / Sub::Defer 
+#      Role::Tiny
+#      Module::Runtime
+#      Devel::GlobalDestruction
+#          Sub::Exporter
+
+# need to create dependencies
+#LWP::Simple
 #App::CPANtoRPM
 #Test::TinyMocker
-#MetaCPAN::API
-#YAML
-#YAML::Dump
