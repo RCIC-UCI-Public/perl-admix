@@ -8,7 +8,8 @@ include $(YAML2RPM_HOME)/sys/Makefile
 SHELL = /bin/bash
 PERLVER = $(shell $(GENERATE) --query=version perl.yaml)
 
-FILTERS = filter-provides-perl.sh filter-requires-perl.sh
+FILTERS = filter-provides-perl.sh filter-requires-perl.sh \
+          filter-provides-perlmodules.sh  filter-requires-perlmodules.sh
 
 .PHONY: buildall
 

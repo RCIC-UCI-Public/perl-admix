@@ -4,9 +4,11 @@
   name: Type-Tiny
   version: "{{ versions.type_tiny }}"
   vendor_source: http://www.cpan.org/authors/id/T/TO/TOBYINK/{{ download_file }}
-  description: >
+  description: |
      Type::Tiny - tiny, yet Moo(se)-compatible type constraint
+     Types::Standard - bundled set of built-in types for Type::Tiny
 
   files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/Type/Tiny*"
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
     - "{{ root }}/man/man3/*" 
+

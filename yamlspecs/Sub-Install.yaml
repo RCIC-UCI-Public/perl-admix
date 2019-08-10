@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Sub::Install Perl module 
+  name: Sub-Install
+  version: "{{ versions.sub_install }}"
+  vendor_source: http://www.cpan.org/authors/id/R/RJ/RJBS/{{ download_file }}
+  description: >
+     Sub::Install perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

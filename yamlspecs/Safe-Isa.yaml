@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Safe::Isa Perl module
+  name: Safe-Isa
+  version: "{{ versions.safe_isa }}"
+  vendor_source: http://www.cpan.org/authors/id/E/ET/ETHER/{{ download_file }}
+  description: >
+    Safe::Isa - Call isa, can, does and DOES safely on things that may not be objects
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*" 
+    - "{{ root }}/man/man3/*" 

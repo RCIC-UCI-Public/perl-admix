@@ -1,0 +1,14 @@
+--> Working on File::HomeDir
+Fetching http://www.cpan.org/authors/id/R/RE/REHSACK/File-HomeDir-1.004.tar.gz ... OK
+Configuring File-HomeDir-1.004 ... OK
+ExtUtils::MakeMaker~6.58
+POSIX
+File::Basename
+Test::More~0.9
+File::Which~0.05
+File::Spec~3.12
+File::Path~2.01
+Carp
+Cwd~3.12
+perl~5.008003
+File::Temp~0.19

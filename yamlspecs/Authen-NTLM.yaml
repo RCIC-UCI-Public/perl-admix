@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Authen::NTLM Perl module 
+  name: NTLM
+  version: "{{ versions.ntlm }}"
+  vendor_source: http://www.cpan.org/authors/id/N/NB/NBEBOUT/{{ download_file }} 
+  description: >
+     Authen::NTLM perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

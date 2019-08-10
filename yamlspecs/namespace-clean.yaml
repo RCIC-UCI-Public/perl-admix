@@ -1,0 +1,13 @@
+namespace_clean: "0.27"
+!include common.yaml
+---
+- package: namespace::clean Perl module 
+  name: namespace-clean
+  version: "{{ versions.namespace_clean }}"
+  vendor_source: http://www.cpan.org/authors/id/R/RI/RIBASUSHI/{{ download_file }}
+  description: >
+     namespace::clean perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

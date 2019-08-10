@@ -9,6 +9,9 @@
   root: "{{ pkg_defaults.app_path }}/perl/{{ versions.perl }}"
   prefix: "{{ root }}" 
 
+  compiler: gcc
+  compiler_version: "{{ versions.gcc }}"
+
   addfile: 
     - filter-requires-perlmodules.sh
     - filter-provides-perlmodules.sh

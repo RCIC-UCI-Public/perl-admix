@@ -1,0 +1,14 @@
+!include common.yaml
+---
+- package: Module::Build Perl module 
+  name: Module-Build
+  version: "{{ versions.module_build }}"
+  vendor_source: http://www.cpan.org/authors/id/L/LE/LEONT/{{ download_file }} 
+  description: >
+     Module::Build perl module
+
+  files:
+    - "{{ root }}/bin/*" 
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man1/*" 
+    - "{{ root }}/man/man3/*" 

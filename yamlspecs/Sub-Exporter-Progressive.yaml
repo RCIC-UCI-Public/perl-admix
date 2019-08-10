@@ -8,5 +8,5 @@
       Sub::Exporter::Progressive - a Sub::Exporter wrapper. Only use Sub::Exporter if you need it
 
   files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/Sub/Exporter/Progressive*"
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*/*"
     - "{{ root }}/man/man3/*" 

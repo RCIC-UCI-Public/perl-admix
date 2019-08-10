@@ -1,0 +1,14 @@
+!include common.yaml
+---
+- package: App::Nopaste Perl module 
+  name: App-Nopaste
+  version: "{{ versions.app_nopaste }}"
+  vendor_source: http://www.cpan.org/authors/id/E/ET/ETHER/{{ download_file }}
+  description: >
+     App::Nopaste module 
+
+  files:
+    - "{{ root }}/bin/*" 
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man1/*" 
+    - "{{ root }}/man/man3/*" 

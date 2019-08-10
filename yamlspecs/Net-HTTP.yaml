@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Net::HTTP Perl module 
+  name: Net-HTTP
+  version: "{{ versions.net_http }}"
+  vendor_source: http://www.cpan.org/authors/id/O/OA/OALDERS/{{ download_file }}
+  description: >
+     Net::HTTP perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: B::Keywords Perl module 
+  name: B-Keywords
+  version: "{{ versions.b_keywords }}"
+  vendor_source: http://www.cpan.org/authors/id/R/RU/RURBAN/{{ download_file }}
+  description: >
+    B::Keywords - Lists of reserved barewords and symbol names
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

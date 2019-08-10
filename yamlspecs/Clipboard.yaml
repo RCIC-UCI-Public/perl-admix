@@ -1,0 +1,22 @@
+!include common.yaml
+---
+- package: Clipboard Perl module 
+  name: Clipboard
+  version: "{{ versions.clipboard }}"
+  vendor_source: http://www.cpan.org/authors/id/S/SH/SHLOMIF/{{ download_file }} 
+  description: >
+     Clipboard provides copy/paste in a cross-platform-consistent API.
+
+  build:
+    configure: perl
+    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
+    modules: 
+      - "{{ compiler }}/{{ compiler_version }}"
+      - "perl/{{ versions.perl }}"
+    target:
+
+  files:
+    - "{{ root }}/bin/*" 
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*"
+    - "{{ root }}/man/man1/*" 
+    - "{{ root }}/man/man3/*" 

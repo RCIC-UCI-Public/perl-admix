@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: HTML::Tagset Perl module 
+  name: HTML-Tagset
+  version: "{{ versions.html_tagset }}"
+  vendor_source: http://www.cpan.org/authors/id/P/PE/PETDANCE/{{ download_file }}
+  description: >
+     HTML::Tagset perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

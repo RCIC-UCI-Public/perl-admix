@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: LWP::MediaTypes Perl module 
+  name: LWP-MediaTypes
+  version: "{{ versions.lwp_mediatypes }}"
+  vendor_source: http://www.cpan.org/authors/id/O/OA/OALDERS/{{ download_file }} 
+  description: >
+     LWP::MediaTypes perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Sub::Exporter Perl module 
+  name: Sub-Exporter
+  version: "{{ versions.sub_exporter }}"
+  vendor_source: http://www.cpan.org/authors/id/R/RJ/RJBS/{{ download_file }}
+  description: >
+     Sub::Exporter perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

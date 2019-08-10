@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Digest::HMAC_MD5 Perl module 
+  name: Digest-HMAC
+  version: "{{ versions.digest_hmac }}"
+  vendor_source: http://www.cpan.org/authors/id/G/GA/GAAS/{{ download_file }} 
+  description: >
+     Digest::HMAC_MD5 perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

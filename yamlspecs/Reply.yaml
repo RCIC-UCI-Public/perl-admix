@@ -1,0 +1,16 @@
+!include common.yaml
+---
+- package: Reply Perl module 
+  name: Reply
+  version: "{{ versions.reply }}"
+  vendor_source: http://www.cpan.org/authors/id/D/DO/DOY/{{ download_file }}
+
+  description: >
+    Reply::Plugin - base class for Reply plugins
+
+  files:
+    - "{{ root }}/bin/*" 
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*.*"
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man1/*" 
+    - "{{ root }}/man/man3/*" 

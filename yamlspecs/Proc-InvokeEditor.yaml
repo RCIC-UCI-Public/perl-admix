@@ -1,0 +1,13 @@
+!include common.yaml
+---
+- package: Proc::InvokeEditor Perl module 
+  name: Proc-InvokeEditor 
+  version: "{{ versions.proc_invokeeditor }}"
+  vendor_source: http://www.cpan.org/authors/id/M/MS/MSTEVENS/{{ download_file }}
+  description: >
+    Proc::InvokeEditor
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 
+

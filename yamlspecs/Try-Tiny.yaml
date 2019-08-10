@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Try::Tiny Perl module 
+  name: Try-Tiny
+  version: "{{ versions.try_tiny }}"
+  vendor_source: http://www.cpan.org/authors/id/E/ET/ETHER/{{ download_file }} 
+  description: >
+     Try::Tiny perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

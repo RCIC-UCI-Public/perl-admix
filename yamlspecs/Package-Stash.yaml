@@ -1,0 +1,14 @@
+!include common.yaml
+---
+- package: Package::Stash Perl module 
+  name: Package-Stash
+  version: "{{ versions.package_stash }}"
+  vendor_source: http://www.cpan.org/authors/id/E/ET/ETHER/{{ download_file }}
+  description: >
+     Package::Stash perl module
+
+  files:
+    - "{{ root }}/bin/*" 
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man1/*" 
+    - "{{ root }}/man/man3/*" 

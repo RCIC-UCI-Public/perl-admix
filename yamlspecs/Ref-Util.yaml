@@ -1,0 +1,13 @@
+!include common.yaml
+---
+- package: Ref::Util Perl module 
+  name: Ref-Util
+  version: "{{ versions.ref_util }}"
+  vendor_source: http://www.cpan.org/authors/id/A/AR/ARC/{{ download_file }}
+
+  description: >
+    Ref::Util - Utility functions for checking references
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

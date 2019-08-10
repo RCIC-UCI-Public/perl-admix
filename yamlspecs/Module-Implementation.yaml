@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Module::Implementation Perl module 
+  name: Module-Implementation
+  version: "{{ versions.module_implementation }}"
+  vendor_source: http://www.cpan.org/authors/id/D/DR/DROLSKY/{{ download_file }}
+  description: >
+    Module::Implementation - runtime module handling
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

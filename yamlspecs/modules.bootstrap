@@ -1,22 +1,85 @@
 # Modules to build and install locally in this order
 perl
 perl-module
-
-# Modules to add to Perl locally
-# These work on its own with no dependencies
-# App::cpanminus provides cpanm
-# YAML::LibYAML this is YAML::XS as a replacement of YAML
+# provides cpanm
+App::cpanminus 
+# this is YAML::XS as a replacement of YAML
+YAML::LibYAML 
+Ref::Util
+Safe::Isa
+JSON::MaybeXS
+# dependencies for LWP::Simple
+Data::Dump 
+Try::Tiny
+LWP::MediaTypes
+URI
+Digest::HMAC_MD5
+HTTP::Message
+HTTP::Date
+Encode::Locale
+WWW::RobotRules
+NTLM 
+HTTP::Negotiate
+File::Listing
+Net::HTTP
+LWP::Simple
+# Moo dependencies. Moo is prereq for MetaCPAN::Client
+Sub::Exporter
+Sub::Quote
+Role::Tiny
+Module::Runtime
+Devel::GlobalDestruction
+Moo
 
 # MetaCPAN::Client as a replacement of MetaCPAN::API
 # partial dependencies list:
-#   Moo
-#      Sub::Quote / Sub::Defer 
-#      Role::Tiny
-#      Module::Runtime
-#      Devel::GlobalDestruction
-#          Sub::Exporter
-
+#   Type::Tiny for Types::Standard
+#      Exporter::Tiny
+#      Reply::Plugin
+#          nodeps B::Keywords
+#          nodeps Config::INI::Reader::Ordered
+#          nodeps Proc::InvokeEditor
+#          nodeps Data::Dump
+#          Class::Refresh
+#              nodeps Try::Tiny
+#          App::Nopaste
+#              nodeps URI
+#              libwww-perl
+#              namespace::clean
+#                  B::Hooks
+#              WWW::Mechanize
+#                 nodeps  HTTP::Cookies
+#                 HTML::Form
+#                     nodeps URI
+#                     HTML::Parser
+#                         HTML::Tagset
+#              nodeps Path::Tiny 
+#              Module::Pluggable
+#                  Sub::Exporter
+#                      Data::OptList
+#                          nodeps Sub::Install
+#                          nodeps Params::Util
+#                      
+#              libwww-perl  
+#              nodeps JSON::MaybeXS 
+#              Getopt::Long::Descriptive
+#                  Params::Validate
+#                     Module::Implementation
+#                         Module::Runtime
+#
+#              Class::Load
+#                  Data::OptList
+#                  Package::Stash
+#                      Dist::CheckConflicts
+#
+#              nodeps WWW::Pastebin::PastebinCom::Create
+#                  nodeps Module::Build
+#                  Moo
+#              Clipboard
+#                  nodeps Module::Build
+#              nodeps Browser::Open
+#              nodeps CPAN::Meta::Requirements
+#          nodeps PadWalker
 # need to create dependencies
-#LWP::Simple
 #App::CPANtoRPM
 #Test::TinyMocker

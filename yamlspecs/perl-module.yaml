@@ -10,5 +10,5 @@
       - "{{ pkg_defaults.module.prepend_path }}"
 
   requires:
-    - "{{ name }}_{{ version }}"
+#    - "{{ name }}_{{ version }}"
     - rcic-module-support

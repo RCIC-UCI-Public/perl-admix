@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Module::Pluggable Perl module 
+  name: Module-Pluggable
+  version: "{{ versions.module_pluggable }}"
+  vendor_source: http://www.cpan.org/authors/id/S/SI/SIMONW/{{ download_file }}
+  description: >
+     Module::Pluggable perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

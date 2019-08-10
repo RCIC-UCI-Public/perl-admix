@@ -1,0 +1,17 @@
+--> Working on Data::Printer
+Fetching http://www.cpan.org/authors/id/G/GA/GARU/Data-Printer-0.40.tar.gz ... OK
+Configuring Data-Printer-0.40 ... OK
+ExtUtils::MakeMaker~6.58
+File::Spec
+Test::More~0.88
+ExtUtils::MakeMaker
+Sort::Naturally
+Term::ANSIColor~3
+Scalar::Util
+Clone::PP
+Package::Stash~0.3
+Fcntl
+Carp
+version~0.77
+File::HomeDir~0.91
+File::Temp

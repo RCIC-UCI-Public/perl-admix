@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: HTTP::Cookies Perl module 
+  name: HTTP-Cookies
+  version: "{{ versions.http_cookies }}"
+  vendor_source: http://www.cpan.org/authors/id/O/OA/OALDERS/{{ download_file }}
+  description: >
+     HTTP::Cookies perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

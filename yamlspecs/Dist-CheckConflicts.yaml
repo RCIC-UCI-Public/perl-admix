@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Dist::CheckConflicts Perl module 
+  name: Dist-CheckConflicts
+  version: "{{ versions.dist_checkconflicts }}"
+  vendor_source: http://www.cpan.org/authors/id/D/DO/DOY/{{ download_file }}
+  description: >
+     Dist::CheckConflicts perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

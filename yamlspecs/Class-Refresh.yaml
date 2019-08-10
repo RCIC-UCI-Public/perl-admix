@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Class::Refresh Perl module 
+  name: Class-Refresh
+  version: "{{ versions.class_refresh }}"
+  vendor_source: http://www.cpan.org/authors/id/D/DO/DOY/{{ download_file }}
+  description: >
+     Class::Refresh  module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

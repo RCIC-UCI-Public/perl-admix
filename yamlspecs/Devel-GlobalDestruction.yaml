@@ -8,7 +8,7 @@
     Provides function returning the equivalent of ${^GLOBAL_PHASE} eq 'DESTRUCT' for older perls.
 
   files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/Devel/GlobalDestruction*"
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
     - "{{ root }}/man/man3/*" 
   requires:
     - perl_{{ versions.perl }}-Sub-Exporter-Progressive

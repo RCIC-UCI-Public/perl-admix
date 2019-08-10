@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: HTML::Parser Perl module 
+  name: HTML-Parser
+  version: "{{ versions.html_parser }}"
+  vendor_source: http://www.cpan.org/authors/id/G/GA/GAAS/{{ download_file }}
+  description: >
+     HTML::Parser perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

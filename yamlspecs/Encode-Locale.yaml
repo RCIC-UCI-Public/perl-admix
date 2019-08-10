@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Encode::Locale Perl module 
+  name: Encode-Locale
+  version: "{{ versions.encode_locale }}"
+  vendor_source: http://www.cpan.org/authors/id/G/GA/GAAS/{{ download_file }}
+  description: >
+     Encode::Locale perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

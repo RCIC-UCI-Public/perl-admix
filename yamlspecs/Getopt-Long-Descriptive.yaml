@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Getopt::Long::Descriptive Perl module 
+  name: Getopt-Long-Descriptive
+  version: "{{ versions.getopt_long_descriptive }}"
+  vendor_source: http://www.cpan.org/authors/id/R/RJ/RJBS/{{ download_file }}
+  description: >
+     Getopt::Long::Descriptive perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

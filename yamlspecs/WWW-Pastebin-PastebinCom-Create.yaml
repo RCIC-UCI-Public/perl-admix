@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: WWW::Pastebin::PastebinCom::Create Perl module 
+  name: WWW-Pastebin-PastebinCom-Create
+  version: "{{ versions.www_pastebin_pastebincom_create }}"
+  vendor_source: http://www.cpan.org/authors/id/Z/ZO/ZOFFIX/{{ download_file }} 
+  description: >
+     WWW::Pastebin::PastebinCom::Create perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*/*"
+    - "{{ root }}/man/man3/*" 

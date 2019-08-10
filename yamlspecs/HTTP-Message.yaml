@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: HTTP::Message Perl module 
+  name: HTTP-Message
+  version: "{{ versions.http_message }}"
+  vendor_source: http://www.cpan.org/authors/id/O/OA/OALDERS/{{ download_file }} 
+  description: >
+     HTTP::Message perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

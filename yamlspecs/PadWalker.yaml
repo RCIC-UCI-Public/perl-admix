@@ -1,0 +1,14 @@
+!include common.yaml
+---
+- package: PadWalker Perl module 
+  name: PadWalker
+  version: "{{ versions.padwalker }}"
+  vendor_source: http://www.cpan.org/authors/id/R/RO/ROBIN/{{ download_file }}
+
+  description: >
+    PadWalker module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/x86_64-linux-thread-multi/*.*"
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/x86_64-linux-thread-multi/*/*"
+    - "{{ root }}/man/man3/*" 

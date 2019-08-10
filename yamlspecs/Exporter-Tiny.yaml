@@ -1,0 +1,13 @@
+!include common.yaml
+---
+- package: Exporter::Tiny Perl module 
+  name: Exporter-Tiny
+  version: "{{ versions.exporter_tiny }}"
+  vendor_source: http://www.cpan.org/authors/id/T/TO/TOBYINK/{{ download_file }}
+
+  description: >
+    Exporter::Tiny - an exporter with the features of Sub::Exporter but only core dependencies
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

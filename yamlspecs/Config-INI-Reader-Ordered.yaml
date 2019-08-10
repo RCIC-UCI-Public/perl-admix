@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Config::INI::Reader::Ordered Perl module 
+  name: Config-INI-Reader-Ordered
+  version: "{{ versions.config_ini_reader_ordered }}"
+  vendor_source: http://www.cpan.org/authors/id/R/RJ/RJBS/{{ download_file }}
+  description: >
+     Config::INI::Reader::Ordered 
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*/*"
+    - "{{ root }}/man/man3/*" 
