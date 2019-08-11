@@ -8,6 +8,27 @@ namespace_clean: "0.27"
   description: >
      namespace::clean perl module
 
+  addfile:
+    - filter-requires-perlmodules.sh
+    - filter-provides-namespace-clean.sh
+
   files:
     - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
     - "{{ root }}/man/man3/*" 
+
+  rpm:
+    extras: |
+      %define _python_bytecompile_errors_terminate_build 0\n\
+      %define __spec_install_post \
+      %{?__debug_package:%{__debug_install_post}}\
+      module load {{ build.modules }};\
+      %{__arch_install_post}\
+      %{__os_install_post}\
+      module unload {{ build.modules }}\
+      %{nil}\n\
+      %define _use_internal_dependency_generator 0\n\
+      %define __find_requires %{_builddir}/%{name}-%{version}/filter-requires-perlmodules.sh\n\
+      %define __find_provides %{_builddir}/%{name}-%{version}/filter-provides-namespace-clean.sh\n\
+      %global __provides_exclude_from %{perl_vendorarch}/auto/.*\\.so$|%{perl_archlib}/.*\\.so$|%{_docdir}\n\
+      %global __requires_exclude_from %{_docdir}
+

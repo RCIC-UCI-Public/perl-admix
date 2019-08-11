@@ -1,0 +1,7 @@
+#! /bin/bash
+#
+# rewrite perl rpm provides 
+# rename according to the version
+
+/usr/lib/rpm/find-provides $* | sed  -e 's/perl(/perl_@VERSION@(/' \
+    | sed '$ a perl_@VERSION@(Package::Stash::Conflicts) = 0.38'

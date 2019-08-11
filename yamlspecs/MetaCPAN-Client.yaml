@@ -1,38 +1,12 @@
+!include common.yaml
 ---
 - package: MetaCPAN::Client - A comprehensive, DWIM-featured client to the MetaCPAN API
-  common_name: MetaCPAN-Client 
   name: MetaCPAN-Client
-  category: perl module
-  versions: !include perl_versions.yaml 
   version: "{{ versions.metacpan_client }}"
-  extension: tar.gz
-  download_file: "{{ common_name }}-{{ version  }}.{{ extension }}"
   vendor_source: http://www.cpan.org/authors/id/M/MI/MICKEY/{{ download_file }}
-  src_tarball: "{{ download_file }}"
-  pkgname: "perl_{{ versions.perl }}-{{ name }}"
   description: >
     This is an API-compliant client to MetaCPAN with DWIM capabilities
 
-  root: "{{ pkg_defaults.app_path }}/perl/{{ versions.perl }}"
-  prefix: "{{ root }}" 
-
-  addfile: 
-    - filter-requires-perlmodules.sh
-    - filter-provides-perlmodules.sh
-
-  build:
-    configure: perl
-    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
-    modules: 
-      - "perl/{{ versions.perl }}"
-    target: 
-
-  install:
-    makeinstall: $(MAKE); $(MAKE) DESTDIR=$(ROOT) pure_install; find $(ROOT) -type f -name .packlist -delete
-
   files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/MetaCPAN/Client*" 
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*" 
     - "{{ root }}/man/man3/*" 
-
-  rpm: !include rpm.extras.perlmodules.yaml
-

@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Carp::Assert Perl module 
+  name: Carp-Assert
+  version: "{{ versions.carp_assert }}"
+  vendor_source: http://www.cpan.org/authors/id/N/NE/NEILB/{{ download_file }}
+  description: >
+     Carp::Assert perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

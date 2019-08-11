@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Clone::PP Perl module 
+  name: Clone-PP
+  version: "{{ versions.clone_pp }}"
+  vendor_source: http://www.cpan.org/authors/id/N/NE/NEILB/{{ download_file }}
+  description: >
+     Clone::PP perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

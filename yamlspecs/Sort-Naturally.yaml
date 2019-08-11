@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Sort::Naturally Perl module 
+  name: Sort-Naturally
+  version: "{{ versions.sort_naturally }}"
+  vendor_source: http://www.cpan.org/authors/id/B/BI/BINGOS/{{ download_file }}
+  description: >
+     Sort::Naturally perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

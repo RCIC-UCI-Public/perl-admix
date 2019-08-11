@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: File::Which Perl module 
+  name: File-Which
+  version: "{{ versions.file_which }}"
+  vendor_source: http://www.cpan.org/authors/id/P/PL/PLICEASE/{{ download_file }}
+  description: >
+     File::Which perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

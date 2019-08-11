@@ -1,0 +1,13 @@
+!include common.yaml
+---
+- package: YAML Perl module 
+  name: YAML
+  version: "{{ versions.yaml }}"
+  vendor_source: http://www.cpan.org/authors/id/T/TI/TINITA/{{ download_file }}
+  description: >
+     YAML perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*.*"
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

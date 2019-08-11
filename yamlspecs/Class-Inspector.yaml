@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Class::Inspector Perl module 
+  name: Class-Inspector
+  version: "{{ versions.class_inspector }}"
+  vendor_source: http://www.cpan.org/authors/id/P/PL/PLICEASE/{{ download_file }}
+  description: >
+     Class::Inspector perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

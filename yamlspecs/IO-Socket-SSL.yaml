@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: IO::Socket::SSL Perl module 
+  name: IO-Socket-SSL
+  version: "{{ versions.io_socket_ssl }}"
+  vendor_source: http://www.cpan.org/authors/id/S/SU/SULLR/{{ download_file }}
+  description: >
+     IO::Socket::SSL perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

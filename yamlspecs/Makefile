@@ -8,8 +8,11 @@ include $(YAML2RPM_HOME)/sys/Makefile
 SHELL = /bin/bash
 PERLVER = $(shell $(GENERATE) --query=version perl.yaml)
 
-FILTERS = filter-provides-perl.sh filter-requires-perl.sh \
-          filter-provides-perlmodules.sh  filter-requires-perlmodules.sh
+FILTERS = \
+filter-provides-perl.sh filter-requires-perl.sh \
+filter-provides-perlmodules.sh filter-requires-perlmodules.sh \
+filter-provides-package-stash.sh \
+filter-provides-namespace-clean.sh
 
 .PHONY: buildall
 
@@ -24,6 +27,6 @@ MyConfig.pm: MyConfig.pm.in
 	echo $(PERLVER)
 	sed 's/@VERSION@/$(PERLVER)/' $^ > $@
 
-clean:
+prepclean:
 	-/bin/rm $(FILTERS) 
 	-/bin/rm MyConfig.pm

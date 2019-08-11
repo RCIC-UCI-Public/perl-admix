@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: NAME Perl module 
+  name: NAME
+  version: "{{ versions.NAME }}"
+  vendor_source: {{ download_file }}
+  description: >
+     NAME perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

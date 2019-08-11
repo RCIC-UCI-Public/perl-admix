@@ -1,20 +1,12 @@
---> Working on Eval::Closure
-Fetching http://www.cpan.org/authors/id/D/DO/DOY/Eval-Closure-0.14.tar.gz ... OK
-Configuring Eval-Closure-0.14 ... OK
-ExtUtils::MakeMaker~6.58
-Test::Fatal
-overload
-Scalar::Util
-Test::Requires
-blib~1.01
-ExtUtils::MakeMaker
-IO::Handle
-Exporter
-warnings
-B
-File::Spec
-IPC::Open3
-Test::More~0.88
-strict
-Carp
-constant
+!include common.yaml
+---
+- package: Eval::Closure Perl module 
+  name: Eval-Closure
+  version: "{{ versions.eval_closure }}"
+  vendor_source: http://www.cpan.org/authors/id/D/DO/DOY/{{ download_file }}
+  description: >
+     Eval::Closure perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

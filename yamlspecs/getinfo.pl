@@ -2,7 +2,8 @@ use strict;
 use warnings;
 use 5.010;
  
-use YAML qw< Dump Bless>;
+#use YAML qw< Dump Bless>;
+use YAML::XS;
 use MetaCPAN::Client;
 
 my ($name) = @ARGV;

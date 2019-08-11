@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Config::INI Perl module 
+  name: Config-INI
+  version: "{{ versions.config_ini }}"
+  vendor_source: http://www.cpan.org/authors/id/R/RJ/RJBS/{{ download_file }}
+  description: >
+     Config::INI perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

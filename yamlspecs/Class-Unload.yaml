@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Class::Unload Perl module 
+  name: Class-Unload
+  version: "{{ versions.class_unload }}"
+  vendor_source: http://www.cpan.org/authors/id/I/IL/ILMARI/{{ download_file }}
+  description: >
+     Class::Unload perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

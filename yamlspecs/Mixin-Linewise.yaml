@@ -1,0 +1,12 @@
+!include common.yaml
+---
+- package: Mixin::Linewise Perl module 
+  name: Mixin-Linewise
+  version: "{{ versions.mixin_linewise }}"
+  vendor_source: http://www.cpan.org/authors/id/R/RJ/RJBS/{{ download_file }}
+  description: >
+     Mixin::Linewise perl module
+
+  files:
+    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
+    - "{{ root }}/man/man3/*" 

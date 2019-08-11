@@ -7,6 +7,8 @@
   description: >
      Module::Pluggable perl module
 
+  install:
+    makeinstall: $(MAKE); $(MAKE) DESTDIR=$(ROOT) pure_install; rm -rf $(ROOT)/t/lib/; find $(ROOT) -type f -name .packlist -delete; find $(ROOT) -depth -type d -empty -delete
   files:
     - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
     - "{{ root }}/man/man3/*" 
