@@ -15,15 +15,30 @@
   addfile: 
     - filter-requires-perlmodules.sh
     - filter-provides-perlmodules.sh
+    - listRpmFiles.py
 
   build:
-    configure: perl
-    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
+    configure: >
+      if [ -f Makefile.PL ]; then \
+        perl Makefile.PL INSTALLL_BASE=$(PKGROOT); \
+      elif [ -f Build.PL ]; then \
+        perl Build.PL --prefix=$(PKGROOT); \
+      fi
+    configure_args:
     modules: 
       - "perl/{{ versions.perl }}"
     target: 
 
   install:
-    makeinstall: $(MAKE); $(MAKE) DESTDIR=$(ROOT) pure_install; find $(ROOT) -type f -name .packlist -delete; find $(ROOT) -depth -type d -empty -delete
+    makeinstall: >
+      if [ -f Makefile.PL ]; then \
+        $(MAKE); $(MAKE) DESTDIR=$(ROOT) pure_install; \
+      elif [ -f Build.PL ]; then \
+        perl Build; perl Build --destdir=$(ROOT) pure_install; \
+      fi ; 
+      (cd ..;  python listRpmFiles.py $(ROOT))
+
+  fileslist: LISTFILES
 
   rpm: !include rpm.extras.perlmodules.yaml
+
