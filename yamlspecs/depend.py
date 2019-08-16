@@ -19,11 +19,23 @@ class ModInfo:
 
     def printInfo(self):
         print ("NAME", self.name)
-        print ("VERSION", self.version)
-        print ("download", self.download)
-        print ("provides", self.provides)
+        #print ("VERSION", self.version)
+        #print ("download", self.download)
+        #print ("provides", self.provides)
         print ("depend-config", self.confPrereqs)
         print ("depend-runtime", self.runPrereqs)
+
+    def getName(self):
+        # first one is regular notatio, secodnis perl. Example: Try-Tiny and Try::Tiny
+        return (self.name, self.perlname)
+
+    def getPrereqs(self, ptype):
+        if ptype == "configure":
+            return self.confPrereqs
+        elif ptype == "runtime":
+            return self.runPrereqs
+        else:
+            print ("Error: unknown prerequisite type", ptype)
 
     def readCpanInfo(self):
         '''Parse the output of the perl command '''
@@ -50,17 +62,28 @@ class ModInfo:
         self.confPrereqs = prereqs['configure']['requires']
         self.runPrereqs  = prereqs['runtime']['requires']
 
+    def updatePrereqs(self, installed):
+        ''' check the list of installed modules and update prereqs '''
+        instnames = installed.keys()  # names of perl modules currently avail on the system via perl RPMs
 
-    def readModFile(self ):
-        ''' get a list of desired modules from the file '''
-        self.desired = {}
+        # check config prereqs vs installed 
+        for k in self.confPrereqs.keys():
+	    if k in instnames:
+               if self.confPrereqs[k] < installed[k]: # installed version is sufficient
+                   del self.confPrereqs[k]
 
-class BuildModInfo:
+        # check runtime prereqs vs installed 
+        for k in self.runPrereqs.keys():
+	    if k in instnames:
+               if self.runPrereqs[k] < installed[k]:  # installed version is sufficient
+                   del self.runPrereqs[k]
+
+class BuildDepend:
     def __init__(self, args=None):
         self.args = args
         self.cmd = ['cpan', '-l']
-        self.default = {}   # default installed modules via perl RPM 
-        self.modlist = []   # list of desired module names, will get from input file 
+        self.installed = {}   # default installed modules via perl RPM 
+        self.modlist = []     # list of desired module names, will get from input file 
         self.dependsConf = {}
         self.dependsRun = {}
 
@@ -87,7 +110,7 @@ class BuildModInfo:
         print (helpstr)
         sys.exit(0)
 
-    def readInfo(self):
+    def listCpanInfo(self):
         '''Parse the output of the 'cpan -l' command and create a dictionary of installed modules instances'''
         p = subprocess.Popen( self.cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         (output, error) = p.communicate()
@@ -98,15 +121,15 @@ class BuildModInfo:
         for l in self.lines:
             items = l.split()
             if len(items) == 2:
-                try: 
-                    version = float(items[1])
-                except:
-                    version = -1
-                self.default[items[0]] = version
+                if items[1] == "undef":
+                     version = "-1"
+                else:
+                     version = items[1]
+                self.installed[items[0]] = version
             else:
-                print ("ERROR", l)
+                print ("ERROR", l) # line should have name and version
 
-    def readModFile(self ):
+    def readModFile(self):
         ''' get a list of desired modules from the file '''
         self.desired = {}
         if not os.path.isfile(self.fname):
@@ -120,22 +143,43 @@ class BuildModInfo:
             name = ''.join(l.split()) # rm white spaces
             self.modlist.append(name)
 
-    def getCpanInfo(self):
+    def getModPrereqs(self):
+        ''' for module names form the read file find their prerequisite modules '''
         for name in self.modlist:
-            self.desired[name] = ModInfo(name)
-            self.desired[name].printInfo()    
-            self.dependsConf.update(self.desired[name].confPrereqs)
-            self.dependsRun.update(self.desired[name].runPrereqs)
+            mod = ModInfo(name)
+            mod.updatePrereqs(self.installed)    
+            mod.printInfo()    
+            self.desired[name] = mod
+            self.addDepends(mod)
+
+    def addDepends(self, mod):
+        name, perlname = mod.getName()
+
+        # update dependencies for configure stage using listed for mod's
+        dict1 = mod.getPrereqs("configure") # config dependencies from the mod
+        dict2 = self.dependsConf            # current collected config dependencies
+        result = {key: dict1.get(key, 0) if dict1.get(key, 0) > dict2.get(key, 0) else dict2.get(key,0) for key in set(dict1) | set(dict2)}
+        if perlname in result.keys():
+            del result[perlname] # if mod is lsitd in desired, remove from dependencies
+        self.dependsConf = result
+          
+        # update dependencies for runtime stage using listed for mod's
+        dict1 = mod.getPrereqs("runtime")   # runtime dependencies from the mod
+        dict2 = self.dependsRun             # current collected runtime dependencies
+        result = {key: dict1.get(key, 0) if dict1.get(key, 0) > dict2.get(key, 0) else dict2.get(key,0) for key in set(dict1) | set(dict2)}
+        if perlname in result.keys():
+            del result[perlname] # if mod is lsitd in desired, remove from dependencies
+        self.dependsRun = result
 
 
     def run(self):
-        #self.readInfo()
+        self.listCpanInfo()
         self.readModFile()
-        self.getCpanInfo()
+        self.getModPrereqs()
         print ("total conf prereqs", self.dependsConf)
         print ("total run prereqs", self.dependsRun)
 
 ##### Run from a command line #####
 if __name__ == "__main__":
-    app = BuildModInfo(sys.argv)
+    app = BuildDepend(sys.argv)
     app.run()
