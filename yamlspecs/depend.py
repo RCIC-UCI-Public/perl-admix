@@ -1,11 +1,22 @@
 #!/usr/bin/env python
 
-from collections import defaultdict
+#from collections import defaultdict
 import sys
 import os
 import subprocess
 import yaml
-from re import match
+import glob
+#from re import match
+
+YAMLTEMPLATE="""!include common.yaml
+---
+- package: %s Perl module 
+  name: %s
+  version: "%s"
+  vendor_source: %s
+  description: >
+     %s perl module. %s
+"""
 
 class Node(object):
     def __init__(self, name):
@@ -53,6 +64,12 @@ class ModInfo:
     def getVersion(self):
         return (self.version)
 
+    def getDownload(self):
+        return (self.download)
+
+    def getDescription(self):
+        return (self.description)
+
     def getCpanModInfo(self):
         '''Parse the output of the perl command '''
         #print ("DEBUG workling on ", self.perlname)
@@ -64,7 +81,7 @@ class ModInfo:
         index = output.find("\ndata:")
         output = "---" + output[index:]
 
-        if error: #TODO
+        if error: #FIXME
             print (error)
 
         info = yaml.load(output)
@@ -285,12 +302,12 @@ class BuildDepend:
         for node in self.nodes:
             master.addEdge(node)
             deps = self.desired[node.name].getPrereqs()
-            print ("for NODE", node.name, deps)
+            #DEBUG print ("for NODE", node.name, deps)
             try:
                 edges = filter(lambda x: x.name in deps, self.nodes)
                 for edge in edges:
                     node.addEdge(edge)
-                    print ("    add EDGE", edge.name)
+                    #DEBUG print ("    add EDGE", edge.name)
             except:
                 pass
 
@@ -300,8 +317,65 @@ class BuildDepend:
         self.resolved = resolved
 
     def writeYaml(self):
-        for pkg in self.resolved:
-            print pkg.name
+        self.checkFilters()
+        order=open("buildorder","w")
+        
+        for pkg in self.resolved[:-1]: # dont look at the 'root' node
+            mod = self.desired[pkg.name]
+            name, perlname = mod.getName()
+            order.write("%s\n" % name)
+            txt = YAMLTEMPLATE % (perlname, name, mod.getVersion(), mod.getDownload(), perlname, mod.getDescription())
+            txt += self.writeAddFiles(pkg.name)
+            txt += self.writePrereqs(mod)
+            #FIXME name
+            f = open('temp-%s.yaml' % name, "w")
+            f.write(txt)
+            f.close()
+
+        order.close()
+
+    def writePrereqs(self, mod):
+        ''' write prerequisites modues if any '''
+        txt = ""
+        for i in mod.getPrereqs().keys():
+            txt += "    - perl_{{ versions.perl }}-%s\n" % i.replace("::","-")
+        if txt:
+           txt = "  requires:\n" + txt
+
+        return txt
+
+    def writeAddFiles(self, name):
+        ''' if there are specifc filters for the module 
+            overwrite defaults '''
+        txt = ""
+        p = filter(lambda x: name in x, self.filterProvides)
+        r = filter(lambda x: name in x, self.filterRequires)
+
+        if p or r:
+            txt = "  addfile:\n     - listRpmFiles.py\n" + txt
+            if not p: 
+                p = self.self.defaultProvides
+            if not r:
+                r = self.defaultRequires
+            txt += "    - %s\n" % p
+            txt += "    - %s\n" % r
+
+        return txt 
+        
+
+    def checkFilters(self):
+        # check provides filters available
+        fp = glob.glob('filter-provides*.sh.in')
+        fp = list(map(lambda x: x.replace('.in',''),fp))
+        self.filterProvides = filter(lambda x: 'perl' not in x, fp)
+        self.defaultProvides = 'filter-provides-perlmodules.sh'
+
+        # check requires filters available
+        fr = glob.glob('filter-requires*.sh.in')
+        fr = list(map(lambda x: x.replace('.in',''),fr))
+        self.filterRequires = filter(lambda x: 'perl' not in x, fr)
+        self.defaultRequires = 'filter-requires-perlmodules.sh'
+
 
     def run(self):
         self.getCpanList()
