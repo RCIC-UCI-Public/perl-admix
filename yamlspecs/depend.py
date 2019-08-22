@@ -15,9 +15,10 @@ YAMLTEMPLATE="""!include common.yaml
   version: "%s"
   vendor_source: %s
   description: >
-     %s perl module. %s
+    %s perl module. %s
 """
 
+# borrow this class from R-admix, update as needed
 class Node(object):
     def __init__(self, name):
         self.name = name     # perl name with "::
@@ -32,7 +33,8 @@ class Node(object):
         resolved.append(self)
 
 
-class ModInfo:
+# This is an object for the perl module info collected from cpan
+class ModInfo(object):
     def __init__(self, name):
         self.perlname = name   # perl notation, i.e. Try::Tiny
         self.version = None
@@ -44,10 +46,10 @@ class ModInfo:
 
     def printInfo(self):
         print ("NAME", self.perlname, "parent=%d: %s" % (self.rename,self.mainModule), "Version", self.version)
-        #print ("    PREREQS", self.prereqs)
-        #print ("download", self.download)
-        #print ("provides", self.provides)
-        #print ("prereqs", self.prereqs)
+        print ("    PREREQS", self.prereqs)
+        print ("download", self.download)
+        print ("provides", self.provides)
+        print ("prereqs", self.prereqs)
 
     def getName(self):
         return (self.name, self.perlname)
@@ -99,7 +101,14 @@ class ModInfo:
         self.name        = data["metadata"]['name'] # notation where "::" is changed to "-"
         self.provides    = data['provides']
         self.download    = data['download_url']
-        self.description = data['abstract']
+        description = data['abstract']
+        # rm unicode characters
+        try:
+            # python 3
+            self.description = description.encode('ascii', 'ignore') 
+        except:
+            # python 2
+            self.description = description.decode('unicode_escape').encode('ascii','ignore')
 
         # some perl packages don't provide prereqs
         try:
@@ -149,7 +158,7 @@ class ModInfo:
 
         self.prereqs = result
 
-class BuildDepend:
+class BuildDepend(object):
     def __init__(self, args=None):
         self.args = args
         self.cmd = ['cpan', '-l']
@@ -218,9 +227,10 @@ class BuildDepend:
     def getPrereqs(self, modnames):
         ''' for desired module names find their prerequisite modules '''
         for name in modnames:
+            print ("Working on", name)
             mod = ModInfo(name)
             mod.updatePrereqs(self.syspkgs)    
-            mod.printInfo()    
+            #mod.printInfo()    
             self.desired[name] = mod
             self.addPrereqs(mod)
 
@@ -286,8 +296,8 @@ class BuildDepend:
         self.mapPrereqs()
 
     def printInfo(self):
-        for k,v in self.namemap.items():
-            print ("MAP", k, v)
+        #for k,v in self.namemap.items():
+        #    print ("MAP", k, v)
 
         print ("modnames", len (self.modnames), "prereqs=", len(self.depends), "desired=", len(self.desired)) 
         for k,v in self.desired.items():
@@ -328,7 +338,8 @@ class BuildDepend:
             txt += self.writeAddFiles(pkg.name)
             txt += self.writePrereqs(mod)
             #FIXME name
-            f = open('temp-%s.yaml' % name, "w")
+            print ("Writing auto-%s.yaml" % name)
+            f = open('auto-%s.yaml' % name, "w")
             f.write(txt)
             f.close()
 
@@ -340,7 +351,7 @@ class BuildDepend:
         for i in mod.getPrereqs().keys():
             txt += "    - perl_{{ versions.perl }}-%s\n" % i.replace("::","-")
         if txt:
-           txt = "  requires:\n" + txt
+           txt = "  requires:\n    - perl_{{ versions.perl }}\n" + txt
 
         return txt
 
