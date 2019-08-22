@@ -347,11 +347,10 @@ class BuildDepend(object):
 
     def writePrereqs(self, mod):
         ''' write prerequisites modues if any '''
-        txt = ""
+        # add perl as a requirement to all yaml files
+        txt = "  requires:\n    - perl_{{ versions.perl }}\n" 
         for i in mod.getPrereqs().keys():
             txt += "    - perl_{{ versions.perl }}-%s\n" % i.replace("::","-")
-        if txt:
-           txt = "  requires:\n    - perl_{{ versions.perl }}\n" + txt
 
         return txt
 
