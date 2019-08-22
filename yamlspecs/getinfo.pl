@@ -18,11 +18,11 @@ my $dist;
 # TODO: error checking for wrong names
 my $module = eval { $mcpan->module( $name ) };
 if ($@) { # given distribution name
-    say STDERR "processing distro $name";
+    #say STDERR "processing distro $name";
     $dist = $mcpan->release( $name );
 }
 else {  # module name
-    say STDERR "processing module $name ";
+    #say STDERR "processing module $name ";
     $dist = $mcpan->release( $module->distribution );
 }
 
