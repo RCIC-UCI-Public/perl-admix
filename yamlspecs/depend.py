@@ -18,6 +18,23 @@ YAMLTEMPLATE="""!include common.yaml
     %s perl module. %s
 """
 
+RPMEXTRATEMPLATE="""  rpm:
+    extras: |
+      %define _python_bytecompile_errors_terminate_build 0\\n\\
+      %define __spec_install_post \\
+      %{?__debug_package:%{__debug_install_post}}\\
+      module load {{ build.modules }};\\
+      %{__arch_install_post}\\
+      %{__os_install_post}\\
+      module unload {{ build.modules }}\\
+      %{nil}\\n\\
+      %define _use_internal_dependency_generator 0\\n\\
+      %define __find_requires %{_builddir}/%{name}-%{version}/REQUIRES\\n\\
+      %define __find_provides %{_builddir}/%{name}-%{version}/PROVIDES\\n\\
+      %global __provides_exclude_from %{perl_vendorarch}/auto/.*\\\\.so$|%{perl_archlib}/.*\\\\.so$|%{_docdir}\\n\\
+      %global __requires_exclude_from %{_docdir}
+"""
+
 # borrow this class from R-admix, update as needed
 class Node(object):
     def __init__(self, name):
@@ -55,7 +72,7 @@ class ModInfo(object):
         return (self.name, self.perlname)
 
     def getPrereqs(self):
-        return self.prereqs
+        return (self.prereqs)
 
     def getRename(self):
         return (self.rename)
@@ -167,6 +184,7 @@ class BuildDepend(object):
         self.desired = {}   # dictionary of desired modules, keys: mod names, values: ModInfo objects 
         self.depends = {}
         self.nodes = []     # graph nodes
+        self.sysperl = 'sysperl'  # default file that contains info about modules installed with perl RPM
 
         self.parseArgs()
 
@@ -183,8 +201,9 @@ class BuildDepend(object):
         helpstr = "NAME\n        %s - create perl modules dependency list \n" % self.prog \
                 + "\nSYNOPSIS\n        %s FILE\n" % self.prog \
                 + "\nDESCRIPTION\n" \
-                + "        Collect information about perl system installed modules on the host using 'cpan -l'. \n" \
-                + "        FILE - list of perl modules to install one per line  \n" \
+                + "        Check information about perl system installed modules on the host using default 'sysperl' file. \n" \
+                + "        assume 'sysperl file is in the current directory where this program is run. \n" \
+                + "        FILE - list of perl modules names (perl notation using ::) to install one per line  \n" \
                 + "        For each module name in FILE, get cpan info about the module and build a \n\n" \
                 + "        module dependency ordered list.  \n\n" \
                 + "        -h, --h, --help, help\n              Print usage info.\n\n"
@@ -193,32 +212,45 @@ class BuildDepend(object):
         sys.exit(0)
 
     def getCpanList(self):
-        '''Parse the output of the 'cpan -l' command and create a dictionary of system installed modules '''
-        p = subprocess.Popen( self.cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        (output, error) = p.communicate()
+        '''Parse the info about perl installed modules and create a dictionary of installed modules '''
+        #p = subprocess.Popen( self.cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        #(output, error) = p.communicate()
 
         # split string into lines and remove first header line
-        self.lines = output.decode('utf-8').splitlines()[1:]
+        #self.lines = output.decode('utf-8').splitlines()[1:]
+        lines = self.readFile(self.sysperl)
 
-        for l in self.lines:
+        for l in lines:
             items = l.split()
-            if len(items) == 2:
+            if len(items) == 2: # module name and version
                 if items[1] == "undef":
                      version = "-1"
                 else:
                      version = items[1]
                 self.syspkgs[items[0]] = version
             else:
-                print ("ERROR", l) # line should have name and version
+                continue  # skip cpan logging or other lines
+
+    def readFile(self, fname):
+        ''' read file and return read lines'''
+        if not os.path.isfile(fname):
+            print ("File %s not found" % fname)
+            self.exitHelp()
+        f = open(fname)
+        txt = f.read()
+        f.close()
+        lines = txt.decode('utf-8').splitlines()
+        return (lines)
 
     def getDesiredList(self):
         ''' get a list of desired modules from the file '''
-        if not os.path.isfile(self.fname):
-            self.exitHelp()
-        f = open(self.fname)
-        txt = f.read()
-        f.close()
-        lines = txt.splitlines()
+        #if not os.path.isfile(self.fname):
+        #    self.exitHelp()
+        #f = open(self.fname)
+        #txt = f.read()
+        #f.close()
+        #lines = txt.splitlines()
+        lines = self.readFile(self.fname)
         for l in lines:
             if l[0] == "#": continue  # skip comment ines
             name = ''.join(l.split()) # rm white spaces
@@ -352,26 +384,39 @@ class BuildDepend(object):
         for i in mod.getPrereqs().keys():
             txt += "    - perl_{{ versions.perl }}-%s\n" % i.replace("::","-")
 
-        return txt
+        return (txt)
 
-    def writeAddFiles(self, name):
+    def writeAddFiles(self, fullname):
         ''' if there are specifc filters for the module 
             overwrite defaults '''
+        name = fullname.replace("::","-")
         txt = ""
+        rpmtxt = ""
         p = filter(lambda x: name in x, self.filterProvides)
         r = filter(lambda x: name in x, self.filterRequires)
+        #print ("DEBUG", name, p, r)
 
         if p or r:
-            txt = "  addfile:\n     - listRpmFiles.py\n" + txt
-            if not p: 
+            txt = "  addfile:\n    - listRpmFiles.py\n" + txt
+            if p: 
+                p = p[0]
+            else:
                 p = self.self.defaultProvides
-            if not r:
+            if r:
+                r = [0]
+            else:
                 r = self.defaultRequires
             txt += "    - %s\n" % p
             txt += "    - %s\n" % r
+            # rewrite extra rpm with updated filters
+            rpmtxt += self.writeExtraRPM(p,r)
 
-        return txt 
+        txt += rpmtxt
+        return (txt)
         
+    def writeExtraRPM(self, p, r):
+        txt = RPMEXTRATEMPLATE.replace("PROVIDES", p).replace("REQUIRES", r)
+        return (txt)
 
     def checkFilters(self):
         # check provides filters available
@@ -385,7 +430,6 @@ class BuildDepend(object):
         fr = list(map(lambda x: x.replace('.in',''),fr))
         self.filterRequires = filter(lambda x: 'perl' not in x, fr)
         self.defaultRequires = 'filter-requires-perlmodules.sh'
-
 
     def run(self):
         self.getCpanList()
