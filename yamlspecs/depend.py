@@ -43,10 +43,12 @@ class Node(object):
     def addEdge(self, node):
         self.edges.append(node)
 
-    def resolve(self,resolved):
+    def resolve(self,resolved, level):
+        print ("EDGE", level, self.name, len(self.edges))
         for edge in self.edges:
             if edge not in resolved:
-                edge.resolve(resolved)
+                level += 1
+                edge.resolve(resolved, level)
         resolved.append(self)
 
 
@@ -141,12 +143,20 @@ class ModInfo(object):
             cPrereqs = {}
         try:
             # from runtime phase
-            rPrereqs = prereqs['runtime']['requires']
-        except:
+            phase1 = {}
+            phase2 = {}
+            if 'requires' in prereqs['runtime']:
+                phase1 = prereqs['runtime']['requires']
+            if 'suggests' in prereqs['runtime']:
+                phase2 = prereqs['runtime']['suggests']
+            rPrereqs = phase1.copy()
+            rPrereqs.update(phase2)
+	except:
             rPrereqs = {}
 
         self.prereqs = cPrereqs.copy()
         self.prereqs.update(rPrereqs)
+        #print ("DEBUG HERE", self.name, self.prereqs.keys())
 
     def updatePrereqs(self, syspkgs):
         ''' check against the list of system modules and update prerequisites '''
@@ -328,12 +338,13 @@ class BuildDepend(object):
         self.mapPrereqs()
 
     def printInfo(self):
-        #for k,v in self.namemap.items():
-        #    print ("MAP", k, v)
+        for k,v in self.namemap.items():
+            print ("MAP", k, v)
 
-        print ("modnames", len (self.modnames), "prereqs=", len(self.depends), "desired=", len(self.desired)) 
-        for k,v in self.desired.items():
-            print (k, v.getVersion())
+        #print ("modnames", len (self.modnames), "prereqs=", len(self.depends), "desired=", len(self.desired)) 
+        #for k,v in self.desired.items():
+        #    print (k, v.getVersion())
+        pass
 
     def createNodes(self):
         for k in self.desired.keys():
@@ -341,10 +352,13 @@ class BuildDepend(object):
 
         # make a  master Node to and add all edges to it to make sure that the dependency graph is connected
         master = Node('root')
+        resolved = [] 
         for node in self.nodes:
             master.addEdge(node)
             deps = self.desired[node.name].getPrereqs()
-            #DEBUG print ("for NODE", node.name, deps)
+            if not deps:
+                resolved.append(node)
+            print ("DEBUG NODE prereqs ", node.name, deps)
             try:
                 edges = filter(lambda x: x.name in deps, self.nodes)
                 for edge in edges:
@@ -354,8 +368,9 @@ class BuildDepend(object):
                 pass
 
         # resolve the order
-        resolved = [] 
-        master.resolve(resolved)
+        #resolved = [] 
+        print ("RESOLVED start length", len(resolved))
+        master.resolve(resolved, 0)
         self.resolved = resolved
 
     def writeYaml(self):
@@ -365,20 +380,21 @@ class BuildDepend(object):
         for pkg in self.resolved[:-1]: # dont look at the 'root' node
             mod = self.desired[pkg.name]
             name, perlname = mod.getName()
-            order.write("%s\n" % name)
             txt = YAMLTEMPLATE % (perlname, name, mod.getVersion(), mod.getDownload(), perlname, mod.getDescription())
             txt += self.writeAddFiles(pkg.name)
-            txt += self.writePrereqs(mod)
+            #txt += self.writePrereqs(mod)
             #FIXME name
-            print ("Writing auto-%s.yaml" % name)
-            f = open('auto-%s.yaml' % name, "w")
+            prefname = "auto-" + name
+            order.write("%s\n" % prefname)
+            print ("Writing %s.yaml" % prefname)
+            f = open('%s.yaml' % prefname, "w")
             f.write(txt)
             f.close()
 
         order.close()
 
     def writePrereqs(self, mod):
-        ''' write prerequisites modues if any '''
+        ''' write prerequisites modules if any '''
         # add perl as a requirement to all yaml files
         txt = "  requires:\n    - perl_{{ versions.perl }}\n" 
         for i in mod.getPrereqs().keys():
@@ -394,16 +410,15 @@ class BuildDepend(object):
         rpmtxt = ""
         p = filter(lambda x: name in x, self.filterProvides)
         r = filter(lambda x: name in x, self.filterRequires)
-        #print ("DEBUG", name, p, r)
 
         if p or r:
             txt = "  addfile:\n    - listRpmFiles.py\n" + txt
             if p: 
                 p = p[0]
             else:
-                p = self.self.defaultProvides
+                p = self.defaultProvides
             if r:
-                r = [0]
+                r = r[0]
             else:
                 r = self.defaultRequires
             txt += "    - %s\n" % p
@@ -435,6 +450,7 @@ class BuildDepend(object):
         self.getCpanList()
         self.getDesiredList()
         self.allPrereqs()
+        print ("MAPPING", self.namemap)
 
         self.createNodes()
         self.writeYaml()
