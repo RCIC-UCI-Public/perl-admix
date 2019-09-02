@@ -1,0 +1,9 @@
+#### for GD/BioPerl
+gd-devel
+fontconfig
+freetype
+libjpeg-turbo-devel
+libpng-devel
+libX11-devel
+libXpm-devel
+libz-devel
