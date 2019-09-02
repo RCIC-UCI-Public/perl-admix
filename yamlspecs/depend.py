@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 
-#from collections import defaultdict
 import sys
 import os
 import subprocess
 import yaml
 import glob
-#from re import match
 
 YAMLTEMPLATE="""!include common.yaml
 ---
@@ -117,7 +115,8 @@ class ModInfo(object):
             pass
         
         self.version     = data['version']
-        self.name        = data["metadata"]['name'] # notation where "::" is changed to "-"
+        #self.name        = data["metadata"]['name'] # notation where "::" is changed to "-"
+        self.name        = data['distribution'] # notation where "::" is changed to "-"
         self.provides    = data['provides']
         self.download    = data['download_url']
         description = data['abstract']
@@ -143,14 +142,15 @@ class ModInfo(object):
             cPrereqs = {}
         try:
             # from runtime phase
-            phase1 = {}
-            phase2 = {}
-            if 'requires' in prereqs['runtime']:
-                phase1 = prereqs['runtime']['requires']
-            if 'suggests' in prereqs['runtime']:
-                phase2 = prereqs['runtime']['suggests']
-            rPrereqs = phase1.copy()
-            rPrereqs.update(phase2)
+            #phase1 = {}
+            #phase2 = {}
+            #if 'requires' in prereqs['runtime']:
+            #    phase1 = prereqs['runtime']['requires']
+            #if 'suggests' in prereqs['runtime']:
+            #    phase2 = prereqs['runtime']['suggests']
+            #rPrereqs = phase1.copy()
+            #rPrereqs.update(phase2)
+            rPrereqs = prereqs['runtime']['requires']
 	except:
             rPrereqs = {}
 
