@@ -2,19 +2,7 @@
 ---
 - package: Net::SSLeay Perl module 
   name: Net-SSLeay
-  version: "{{ versions.net_ssleay }}"
-  vendor_source: http://www.cpan.org/authors/id/C/CH/CHRISN/{{ download_file }}
+  version: "1.88"
+  vendor_source: https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.88.tar.gz
   description: >
-     Net::SSLeay perl module
-
-  build:
-    configure: perl
-    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
-    modules: 
-      - "{{ compiler }}/{{ compiler_version }}"
-      - "perl/{{ versions.perl }}"
-    target: 
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Net::SSLeay perl module. Perl extension for using OpenSSL

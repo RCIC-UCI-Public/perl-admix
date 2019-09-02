@@ -2,24 +2,7 @@
 ---
 - package: Params::Validate Perl module 
   name: Params-Validate
-  version: "{{ versions.params_validate }}"
-  vendor_source: http://www.cpan.org/authors/id/D/DR/DROLSKY/{{ download_file }}
+  version: "1.29"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-Validate-1.29.tar.gz
   description: >
-     Params::Validate perl module
-
-  build:
-    configure: perl
-    configure_args: Build.PL --prefix=$(PKGROOT) 
-    modules: 
-      - "perl/{{ versions.perl }}"
-    target: 
-
-  install:
-    makeinstall: perl Build; perl Build --destdir=$(ROOT) pure_install; find $(ROOT) -type f -name .packlist -delete; find $(ROOT) -depth -type d -empty -delete
-
-  files:
-#    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/x86_64-linux-thread-multi/*/*"
-    - "{{ root }}/man/man3/*" 
-
-
+    Params::Validate perl module. Validate method/function parameters

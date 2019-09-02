@@ -2,11 +2,7 @@
 ---
 - package: Module::Implementation Perl module 
   name: Module-Implementation
-  version: "{{ versions.module_implementation }}"
-  vendor_source: http://www.cpan.org/authors/id/D/DR/DROLSKY/{{ download_file }}
+  version: "0.09"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Module-Implementation-0.09.tar.gz
   description: >
-    Module::Implementation - runtime module handling
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Module::Implementation perl module. Loads one of several alternate underlying implementations for a module

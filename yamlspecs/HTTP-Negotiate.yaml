@@ -2,11 +2,7 @@
 ---
 - package: HTTP::Negotiate Perl module 
   name: HTTP-Negotiate
-  version: "{{ versions.http_negotiate }}"
-  vendor_source: http://www.cpan.org/authors/id/G/GA/GAAS/{{ download_file }} 
+  version: "6.01"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Negotiate-6.01.tar.gz
   description: >
-     HTTP::Negotiate perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    HTTP::Negotiate perl module. choose a variant to serve

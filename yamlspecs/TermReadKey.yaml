@@ -2,19 +2,7 @@
 ---
 - package: Term::ReadKey Perl module 
   name: TermReadKey
-  version: "{{ versions.termreadkey }}"
-  vendor_source: http://www.cpan.org/authors/id/J/JS/JSTOWE/{{ download_file }}
+  version: "2.38"
+  vendor_source: https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz
   description: >
-     Term::ReadKey perl module
-
-  build:
-    configure: perl
-    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
-    modules: 
-      - "{{ compiler }}/{{ compiler_version }}"
-      - "perl/{{ versions.perl }}"
-    target: 
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Term::ReadKey perl module. Change terminal modes, and perform non-blocking reads.

@@ -2,19 +2,7 @@
 ---
 - package: Variable::Magic Perl module 
   name: Variable-Magic
-  version: "{{ versions.variable_magic }}"
-  vendor_source: http://www.cpan.org/authors/id/V/VP/VPIT/{{ download_file }}
+  version: "0.62"
+  vendor_source: https://cpan.metacpan.org/authors/id/V/VP/VPIT/Variable-Magic-0.62.tar.gz
   description: >
-     Variable::Magic perl module
-
-  build:
-    configure: perl
-    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
-    modules: 
-      - "{{ compiler }}/{{ compiler_version }}"
-      - "perl/{{ versions.perl }}"
-    target: 
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Variable::Magic perl module. Associate user-defined magic to variables from Perl.

@@ -2,11 +2,7 @@
 ---
 - package: WWW::RobotRules Perl module 
   name: WWW-RobotRules
-  version: "{{ versions.www_robotrules }}"
-  vendor_source: http://www.cpan.org/authors/id/G/GA/GAAS/{{ download_file }} 
+  version: "6.02"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/WWW-RobotRules-6.02.tar.gz
   description: >
-     WWW::RobotRules perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    WWW::RobotRules perl module. database of robots.txt-derived permissions

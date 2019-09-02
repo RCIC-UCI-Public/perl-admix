@@ -1,12 +1,8 @@
 !include common.yaml
 ---
-- package: Mixin::Linewise Perl module 
+- package: Mixin::Linewise::Readers Perl module 
   name: Mixin-Linewise
-  version: "{{ versions.mixin_linewise }}"
-  vendor_source: http://www.cpan.org/authors/id/R/RJ/RJBS/{{ download_file }}
+  version: "0.108"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Mixin-Linewise-0.108.tar.gz
   description: >
-     Mixin::Linewise perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Mixin::Linewise::Readers perl module. write your linewise code for handles; this does the rest

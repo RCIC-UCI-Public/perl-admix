@@ -2,11 +2,7 @@
 ---
 - package: Carp::Assert Perl module 
   name: Carp-Assert
-  version: "{{ versions.carp_assert }}"
-  vendor_source: http://www.cpan.org/authors/id/N/NE/NEILB/{{ download_file }}
+  version: "0.21"
+  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/Carp-Assert-0.21.tar.gz
   description: >
-     Carp::Assert perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Carp::Assert perl module. executable comments

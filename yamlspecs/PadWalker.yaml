@@ -2,13 +2,7 @@
 ---
 - package: PadWalker Perl module 
   name: PadWalker
-  version: "{{ versions.padwalker }}"
-  vendor_source: http://www.cpan.org/authors/id/R/RO/ROBIN/{{ download_file }}
-
+  version: "2.3"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RO/ROBIN/PadWalker-2.3.tar.gz
   description: >
-    PadWalker module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/x86_64-linux-thread-multi/*.*"
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/x86_64-linux-thread-multi/*/*"
-    - "{{ root }}/man/man3/*" 
+    PadWalker perl module. play with other peoples' lexical variables

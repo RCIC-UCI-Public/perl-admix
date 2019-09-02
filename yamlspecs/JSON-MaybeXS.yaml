@@ -1,12 +1,8 @@
 !include common.yaml
 ---
-- package: JSON::MaybeXS Perl module
+- package: JSON::MaybeXS Perl module 
   name: JSON-MaybeXS
-  version: "{{ versions.json_maybexs }}"
-  vendor_source: http://www.cpan.org/authors/id/H/HA/HAARG/{{ download_file }}
+  version: "1.004000"
+  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/JSON-MaybeXS-1.004000.tar.gz
   description: >
-    JSON::MaybeXS - Use Cpanel::JSON::XS with a fallback to JSON::XS and JSON::PP
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*" 
-    - "{{ root }}/man/man3/*" 
+    JSON::MaybeXS perl module. Use Cpanel::JSON::XS with a fallback to JSON::XS and JSON::PP

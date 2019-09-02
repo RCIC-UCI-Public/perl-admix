@@ -2,11 +2,7 @@
 ---
 - package: File::HomeDir Perl module 
   name: File-HomeDir
-  version: "{{ versions.file_homedir }}"
-  vendor_source: http://www.cpan.org/authors/id/R/RE/REHSACK/{{ download_file }}
+  version: "1.004"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-HomeDir-1.004.tar.gz
   description: >
-     File::HomeDir perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    File::HomeDir perl module. Find your home and other directories on any platform

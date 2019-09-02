@@ -2,13 +2,7 @@
 ---
 - package: Module::Build Perl module 
   name: Module-Build
-  version: "{{ versions.module_build }}"
-  vendor_source: http://www.cpan.org/authors/id/L/LE/LEONT/{{ download_file }} 
+  version: "0.4229"
+  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4229.tar.gz
   description: >
-     Module::Build perl module
-
-  files:
-    - "{{ root }}/bin/*" 
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man1/*" 
-    - "{{ root }}/man/man3/*" 
+    Module::Build perl module. Build and install Perl modules

@@ -2,11 +2,7 @@
 ---
 - package: HTTP::Cookies Perl module 
   name: HTTP-Cookies
-  version: "{{ versions.http_cookies }}"
-  vendor_source: http://www.cpan.org/authors/id/O/OA/OALDERS/{{ download_file }}
+  version: "6.04"
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.04.tar.gz
   description: >
-     HTTP::Cookies perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    HTTP::Cookies perl module. HTTP cookie jars

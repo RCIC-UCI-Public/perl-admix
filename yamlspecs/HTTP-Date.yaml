@@ -2,11 +2,7 @@
 ---
 - package: HTTP::Date Perl module 
   name: HTTP-Date
-  version: "{{ versions.http_date }}"
-  vendor_source: http://www.cpan.org/authors/id/G/GA/GAAS/{{ download_file }} 
+  version: "6.02"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz
   description: >
-     HTTP::Date perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    HTTP::Date perl module. date conversion routines

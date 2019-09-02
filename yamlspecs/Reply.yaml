@@ -2,15 +2,7 @@
 ---
 - package: Reply Perl module 
   name: Reply
-  version: "{{ versions.reply }}"
-  vendor_source: http://www.cpan.org/authors/id/D/DO/DOY/{{ download_file }}
-
+  version: "0.42"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DO/DOY/Reply-0.42.tar.gz
   description: >
-    Reply::Plugin - base class for Reply plugins
-
-  files:
-    - "{{ root }}/bin/*" 
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*.*"
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man1/*" 
-    - "{{ root }}/man/man3/*" 
+    Reply perl module. read, eval, print, loop, yay!

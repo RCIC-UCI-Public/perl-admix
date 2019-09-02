@@ -1,13 +1,8 @@
 !include common.yaml
 ---
-- package: URI Perl module 
+- package: URI::Escape Perl module 
   name: URI
-  version: "{{ versions.uri }}"
-  vendor_source: http://www.cpan.org/authors/id/O/OA/OALDERS/{{ download_file }}
-  description: |
-    URI::Escape provides functions to percent-encode and percent-decode URI strings as 
-    defined by RFC 3986. Percent-encoding URI's is informally called 'URI escaping'. 
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*"
-    - "{{ root }}/man/man3/*" 
+  version: "1.76"
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz
+  description: >
+    URI::Escape perl module. Uniform Resource Identifiers (absolute and relative)

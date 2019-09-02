@@ -2,11 +2,7 @@
 ---
 - package: Module::Runtime Perl module 
   name: Module-Runtime
-  version: "{{ versions.module_runtime }}"
-  vendor_source: http://www.cpan.org/authors/id/Z/ZE/ZEFRAM/{{ download_file }}
+  version: "0.016"
+  vendor_source: https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz
   description: >
-    Module::Runtime - runtime module handling
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Module::Runtime perl module. runtime module handling

@@ -2,11 +2,7 @@
 ---
 - package: Clone::PP Perl module 
   name: Clone-PP
-  version: "{{ versions.clone_pp }}"
-  vendor_source: http://www.cpan.org/authors/id/N/NE/NEILB/{{ download_file }}
+  version: "1.07"
+  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/Clone-PP-1.07.tar.gz
   description: >
-     Clone::PP perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Clone::PP perl module. Recursively copy Perl datatypes

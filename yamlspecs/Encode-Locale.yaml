@@ -2,11 +2,7 @@
 ---
 - package: Encode::Locale Perl module 
   name: Encode-Locale
-  version: "{{ versions.encode_locale }}"
-  vendor_source: http://www.cpan.org/authors/id/G/GA/GAAS/{{ download_file }}
+  version: "1.05"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/Encode-Locale-1.05.tar.gz
   description: >
-     Encode::Locale perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Encode::Locale perl module. Determine the locale encoding

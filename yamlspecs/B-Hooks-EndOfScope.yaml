@@ -2,11 +2,7 @@
 ---
 - package: B::Hooks::EndOfScope Perl module 
   name: B-Hooks-EndOfScope
-  version: "{{ versions.b_hooks_endofscope }}"
-  vendor_source: http://www.cpan.org/authors/id/E/ET/ETHER/{{ download_file }}
+  version: "0.24"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
   description: >
-     B::Hooks::EndOfScope perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    B::Hooks::EndOfScope perl module. Execute code after a scope finished compilation

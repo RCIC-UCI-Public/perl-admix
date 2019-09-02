@@ -2,11 +2,7 @@
 ---
 - package: Class::Load Perl module 
   name: Class-Load
-  version: "{{ versions.class_load }}"
-  vendor_source: http://www.cpan.org/authors/id/E/ET/ETHER/{{ download_file }}
+  version: "0.25"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/Class-Load-0.25.tar.gz
   description: >
-     Class::Load perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Class::Load perl module. A working (require "Class::Name") and more

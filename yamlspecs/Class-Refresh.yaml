@@ -2,11 +2,7 @@
 ---
 - package: Class::Refresh Perl module 
   name: Class-Refresh
-  version: "{{ versions.class_refresh }}"
-  vendor_source: http://www.cpan.org/authors/id/D/DO/DOY/{{ download_file }}
+  version: "0.07"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DO/DOY/Class-Refresh-0.07.tar.gz
   description: >
-     Class::Refresh  module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Class::Refresh perl module. refresh your classes during runtime

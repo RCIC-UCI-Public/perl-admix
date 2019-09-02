@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: ExtUtils::Config Perl module 
+  name: ExtUtils-Config
+  version: "0.008"
+  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Config-0.008.tar.gz
+  description: >
+    ExtUtils::Config perl module. A wrapper for perl's configuration

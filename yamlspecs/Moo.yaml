@@ -1,24 +1,8 @@
 !include common.yaml
 ---
-- package: Moo Perl module 
-  common_name: Moo
+- package: Moo::Role Perl module 
   name: Moo
-  version: "{{ versions.moo }}"
-  compiler: gcc
-  compiler_version: "{{ versions.gcc }}"
-  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/{{ download_file }}
+  version: "2.003004"
+  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.003004.tar.gz
   description: >
-    Moo - Minimalist Object Orientation (with Moose compatibility)
-
-  build:
-    configure: perl
-    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
-    modules: 
-      - "{{ compiler }}/{{ compiler_version }}"
-      - "perl/{{ versions.perl }}"
-    target: 
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*.pm"
-    - "{{ root }}/man/man3/*" 
+    Moo::Role perl module. Minimalist Object Orientation (with Moose compatibility)

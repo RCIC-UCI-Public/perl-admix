@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Class::Method::Modifiers Perl module 
+  name: Class-Method-Modifiers
+  version: "2.13"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/Class-Method-Modifiers-2.13.tar.gz
+  description: >
+    Class::Method::Modifiers perl module. Provides Moose-like method modifiers

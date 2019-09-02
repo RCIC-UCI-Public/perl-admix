@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Mozilla::CA Perl module 
+  name: Mozilla-CA
+  version: "20180117"
+  vendor_source: https://cpan.metacpan.org/authors/id/A/AB/ABH/Mozilla-CA-20180117.tar.gz
+  description: >
+    Mozilla::CA perl module. Mozilla's CA cert bundle in PEM format

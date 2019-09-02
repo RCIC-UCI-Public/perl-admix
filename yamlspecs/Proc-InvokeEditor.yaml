@@ -1,13 +1,8 @@
 !include common.yaml
 ---
 - package: Proc::InvokeEditor Perl module 
-  name: Proc-InvokeEditor 
-  version: "{{ versions.proc_invokeeditor }}"
-  vendor_source: http://www.cpan.org/authors/id/M/MS/MSTEVENS/{{ download_file }}
+  name: Proc-InvokeEditor
+  version: "1.13"
+  vendor_source: https://cpan.metacpan.org/authors/id/M/MS/MSTEVENS/Proc-InvokeEditor-1.13.tar.gz
   description: >
-    Proc::InvokeEditor
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
-
+    Proc::InvokeEditor perl module. Interface to external editor from perl

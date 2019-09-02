@@ -2,19 +2,7 @@
 ---
 - package: Params::Util Perl module 
   name: Params-Util
-  version: "{{ versions.params_util }}"
-  vendor_source: http://www.cpan.org/authors/id/A/AD/ADAMK/{{ download_file }}
+  version: "1.07"
+  vendor_source: https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Params-Util-1.07.tar.gz
   description: >
-     Params::Util perl module
-
-  build:
-    configure: perl
-    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
-    modules: 
-      - "{{ compiler }}/{{ compiler_version }}"
-      - "perl/{{ versions.perl }}"
-    target: 
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Params::Util perl module. Simple, compact and correct param-checking functions

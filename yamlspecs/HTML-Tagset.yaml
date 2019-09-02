@@ -2,11 +2,7 @@
 ---
 - package: HTML::Tagset Perl module 
   name: HTML-Tagset
-  version: "{{ versions.html_tagset }}"
-  vendor_source: http://www.cpan.org/authors/id/P/PE/PETDANCE/{{ download_file }}
+  version: "3.20"
+  vendor_source: https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
   description: >
-     HTML::Tagset perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    HTML::Tagset perl module. data tables useful in parsing HTML

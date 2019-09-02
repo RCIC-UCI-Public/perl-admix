@@ -1,13 +1,8 @@
 !include common.yaml
 ---
-- package: Sub::Quote Perl module 
+- package: Sub::Defer Perl module 
   name: Sub-Quote
-  version: "{{ versions.sub_quote }}"
-  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/{{ download_file }}
-  description: |
-    Sub::Defer - Defer generation of subroutines until they are first called
-    Sub::Quote - Efficient generation of subroutines via string eval
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+  version: "2.006003"
+  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006003.tar.gz
+  description: >
+    Sub::Defer perl module. Efficient generation of subroutines via string eval

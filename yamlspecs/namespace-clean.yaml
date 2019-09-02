@@ -1,21 +1,15 @@
-namespace_clean: "0.27"
 !include common.yaml
 ---
 - package: namespace::clean Perl module 
   name: namespace-clean
-  version: "{{ versions.namespace_clean }}"
-  vendor_source: http://www.cpan.org/authors/id/R/RI/RIBASUSHI/{{ download_file }}
+  version: "0.27"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RI/RIBASUSHI/namespace-clean-0.27.tar.gz
   description: >
-     namespace::clean perl module
-
+    namespace::clean perl module. Keep imports and functions out of your namespace
   addfile:
-    - filter-requires-perlmodules.sh
+    - listRpmFiles.py
     - filter-provides-namespace-clean.sh
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
-
+    - filter-requires-perlmodules.sh
   rpm:
     extras: |
       %define _python_bytecompile_errors_terminate_build 0\n\
@@ -31,4 +25,3 @@ namespace_clean: "0.27"
       %define __find_provides %{_builddir}/%{name}-%{version}/filter-provides-namespace-clean.sh\n\
       %global __provides_exclude_from %{perl_vendorarch}/auto/.*\\.so$|%{perl_archlib}/.*\\.so$|%{_docdir}\n\
       %global __requires_exclude_from %{_docdir}
-

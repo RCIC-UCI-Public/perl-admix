@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: ExtUtils::InstallPaths Perl module 
+  name: ExtUtils-InstallPaths
+  version: "0.012"
+  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-InstallPaths-0.012.tar.gz
+  description: >
+    ExtUtils::InstallPaths perl module. Build.PL install path logic made easy

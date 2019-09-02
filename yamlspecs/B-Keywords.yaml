@@ -2,11 +2,7 @@
 ---
 - package: B::Keywords Perl module 
   name: B-Keywords
-  version: "{{ versions.b_keywords }}"
-  vendor_source: http://www.cpan.org/authors/id/R/RU/RURBAN/{{ download_file }}
+  version: "1.20"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RU/RURBAN/B-Keywords-1.20.tar.gz
   description: >
-    B::Keywords - Lists of reserved barewords and symbol names
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    B::Keywords perl module. Lists of reserved barewords and symbol names

@@ -2,13 +2,7 @@
 ---
 - package: App::Nopaste Perl module 
   name: App-Nopaste
-  version: "{{ versions.app_nopaste }}"
-  vendor_source: http://www.cpan.org/authors/id/E/ET/ETHER/{{ download_file }}
+  version: "1.013"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/App-Nopaste-1.013.tar.gz
   description: >
-     App::Nopaste module 
-
-  files:
-    - "{{ root }}/bin/*" 
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man1/*" 
-    - "{{ root }}/man/man3/*" 
+    App::Nopaste perl module. Easy access to any pastebin

@@ -2,11 +2,7 @@
 ---
 - package: Sort::Naturally Perl module 
   name: Sort-Naturally
-  version: "{{ versions.sort_naturally }}"
-  vendor_source: http://www.cpan.org/authors/id/B/BI/BINGOS/{{ download_file }}
+  version: "1.03"
+  vendor_source: https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Sort-Naturally-1.03.tar.gz
   description: >
-     Sort::Naturally perl module
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Sort::Naturally perl module. sort lexically, but sort numeral parts numerically

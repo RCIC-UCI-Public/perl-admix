@@ -2,29 +2,14 @@
 ---
 - package: Package::Stash Perl module 
   name: Package-Stash
-  version: "{{ versions.package_stash }}"
-  vendor_source: http://www.cpan.org/authors/id/E/ET/ETHER/{{ download_file }}
+  version: "0.38"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.38.tar.gz
   description: >
-     Package::Stash perl module
-
-  addfile: 
+    Package::Stash perl module. routines for manipulating stashes
+  addfile:
+    - listRpmFiles.py
+    - filter-provides-Package-Stash.sh
     - filter-requires-perlmodules.sh
-    - filter-provides-package-stash.sh
-
-#  build:
-#    patchfile: META.patch
-#    configure: perl
-#    configure_args: Makefile.PL INSTALLL_BASE=$(PKGROOT)
-#    modules: 
-#      - "perl/{{ versions.perl }}"
-#    target: 
-
-  files:
-    - "{{ root }}/bin/*" 
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man1/*" 
-    - "{{ root }}/man/man3/*" 
-
   rpm:
     extras: |
       %define _python_bytecompile_errors_terminate_build 0\n\
@@ -37,6 +22,6 @@
       %{nil}\n\
       %define _use_internal_dependency_generator 0\n\
       %define __find_requires %{_builddir}/%{name}-%{version}/filter-requires-perlmodules.sh\n\
-      %define __find_provides %{_builddir}/%{name}-%{version}/filter-provides-package-stash.sh\n\
+      %define __find_provides %{_builddir}/%{name}-%{version}/filter-provides-Package-Stash.sh\n\
       %global __provides_exclude_from %{perl_vendorarch}/auto/.*\\.so$|%{perl_archlib}/.*\\.so$|%{_docdir}\n\
       %global __requires_exclude_from %{_docdir}

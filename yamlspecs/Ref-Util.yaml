@@ -2,12 +2,7 @@
 ---
 - package: Ref::Util Perl module 
   name: Ref-Util
-  version: "{{ versions.ref_util }}"
-  vendor_source: http://www.cpan.org/authors/id/A/AR/ARC/{{ download_file }}
-
+  version: "0.204"
+  vendor_source: https://cpan.metacpan.org/authors/id/A/AR/ARC/Ref-Util-0.204.tar.gz
   description: >
-    Ref::Util - Utility functions for checking references
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Ref::Util perl module. Utility functions for checking references

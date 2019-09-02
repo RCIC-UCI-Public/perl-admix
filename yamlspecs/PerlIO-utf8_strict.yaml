@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: PerlIO::utf8_strict Perl module 
+  name: PerlIO-utf8_strict
+  version: "0.007"
+  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/PerlIO-utf8_strict-0.007.tar.gz
+  description: >
+    PerlIO::utf8_strict perl module. Fast and correct UTF-8 IO

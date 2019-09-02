@@ -2,11 +2,7 @@
 ---
 - package: Role::Tiny Perl module 
   name: Role-Tiny
-  version: "{{ versions.role_tiny }}"
-  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/{{ download_file }}
+  version: "2.000008"
+  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000008.tar.gz
   description: >
-    Role::Tiny - Roles: a nouvelle cuisine portion size slice of Moose 
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+    Role::Tiny perl module. Roles: a nouvelle cuisine portion size slice of Moose

@@ -2,11 +2,7 @@
 ---
 - package: Data::Dump Perl module 
   name: Data-Dump
-  version: "{{ versions.data_dump }}"
-  vendor_source: http://www.cpan.org/authors/id/G/GA/GAAS/{{ download_file }}
-  description: |
-     Data::Dump module 
-
-  files:
-    - "{{ root }}/lib/site_perl/{{ versions.perl }}/*/*"
-    - "{{ root }}/man/man3/*" 
+  version: "1.23"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/Data-Dump-1.23.tar.gz
+  description: >
+    Data::Dump perl module. Pretty printing of data structures
