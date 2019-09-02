@@ -8,3 +8,4 @@ localrepo/
 yamlspecs/tmpbuild/
 yum.*
 .cpan
+filter*sh
