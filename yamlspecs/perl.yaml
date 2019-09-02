@@ -4,8 +4,6 @@
   category: programming language
   versions: !include perl_versions.yaml 
   version: "{{ versions.perl }}"
-  compiler: gcc
-  compiler_version: "{{ versions.gcc }}"
   extension: tar.gz
   vendor_source: https://www.cpan.org/src/5.0/{{ name }}-{{ version }}.{{ extension }}
   pkgname: "{{ name }}_{{ version }}"
@@ -22,7 +20,6 @@
     configure: ./Configure
     configure_args: -des -Dprefix=$(PKGROOT) -Dusethreads -Duseshrplib
     modules: 
-      - "{{ compiler }}/{{ compiler_version }}"
     target: 
 
   install:
@@ -32,8 +29,3 @@
     - "{{ root }}*" 
 
   rpm: !include rpm.extras.yaml
-
-#  rpm: !include rpm.extras.filter.yaml
-#  requires:
-#    - "{{ compiler }}/{{ compiler_version }}"
-#    configure_args: -Dprefix=$(PKGROOT) -Dusethreads -des -Dotherlibdirs={{ root }}/lib/perl5/site_perl/$(VERSION) 

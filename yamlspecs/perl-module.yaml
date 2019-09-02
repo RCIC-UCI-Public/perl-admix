@@ -10,5 +10,5 @@
       - "{{ pkg_defaults.module.prepend_path }}"
 
   requires:
-#    - "{{ name }}_{{ version }}"
+    - perl_{{ versions.perl }}
     - rcic-module-support
