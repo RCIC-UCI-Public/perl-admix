@@ -9,9 +9,13 @@ SHELL = /bin/bash
 PERLVER = $(shell $(GENERATE) --query=version perl.yaml)
 
 FILTERS = \
-filter-provides-perl.sh filter-requires-perl.sh \
-filter-provides-perlmodules.sh filter-requires-perlmodules.sh \
-filter-provides-package-stash.sh \
+filter-requires-perl.sh \
+filter-requires-perlmodules.sh \
+filter-requires-Module-Pluggable.sh \
+filter-requires-ExtUtils-Helpers.sh \
+filter-provides-perl.sh  \
+filter-provides-perlmodules.sh \
+filter-provides-Package-Stash.sh \
 filter-provides-namespace-clean.sh
 
 .PHONY: buildall
@@ -30,3 +34,11 @@ MyConfig.pm: MyConfig.pm.in
 prepclean:
 	-/bin/rm $(FILTERS) 
 	-/bin/rm MyConfig.pm
+
+AUTOYAML = $(shell cat buildorder)
+
+testbuild:
+	for name in $(shell cat buildorder); do \
+	    make download PKG=$$name; \
+	done
+

@@ -1,0 +1,11 @@
+#! /bin/bash
+#
+# rewrite perl rpm requirements 
+# rename according to the version
+
+/usr/lib/rpm/find-requires $* | sed  \
+    -e '/perl(Mac::Pasteboard)/d' \
+    -e '/perl(Win32::Clipboard)/d' \
+    -e '/perl(Win32)/d' \
+    -e '/perl(ExtUtils::PL2Bat)/d' \
+    -e 's/perl(/perl_@VERSION@(/'
