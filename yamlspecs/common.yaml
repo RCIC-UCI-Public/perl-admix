@@ -9,9 +9,6 @@
   root: "{{ pkg_defaults.app_path }}/perl/{{ versions.perl }}"
   prefix: "{{ root }}" 
 
-  compiler: gcc
-  compiler_version: "{{ versions.gcc }}"
-
   addfile: 
     - filter-requires-perlmodules.sh
     - filter-provides-perlmodules.sh
@@ -19,11 +16,13 @@
 
   build:
     configure: >
+      export PERL_MM_USE_DEFAULT=true; 
       if [ -f Makefile.PL ]; then \
         perl Makefile.PL INSTALLL_BASE=$(PKGROOT); \
       elif [ -f Build.PL ]; then \
         perl Build.PL --prefix=$(PKGROOT); \
-      fi
+      fi; \
+      unset PERL_MM_USE_DEFAULT
     configure_args:
     modules: 
       - "perl/{{ versions.perl }}"
@@ -40,5 +39,7 @@
 
   fileslist: LISTFILES
 
-  rpm: !include rpm.extras.perlmodules.yaml
+  requires:
+     - perl_{{ versions.perl }}
 
+  rpm: !include rpm.extras.perlmodules.yaml
