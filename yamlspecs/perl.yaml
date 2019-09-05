@@ -2,7 +2,7 @@
 - package: Perl Programming Language {{ version }} 
   name: perl
   category: programming language
-  versions: !include perl_versions.yaml 
+  versions: !include versions.yaml 
   version: "{{ versions.perl }}"
   extension: tar.gz
   vendor_source: https://www.cpan.org/src/5.0/{{ name }}-{{ version }}.{{ extension }}

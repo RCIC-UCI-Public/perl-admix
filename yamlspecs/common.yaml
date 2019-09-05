@@ -1,6 +1,6 @@
 ---
 - category: perl module
-  versions: !include perl_versions.yaml 
+  versions: !include versions.yaml 
   extension: tar.gz
   download_file: "{{ name }}-{{ version  }}.{{ extension }}"
   src_tarball: "{{ download_file }}"
