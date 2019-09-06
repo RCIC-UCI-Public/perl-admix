@@ -6,3 +6,25 @@
   vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
   description: >
     Module::Build::Tiny perl module. A tiny replacement for Module::Build
+---
+  build:
+    configure: >
+      export PERL_MM_USE_DEFAULT=true; 
+      perl Build.PL --prefix=$(PKGROOT); 
+      unset PERL_MM_USE_DEFAULT
+    configure_args:
+    modules: 
+      - "perl/{{ versions.perl }}"
+    target: 
+
+  install:
+    makeinstall: >
+      perl Build; perl Build install --destdir=$(ROOT); 
+      (cd ..;  python listRpmFiles.py $(ROOT))
+
+  fileslist: LISTFILES
+
+  requires:
+     - perl_{{ versions.perl }}
+
+  rpm: !include rpm.extras.perlmodules.yaml
