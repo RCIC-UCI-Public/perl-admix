@@ -6,22 +6,11 @@
   vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz
   description: >
     ExtUtils::Helpers perl module. Various portability utilities for module builders
-  addfile:
-    - listRpmFiles.py
-    - filter-provides-perlmodules.sh
-    - filter-requires-ExtUtils-Helpers.sh
-  rpm:
-    extras: |
-      %define _python_bytecompile_errors_terminate_build 0\n\
-      %define __spec_install_post \
-      %{?__debug_package:%{__debug_install_post}}\
-      module load {{ build.modules }};\
-      %{__arch_install_post}\
-      %{__os_install_post}\
-      module unload {{ build.modules }}\
-      %{nil}\n\
-      %define _use_internal_dependency_generator 0\n\
-      %define __find_requires %{_builddir}/%{name}-%{version}/filter-requires-ExtUtils-Helpers.sh\n\
-      %define __find_provides %{_builddir}/%{name}-%{version}/filter-provides-perlmodules.sh\n\
-      %global __provides_exclude_from %{perl_vendorarch}/auto/.*\\.so$|%{perl_archlib}/.*\\.so$|%{_docdir}\n\
-      %global __requires_exclude_from %{_docdir}
+
+  filter_requires:
+    - -e '/perl(Mac::Pasteboard)/d' 
+    - -e '/perl(Win32::Clipboard)/d' 
+    - -e '/perl(Win32)/d' 
+    - -e '/perl(ExtUtils::PL2Bat)/d' 
+
+  rpm: !include rpm.extras.yaml

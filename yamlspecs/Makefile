@@ -8,15 +8,9 @@ include $(YAML2RPM_HOME)/sys/Makefile
 SHELL = /bin/bash
 PERLVER = $(shell $(GENERATE) --query=version perl.yaml)
 
-FILTERS = \
-filter-requires-perl.sh \
-filter-requires-perlmodules.sh \
-filter-requires-Module-Pluggable.sh \
-filter-requires-ExtUtils-Helpers.sh \
-filter-provides-perl.sh  \
-filter-provides-perlmodules.sh \
-filter-provides-Package-Stash.sh \
-filter-provides-namespace-clean.sh
+# common and module specific filters
+FILTERSIN=$(shell ls filter*.in)
+FILTERS = $(FILTERSIN:.in=)
 
 .PHONY: buildall
 
@@ -28,17 +22,45 @@ MyConfig.pm: MyConfig.pm.in
 	sed 's%/root/%$(PWD)/%g' MyConfig.pm.in > MyConfig.pm
 
 %.sh: %.sh.in
-	echo $(PERLVER)
 	sed 's/@VERSION@/$(PERLVER)/' $^ > $@
 
 prepclean:
 	-/bin/rm $(FILTERS) 
 	-/bin/rm MyConfig.pm
 
-AUTOYAML = $(shell cat buildorder)
-
-testbuild:
-	for name in $(shell cat buildorder); do \
+cpandownload:
+	for name in $(shell cat modules.bootstrap); do \
 	    make download PKG=$$name; \
 	done
+
+AUTOYAML = $(shell cat buildorder)
+cpandownload-desired:
+	for name in $(AUTOYAML); do \
+	    make download PKG=$$name; \
+	done
+
+desired-build: 
+	echo $(AUTOYAML)
+	( for mod in $(AUTOYAML); do					\
+		make -e -f $(THISMAKE) $$mod.pkg;			\
+		make -e -C $(LOCALREPODIR) createlocalrepo; 		\
+		rpmname=$$($(GENERATE) --query=pkgname $$mod.yaml);	\
+		yum -y -c $(LOCALREPODIR)/yum.conf install $$rpmname;	\
+	  done								\
+	)
+
+DRPMS = $(subst auto,perl_$(PERLVER),$(AUTOYAML))
+desired-rm:
+	yum -y erase $(DRPMS)
+	( for mod in $(DRPMS); do			\
+	  	rm -rf ../RPMS/x86_64/$$mod-[0-9]* ;	\
+	  done						\
+	)
+
+addfilters:
+	if [ -f add-filters.sh ]; then \
+		/bin/bash add-filters.sh $(thismod) $(TMPBUILD) "$(GENERATE)"; \
+	else \
+		echo; \
+	fi
 
