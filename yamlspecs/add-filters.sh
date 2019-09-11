@@ -23,6 +23,7 @@ default_perl=" -e 's/perl(/perl_$PERLVERSION(/'"
 default_requires="-e '/perl(Mac::Pasteboard)/d' -e '/perl(Win32::Clipboard)/d' -e '/perl(Win32)/d' $default_perl"
 default_provides=$default_perl
 
+
 createFilter () 
 {
     ftype=$1                            # provides or requires
@@ -31,9 +32,14 @@ createFilter ()
     # check package yaml for directives
     add=`$COMMAND --query=filter_$ftype -l ' ' $PKGYAML`      
     if [ "x$add" == "xFalse" ]; then # use defauts
-        [ $ftype == "requires" ] && add=$default_requires || add=$default_perl
+        [ $ftype == "requires" ] && add=$default_requires || add=$default_provides
     else # use directives
-        add+=$default_perl 
+        if [ $ftype == "requires" ]; then
+            add+=$default_perl 
+        else
+            add1=$default_perl" | sed '$add'"
+            add=$add1
+        fi
     fi
 
     # write filter file
