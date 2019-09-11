@@ -9,14 +9,15 @@ SHELL = /bin/bash
 PERLVER = $(shell $(GENERATE) --query=version perl.yaml)
 
 # common and module specific filters
-FILTERSIN=$(shell ls filter*.in)
-FILTERS = $(FILTERSIN:.in=)
+#FILTERSIN=$(shell ls filter*.in)
+#FILTERS = $(FILTERSIN:.in=)
 
 .PHONY: buildall
 
 all: prep
 	
-prep: $(FILTERS) MyConfig.pm
+#prep: $(FILTERS) MyConfig.pm
+prep: MyConfig.pm
 
 MyConfig.pm: MyConfig.pm.in
 	sed 's%/root/%$(PWD)/%g' MyConfig.pm.in > MyConfig.pm
@@ -56,6 +57,12 @@ desired-rm:
 	  	rm -rf ../RPMS/x86_64/$$mod-[0-9]* ;	\
 	  done						\
 	)
+
+#temp:
+#	( for mod in $(AUTOYAML); do			\
+#		echo "  rpm: !include rpm.extras.yaml" >> $$mod.yaml; \
+#	  done						\
+#	)
 
 addfilters:
 	if [ -f add-filters.sh ]; then \
