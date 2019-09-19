@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Eval::Closure Perl module 
-  name: Eval-Closure
-  version: "0.14"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DO/DOY/Eval-Closure-0.14.tar.gz
-  description: >
-    Eval::Closure perl module. safely and cleanly create closures via string eval

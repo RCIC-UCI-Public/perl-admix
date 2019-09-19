@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: HTML::Tagset Perl module 
-  name: HTML-Tagset
-  version: "3.20"
-  vendor_source: https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
-  description: >
-    HTML::Tagset perl module. data tables useful in parsing HTML

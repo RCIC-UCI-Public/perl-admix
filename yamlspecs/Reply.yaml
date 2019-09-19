@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Reply Perl module 
-  name: Reply
-  version: "0.42"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DO/DOY/Reply-0.42.tar.gz
-  description: >
-    Reply perl module. read, eval, print, loop, yay!

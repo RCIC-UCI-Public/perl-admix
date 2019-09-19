@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Ref::Util Perl module 
-  name: Ref-Util
-  version: "0.204"
-  vendor_source: https://cpan.metacpan.org/authors/id/A/AR/ARC/Ref-Util-0.204.tar.gz
-  description: >
-    Ref::Util perl module. Utility functions for checking references

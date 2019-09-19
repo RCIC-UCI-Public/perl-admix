@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Try::Tiny Perl module 
-  name: Try-Tiny
-  version: "0.30"
-  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz
-  description: >
-    Try::Tiny perl module. Minimal try/catch with proper preservation of $@

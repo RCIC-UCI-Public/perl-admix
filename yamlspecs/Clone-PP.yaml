@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Clone::PP Perl module 
-  name: Clone-PP
-  version: "1.07"
-  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/Clone-PP-1.07.tar.gz
-  description: >
-    Clone::PP perl module. Recursively copy Perl datatypes

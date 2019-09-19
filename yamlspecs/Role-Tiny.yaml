@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Role::Tiny Perl module 
-  name: Role-Tiny
-  version: "2.000008"
-  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000008.tar.gz
-  description: >
-    Role::Tiny perl module. Roles: a nouvelle cuisine portion size slice of Moose

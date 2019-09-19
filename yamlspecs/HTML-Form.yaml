@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: HTML::Form Perl module 
-  name: HTML-Form
-  version: "6.04"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Form-6.04.tar.gz
-  description: >
-    HTML::Form perl module. Class that represents an HTML form element

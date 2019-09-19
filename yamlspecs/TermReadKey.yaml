@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Term::ReadKey Perl module 
-  name: TermReadKey
-  version: "2.38"
-  vendor_source: https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz
-  description: >
-    Term::ReadKey perl module. Change terminal modes, and perform non-blocking reads.

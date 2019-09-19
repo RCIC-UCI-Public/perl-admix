@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Class::Inspector Perl module 
-  name: Class-Inspector
-  version: "1.36"
-  vendor_source: https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Class-Inspector-1.36.tar.gz
-  description: >
-    Class::Inspector perl module. Get information about a class and its structure

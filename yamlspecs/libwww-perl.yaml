@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: LWP::UserAgent Perl module 
-  name: libwww-perl
-  version: "6.39"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.39.tar.gz
-  description: >
-    LWP::UserAgent perl module. The World-Wide Web library for Perl

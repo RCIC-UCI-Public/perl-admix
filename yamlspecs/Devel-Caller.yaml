@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Devel::Caller Perl module 
-  name: Devel-Caller
-  version: "2.06"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Devel-Caller-2.06.tar.gz
-  description: >
-    Devel::Caller perl module. meatier versions of caller

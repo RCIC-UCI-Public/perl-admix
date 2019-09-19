@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Sub::Exporter Perl module 
-  name: Sub-Exporter
-  version: "0.987"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
-  description: >
-    Sub::Exporter perl module. a sophisticated exporter for custom-built routines

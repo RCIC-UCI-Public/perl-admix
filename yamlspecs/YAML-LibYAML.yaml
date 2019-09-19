@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: YAML::LibYAML Perl module 
-  name: YAML-LibYAML
-  version: "0.80"
-  vendor_source: https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-LibYAML-0.80.tar.gz
-  description: >
-    YAML::LibYAML perl module. Perl YAML Serialization using XS and libyaml
