@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: WWW::RobotRules Perl module 
+  name: WWW-RobotRules
+  version: "6.02"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/WWW-RobotRules-6.02.tar.gz
+  description: >
+    WWW::RobotRules perl module. database of robots.txt-derived permissions
+  rpm: !include rpm.extras.yaml

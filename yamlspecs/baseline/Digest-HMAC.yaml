@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Digest::HMAC_MD5 Perl module 
+  name: Digest-HMAC
+  version: "1.03"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/Digest-HMAC-1.03.tar.gz
+  description: >
+    Digest::HMAC_MD5 perl module. Keyed-Hashing for Message Authentication
+  rpm: !include rpm.extras.yaml

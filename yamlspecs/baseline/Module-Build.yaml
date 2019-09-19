@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Module::Build Perl module 
+  name: Module-Build
+  version: "0.4229"
+  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4229.tar.gz
+  description: >
+    Module::Build perl module. Build and install Perl modules
+  rpm: !include rpm.extras.yaml

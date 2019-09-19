@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Data::Printer Perl module 
+  name: Data-Printer
+  version: "0.40"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GARU/Data-Printer-0.40.tar.gz
+  description: >
+    Data::Printer perl module. colored pretty-print of Perl data structures and objects
+  rpm: !include rpm.extras.yaml

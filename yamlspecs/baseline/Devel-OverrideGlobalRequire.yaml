@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Devel::OverrideGlobalRequire Perl module 
+  name: Devel-OverrideGlobalRequire
+  version: "0.001"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Devel-OverrideGlobalRequire-0.001.tar.gz
+  description: >
+    Devel::OverrideGlobalRequire perl module. Override CORE::GLOBAL::require safely
+  rpm: !include rpm.extras.yaml

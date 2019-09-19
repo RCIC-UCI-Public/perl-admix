@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: MetaCPAN::Client Perl module 
+  name: MetaCPAN-Client
+  version: "2.026000"
+  vendor_source: https://cpan.metacpan.org/authors/id/M/MI/MICKEY/MetaCPAN-Client-2.026000.tar.gz
+  description: >
+    MetaCPAN::Client perl module. A comprehensive, DWIM-featured client to the MetaCPAN API
+  rpm: !include rpm.extras.yaml

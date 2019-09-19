@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Module::Runtime Perl module 
+  name: Module-Runtime
+  version: "0.016"
+  vendor_source: https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz
+  description: >
+    Module::Runtime perl module. runtime module handling
+  rpm: !include rpm.extras.yaml

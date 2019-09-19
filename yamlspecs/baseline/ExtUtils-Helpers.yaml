@@ -1,0 +1,14 @@
+!include common.yaml
+---
+- package: ExtUtils::Helpers Perl module 
+  name: ExtUtils-Helpers
+  version: "0.026"
+  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz
+  description: >
+    ExtUtils::Helpers perl module. Various portability utilities for module builders
+  filter_requires:
+    - -e '/perl(Mac::Pasteboard)/d' 
+    - -e '/perl(Win32::Clipboard)/d' 
+    - -e '/perl(Win32)/d' 
+    - -e '/perl(ExtUtils::PL2Bat)/d' 
+  rpm: !include rpm.extras.yaml

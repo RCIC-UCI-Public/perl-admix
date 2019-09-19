@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Devel::LexAlias Perl module 
+  name: Devel-LexAlias
+  version: "0.05"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Devel-LexAlias-0.05.tar.gz
+  description: >
+    Devel::LexAlias perl module. alias lexical variables
+  rpm: !include rpm.extras.yaml

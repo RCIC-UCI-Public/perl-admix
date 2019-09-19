@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: URI::Escape Perl module 
+  name: URI
+  version: "1.76"
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz
+  description: >
+    URI::Escape perl module. Uniform Resource Identifiers (absolute and relative)
+  rpm: !include rpm.extras.yaml

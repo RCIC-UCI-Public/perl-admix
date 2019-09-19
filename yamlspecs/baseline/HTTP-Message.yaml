@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: HTTP::Request::Common Perl module 
+  name: HTTP-Message
+  version: "6.18"
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
+  description: >
+    HTTP::Request::Common perl module. HTTP style message (base class)
+  rpm: !include rpm.extras.yaml

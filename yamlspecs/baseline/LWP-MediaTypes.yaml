@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: LWP::MediaTypes Perl module 
+  name: LWP-MediaTypes
+  version: "6.04"
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-MediaTypes-6.04.tar.gz
+  description: >
+    LWP::MediaTypes perl module. guess media type for a file or a URL
+  rpm: !include rpm.extras.yaml

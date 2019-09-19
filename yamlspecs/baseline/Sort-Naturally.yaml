@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Sort::Naturally Perl module 
+  name: Sort-Naturally
+  version: "1.03"
+  vendor_source: https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Sort-Naturally-1.03.tar.gz
+  description: >
+    Sort::Naturally perl module. sort lexically, but sort numeral parts numerically
+  rpm: !include rpm.extras.yaml

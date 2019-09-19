@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Params::Validate Perl module 
+  name: Params-Validate
+  version: "1.29"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-Validate-1.29.tar.gz
+  description: >
+    Params::Validate perl module. Validate method/function parameters
+  rpm: !include rpm.extras.yaml

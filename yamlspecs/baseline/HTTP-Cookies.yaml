@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: HTTP::Cookies Perl module 
+  name: HTTP-Cookies
+  version: "6.04"
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.04.tar.gz
+  description: >
+    HTTP::Cookies perl module. HTTP cookie jars
+  rpm: !include rpm.extras.yaml

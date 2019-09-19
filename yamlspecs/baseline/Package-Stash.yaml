@@ -1,0 +1,11 @@
+!include common.yaml
+---
+- package: Package::Stash Perl module 
+  name: Package-Stash
+  version: "0.38"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.38.tar.gz
+  description: >
+    Package::Stash perl module. routines for manipulating stashes
+  filter_provides:
+    - '$ a perl_5.30.0(Package::Stash::Conflicts) = {{ version }}'
+  rpm: !include rpm.extras.yaml

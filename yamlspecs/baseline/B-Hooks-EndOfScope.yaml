@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: B::Hooks::EndOfScope Perl module 
+  name: B-Hooks-EndOfScope
+  version: "0.24"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
+  description: >
+    B::Hooks::EndOfScope perl module. Execute code after a scope finished compilation
+  rpm: !include rpm.extras.yaml

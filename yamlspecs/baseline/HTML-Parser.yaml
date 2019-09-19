@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: HTML::TokeParser Perl module 
+  name: HTML-Parser
+  version: "3.72"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.72.tar.gz
+  description: >
+    HTML::TokeParser perl module. HTML parser class
+  rpm: !include rpm.extras.yaml

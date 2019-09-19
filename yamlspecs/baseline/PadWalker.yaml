@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: PadWalker Perl module 
+  name: PadWalker
+  version: "2.3"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RO/ROBIN/PadWalker-2.3.tar.gz
+  description: >
+    PadWalker perl module. play with other peoples' lexical variables
+  rpm: !include rpm.extras.yaml

@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Class::Load Perl module 
+  name: Class-Load
+  version: "0.25"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/Class-Load-0.25.tar.gz
+  description: >
+    Class::Load perl module. A working (require "Class::Name") and more
+  rpm: !include rpm.extras.yaml

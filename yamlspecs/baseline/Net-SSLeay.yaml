@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Net::SSLeay Perl module 
+  name: Net-SSLeay
+  version: "1.88"
+  vendor_source: https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.88.tar.gz
+  description: >
+    Net::SSLeay perl module. Perl extension for using OpenSSL
+  rpm: !include rpm.extras.yaml

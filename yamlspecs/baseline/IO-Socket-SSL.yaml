@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: IO::Socket::SSL Perl module 
+  name: IO-Socket-SSL
+  version: "2.066"
+  vendor_source: https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.066.tar.gz
+  description: >
+    IO::Socket::SSL perl module. Nearly transparent SSL encapsulation for IO::Socket::INET.
+  rpm: !include rpm.extras.yaml

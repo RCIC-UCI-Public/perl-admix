@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Class::Refresh Perl module 
+  name: Class-Refresh
+  version: "0.07"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DO/DOY/Class-Refresh-0.07.tar.gz
+  description: >
+    Class::Refresh perl module. refresh your classes during runtime
+  rpm: !include rpm.extras.yaml
