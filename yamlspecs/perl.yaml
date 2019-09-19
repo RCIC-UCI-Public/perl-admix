@@ -13,9 +13,6 @@
   root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
   prefix: "{{ root }}" 
 
-  addfile: 
-    - filter-requires-{{ name }}.sh
-    - filter-provides-{{ name }}.sh
   build:
     configure: ./Configure
     configure_args: -des -Dprefix=$(PKGROOT) -Dusethreads -Duseshrplib
@@ -27,5 +24,14 @@
 
   files:
     - "{{ root }}*" 
+
+  filter_requires:
+    - -e '/perl(s)/d'
+    - -e '/perl(\\s)/d' 
+    - -e '/perl(unicore::Name)/d' 
+    - -e '/perl(VMS::Stdio)/d' 
+    - -e '/perl(VMS::Filespec)/d' 
+    - -e '/perl(Mac::InternetConfig)/d' 
+    - -e '/perl(Mac::BuildTools)/d' 
 
   rpm: !include rpm.extras.yaml
