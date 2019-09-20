@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Test::Exception Perl module 
+  name: Test-Exception
+  version: "0.43"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/EX/EXODIST/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    Test::Exception perl module. Test exception-based code
+  rpm: !include rpm.extras.yaml

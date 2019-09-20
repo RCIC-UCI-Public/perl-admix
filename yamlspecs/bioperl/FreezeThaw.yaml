@@ -1,0 +1,13 @@
+!include common.yaml
+---
+- package: FreezeThaw Perl module 
+  name: FreezeThaw
+  version: "0.5001"
+  vendor_source: https://cpan.metacpan.org/authors/id/I/IL/ILYAZ/modules/{{name}}-{{version}}.{{extension}}
+  description: >
+    FreezeThaw perl module. converting Perl structures to strings and back.
+  install:
+    makeinstall: >
+      $(MAKE); sed -i '1,/=cut/d' blib/lib/FreezeThaw.pm; $(MAKE) DESTDIR=$(ROOT) pure_install; 
+      (cd ..;  python listRpmFiles.py $(ROOT))
+  rpm: !include rpm.extras.yaml

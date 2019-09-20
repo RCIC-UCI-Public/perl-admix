@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Graph::Directed Perl module 
+  name: Graph
+  version: "0.9704"
+  vendor_source: https://cpan.metacpan.org/authors/id/J/JH/JHI/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    Graph::Directed perl module. graph data structures and algorithms
+  rpm: !include rpm.extras.yaml

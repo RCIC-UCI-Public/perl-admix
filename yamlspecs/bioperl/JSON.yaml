@@ -1,0 +1,11 @@
+!include common.yaml
+---
+- package: JSON Perl module 
+  name: JSON
+  version: "4.02"
+  vendor_source: https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    JSON perl module. JSON (JavaScript Object Notation) encoder/decoder
+  filter_requires:
+    - -e '/perl(JSON::backportPP/d'
+  rpm: !include rpm.extras.yaml

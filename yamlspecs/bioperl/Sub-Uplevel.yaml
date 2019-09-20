@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Sub::Uplevel Perl module 
+  name: Sub-Uplevel
+  version: "0.2800"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    Sub::Uplevel perl module. apparently run a function in a higher stack frame
+  rpm: !include rpm.extras.yaml

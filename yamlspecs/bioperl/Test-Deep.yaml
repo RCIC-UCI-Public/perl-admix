@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Test::Deep Perl module 
+  name: Test-Deep
+  version: "1.128"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    Test::Deep perl module. Extremely flexible deep comparison
+  rpm: !include rpm.extras.yaml

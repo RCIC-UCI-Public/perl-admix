@@ -1,0 +1,11 @@
+!include common.yaml
+---
+- package: XML::Twig Perl module 
+  name: XML-Twig
+  version: "3.52"
+  vendor_source: https://cpan.metacpan.org/authors/id/M/MI/MIROD/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    XML::Twig perl module. XML, The Perl Way
+  filter_requires:
+    - -e '/perl(xml_split::state)/d'
+  rpm: !include rpm.extras.yaml

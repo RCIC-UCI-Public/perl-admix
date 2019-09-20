@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: IO::Pty Perl module 
+  name: IO-Tty
+  version: "1.12"
+  vendor_source: https://cpan.metacpan.org/authors/id/T/TO/TODDR/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    IO::Pty perl module. Pseudo ttys and constants
+  rpm: !include rpm.extras.yaml

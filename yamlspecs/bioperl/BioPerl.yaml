@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: BioPerl Perl module 
+  name: BioPerl
+  version: "1.7.6"
+  vendor_source: https://cpan.metacpan.org/authors/id/C/CD/CDRAUG/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    BioPerl perl module. Perl modules for biology
+  rpm: !include rpm.extras.yaml

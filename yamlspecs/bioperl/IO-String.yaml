@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: IO::String Perl module 
+  name: IO-String
+  version: "1.08"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    IO::String perl module. Emulate file interface for in-core strings
+  rpm: !include rpm.extras.yaml

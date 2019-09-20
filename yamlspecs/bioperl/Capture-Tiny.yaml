@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Capture::Tiny Perl module 
+  name: Capture-Tiny
+  version: "0.48"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    Capture::Tiny perl module. Capture STDOUT and STDERR from Perl, XS or external programs
+  rpm: !include rpm.extras.yaml

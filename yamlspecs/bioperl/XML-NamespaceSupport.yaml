@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: XML::NamespaceSupport Perl module 
+  name: XML-NamespaceSupport
+  version: "1.12"
+  vendor_source: https://cpan.metacpan.org/authors/id/P/PE/PERIGRIN/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    XML::NamespaceSupport perl module. A simple generic namespace processor
+  rpm: !include rpm.extras.yaml

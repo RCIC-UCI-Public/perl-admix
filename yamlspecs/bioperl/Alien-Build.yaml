@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Alien::Build::MM Perl module 
+  name: Alien-Build
+  version: "1.86"
+  vendor_source: https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    Alien::Build::MM perl module. Build external dependencies for use in CPAN
+  rpm: !include rpm.extras.yaml

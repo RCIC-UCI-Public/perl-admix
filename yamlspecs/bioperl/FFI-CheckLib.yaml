@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: FFI::CheckLib Perl module 
+  name: FFI-CheckLib
+  version: "0.25"
+  vendor_source: https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    FFI::CheckLib perl module. Check that a library is available for FFI
+  rpm: !include rpm.extras.yaml

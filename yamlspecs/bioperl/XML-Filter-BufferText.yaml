@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: XML::Filter::BufferText Perl module 
+  name: XML-Filter-BufferText
+  version: "1.01"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RB/RBERJON/{{ name }}-{{ version }}.{{ extension }}
+  description: >
+    XML::Filter::BufferText perl module. Filter to put all characters() in one event
+  rpm: !include rpm.extras.yaml
