@@ -1,7 +1,7 @@
 !include common.yaml
 ---
 - package: Perl Programming Language {{ version }} base RPMS
-  name: bootstrap
+  name: baseline
   version: "{{ versions.perl }}"
   no_src_dir: true
   description: >
@@ -20,8 +20,9 @@
     - "{{ root }}/README*"
 
   requires:
-    - perl_{{ version }}
     - rcic-module-support
+    - perl_{{ version }}
+    - perl_{{ version }}-module
     - perl_{{ version }}-App-cpanminus
     - perl_{{ version }}-App-Nopaste
     - perl_{{ version }}-B-Hooks-EndOfScope
