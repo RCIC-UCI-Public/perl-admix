@@ -5,6 +5,7 @@ import os
 import subprocess
 import yaml
 import glob
+import re
 
 YAMLTEMPLATE="""!include common.yaml
 ---
@@ -14,6 +15,7 @@ YAMLTEMPLATE="""!include common.yaml
   vendor_source: %s
   description: >
     %s perl module. %s
+  rpm: !include rpm.extras.yaml
 """
 
 RPMEXTRATEMPLATE="""  rpm:
@@ -62,6 +64,7 @@ class ModInfo(object):
         self.getCpanModInfo()
 
     def printInfo(self):
+        # for debugging only
         print ("NAME", self.perlname, "parent=%d: %s" % (self.rename,self.mainModule), "Version", self.version)
         print ("    PREREQS", self.prereqs)
         print ("download", self.download)
@@ -115,11 +118,11 @@ class ModInfo(object):
             pass
         
         self.version     = data['version']
-        #self.name        = data["metadata"]['name'] # notation where "::" is changed to "-"
         self.name        = data['distribution'] # notation where "::" is changed to "-"
         self.provides    = data['provides']
         self.download    = data['download_url']
-        description = data['abstract']
+        description = re.sub("`", "'", data['abstract']) # rm back single quote, they break RPM build
+
         # rm unicode characters
         try:
             # python 3
@@ -213,6 +216,7 @@ class BuildDepend(object):
                 + "\nDESCRIPTION\n" \
                 + "        Check information about perl system installed modules on the host using default 'sysperl' file. \n" \
                 + "        assume 'sysperl file is in the current directory where this program is run. \n" \
+                + "        The 'sysperl file is generated via running 'cpan -l > sysperl' command. \n" \
                 + "        FILE - list of perl modules names (perl notation using ::) to install one per line  \n" \
                 + "        For each module name in FILE, get cpan info about the module and build a \n\n" \
                 + "        module dependency ordered list.  \n\n" \
@@ -374,24 +378,56 @@ class BuildDepend(object):
         self.resolved = resolved
 
     def writeYaml(self):
-        self.checkFilters()
-        order=open("buildorder","w")
+        #self.checkFilters()
+        fo = open("buildorder","w")
+        order = ""
         
         for pkg in self.resolved[:-1]: # dont look at the 'root' node
             mod = self.desired[pkg.name]
             name, perlname = mod.getName()
-            txt = YAMLTEMPLATE % (perlname, name, mod.getVersion(), mod.getDownload(), perlname, mod.getDescription())
-            txt += self.writeAddFiles(pkg.name)
+            version = mod.getVersion()
+            fullUrl = mod.getDownload()
+            i = fullUrl.rfind("/") + 1
+            distrofile = fullUrl[i:]
+            schemaname = "%s-%s.tar.gz" % (name, version)
+            if  distrofile == schemaname:
+                url = fullUrl[:i] + "{{ name }}-{{ version }}.{{ extension }}"
+            else:
+                url = fullUrl
+            txt = YAMLTEMPLATE % (perlname, name, version, url, perlname, mod.getDescription())
+            
+            # Next 2 were for previous filter writing. Currently, filters are
+            # added in the yaml afterwards, there is no way to automate the addition
+            #txt += self.writeAddFiles(pkg.name)
             #txt += self.writePrereqs(mod)
-            #FIXME name
+
+            #FIXME name: need to change auto- ?
             prefname = "auto-" + name
-            order.write("%s\n" % prefname)
+            order += "%s\n" % prefname
             print ("Writing %s.yaml" % prefname)
             f = open('%s.yaml' % prefname, "w")
             f.write(txt)
             f.close()
 
-        order.close()
+        fo.write(order)
+        fo.close()
+
+    def writeVersions(self):
+        verfile=open("versions-desired","w")
+        txt = "The install the specified desired perl modules:\n"
+        for i in self.modnames:
+            txt += "\t%s\n" % i
+        txt += "\nthe following packages and their versions will need to be installed:\n"
+        for pkg in self.resolved[:-1]: # dont look at the 'root' node
+            mod = self.desired[pkg.name]
+            name, perlname = mod.getName()
+            modver = mod.getVersion()
+            #verfile.write("%s: %s\n" % (name, modver))
+            txt += "%s: %s\n" % (name, modver)
+
+        verfile.write(txt)
+        verfile.close()
+
 
     def writePrereqs(self, mod):
         ''' write prerequisites modules if any '''
@@ -454,6 +490,7 @@ class BuildDepend(object):
 
         self.createNodes()
         self.writeYaml()
+        self.writeVersions()
 
         self.printInfo()
 
