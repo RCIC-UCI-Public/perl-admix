@@ -1,15 +1,8 @@
-The install the specified desired perl modules:
-	Mojo::DOM58
-	Sort::Versions
-	Tk
-	JSON
-	XML::LibXSLT
-	GD
-	FreezeThaw
-	MLDBM
-	BioPerl
+The perl_@VERSION@-baseline-bioperl RPM installs BioPerl and its 
+prerequisite modules.  All together they provide basic BioPerl funcitonality. 
+The list below shows  modules that are are installed via its own RPMS. The rpm
+naming schema is perl_@VERSION@-MODNAME-MODVERSION:
 
-the following packages and their versions will need to be installed:
 IO-String: 1.08
 XML-Writer: 0.625
 Graph: 0.9704
