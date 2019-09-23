@@ -58,7 +58,7 @@ biobuildorder:
 
 bioclean:
 	for name in $(shell cat bioperl/buildorder); do \
-	    /bin/rm  $$name.yaml; \
+	    /bin/rm -f $$name.yaml; \
 	done
 	/bin/rm -f buildorder README.bioperl
 
