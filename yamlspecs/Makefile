@@ -24,7 +24,7 @@ all: prep
 MyConfig.pm: MyConfig.pm.in
 	sed 's%/root/%$(PWD)/%g' MyConfig.pm.in > MyConfig.pm
 
-README.baseline: README.baseline.in
+README.baseline: baseline/README.baseline.in
 	sed 's/@VERSION@/$(PERLVER)/' $^ > $@
 
 modules.bootstrap:
@@ -47,8 +47,10 @@ prepdownload:
 	done
 
 ### all bio* targets are for BioPerl related modules
+README.bioperl: bioperl/README.bioperl.in
+	sed 's/@VERSION@/$(PERLVER)/' $^ > $@
 
-bio: biobuildorder desired-build
+bio: README.bioperl biobuildorder desired-build
 
 biobuildorder:
 	/bin/cp bioperl/buildorder .
@@ -58,7 +60,7 @@ bioclean:
 	for name in $(shell cat bioperl/buildorder); do \
 	    /bin/rm  $$name.yaml; \
 	done
-	/bin/rm -f buildorder
+	/bin/rm -f buildorder README.bioperl
 
 bio-erase: bioclean
 	yum -y erase $(BIORPMS)
@@ -68,7 +70,7 @@ bio-erase: bioclean
 	)
 	/bin/rm -f buildorder
 
-###  for creating desired modules yamls
+### for creating desired modules yamls
 desired-yaml: desired
 	module load perl
 	python depend.py desired
@@ -99,8 +101,7 @@ desired-erase:
 	/bin/rm buildorder
 
 ### this target creates provides/requirtes filters for each module yaml
-
-addfilters:
+addfilters::
 	if [ -f add-filters.sh ]; then \
 		/bin/bash add-filters.sh $(thismod) $(TMPBUILD) "$(GENERATE)"; \
 	else \
