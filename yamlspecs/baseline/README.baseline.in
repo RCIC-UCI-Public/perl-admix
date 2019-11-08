@@ -1,10 +1,11 @@
-The perl_@VERSION@-baseline RPM installs Perl, its environment module 
-and perl modules needed for enabling MetaCPAN::Client. All together 
-they provide basic Perl funcitonality. The list below shows  modules 
-that are are installed via its own RPMS and their versions. The rpm
-naming schema is perl_@VERSION@-MODNAME-MODVERSION:
+The perl_@VERSION@-baseline RPM installs RPMS for Perl, its environment module 
+and Perl modules needed for enabling MetaCPAN::Client. Together, they provide 
+basic Perl funcitonality. The list below shows modules with their versions that
+are are installed via its own RPMS and their versions. 
+The rpm naming schema is perl_@VERSION@-MODNAME-MODVERSION:
 
-perl: 5.30.0
+perl: @VERSION@
+perl environment module: @VERSION@
 App-cpanminus: 1.7044
 App-Nopaste: 1.013
 B-Hooks-EndOfScope: 0.24
