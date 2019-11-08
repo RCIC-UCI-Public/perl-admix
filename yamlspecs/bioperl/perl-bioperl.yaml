@@ -4,10 +4,11 @@
   name: baseline-bioperl
   version: "{{ versions.BioPerl }}"
   no_src_dir: true
+  src_tarball: none
   description: >
-    BioPerl {{ version }} and its base modules 
+    BioPerl {{ version }} and its base modules list
   addfile: 
-    - bioperl/versions
+    - README.bioperl
   build:
     configure: echo no configure required
     modules:
@@ -18,7 +19,6 @@
   rpm:
   files:
     - "{{ root }}/README*"
-
   requires:
     - rcic-module-support
     - perl_{{ versions.perl }}
