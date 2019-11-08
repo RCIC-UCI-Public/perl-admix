@@ -1,30 +1,24 @@
 ---
 - package: Perl Programming Language {{ version }} 
   name: perl
-  category: programming language
   versions: !include versions.yaml 
   version: "{{ versions.perl }}"
   extension: tar.gz
   vendor_source: https://www.cpan.org/src/5.0/{{ name }}-{{ version }}.{{ extension }}
   pkgname: "{{ name }}_{{ version }}"
   description: >
-    Perl version {{ version }}
-
+    Perl Programming Language version {{ version }}
   root: "{{ pkg_defaults.app_path }}/{{ name }}/{{ version }}"
   prefix: "{{ root }}" 
-
   build:
     configure: ./Configure
     configure_args: -des -Dprefix=$(PKGROOT) -Dusethreads -Duseshrplib
     modules: 
     target: 
-
   install:
     makeinstall: $(MAKE); $(MAKE) DESTDIR=$(ROOT) install 
-
   files:
     - "{{ root }}*" 
-
   filter_requires:
     - -e '/perl(s)/d'
     - -e '/perl(\\s)/d' 
@@ -33,5 +27,4 @@
     - -e '/perl(VMS::Filespec)/d' 
     - -e '/perl(Mac::InternetConfig)/d' 
     - -e '/perl(Mac::BuildTools)/d' 
-
   rpm: !include rpm.extras.yaml
