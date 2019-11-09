@@ -33,12 +33,11 @@ to bootstrap building environemnt for using MetaCPAN::Client.
    make prepdownload
    ```
    After this step,  sources/ is created at the top level directory and all 
-   source packages are downloaded. 
+   source distribution files for packages are downloaded. 
 
 1. Compile and install perl and its bootstrap packages
    ```bash
-   make prep
-   make bootstrap | tee out 2>&1
+   make base | tee out 2>&1
    ```
 
    After this step, perl, perl environment module and 83 additional RPMS are build
@@ -48,7 +47,7 @@ to bootstrap building environemnt for using MetaCPAN::Client.
    file in the perl base install directory and includes all other RPMs from bootstrap build as dependencies. 
    This allows to install all perl bootstrap RPMs via simply installing this one RPM (assuming yum points
    to the repo where all created perl boostrap RPMS are).
-   
+
 ## Build BioPerl and its dependencies
 
 1. A BioPerl module requires a large number of prerequisites which are not cleanly defined
@@ -59,19 +58,13 @@ to bootstrap building environemnt for using MetaCPAN::Client.
    
    ```bash
    cd yamlspecs/
-   make bio
+   make bio | tee out 2>&1
    ```
 
-   To clean a directory after this build execute:
+   To erase all built and installed BioPerl RPMS 
    ```bash
-   make bioclean
+   make bioerase
    ```
-
-   To erase all built ad installed BioPerl RPMS 
-   ```bash
-   make bio-erase
-   ```
-
 
 ## Building RPMS for addiitonal modules
 
