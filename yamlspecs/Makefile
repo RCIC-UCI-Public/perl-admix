@@ -27,12 +27,8 @@ BIORPMS = $(addprefix perl_$(PERLVER)-,$(BIO)) perl_$(PERLVER)-baseline-bioperl
 AUTOYAML = $(shell cat buildorder)
 DRPMS = $(subst auto,perl_$(PERLVER),$(AUTOYAML))
 
-#.PHONY: modules.bootstrap
-
+# Default target to build bootstrap and all perl modules defined in metacpan/ and bioperl/
 default: modules.manifest base bio
-
-default: diag2 modules.build 
-	make -f $(THISMAKE) $(PKGS) 
 
 modules.manifest: 
 	/bin/rm -f $(MANIFEST_FILE)
@@ -46,7 +42,7 @@ modules.bootstrap:
 	cat $@.base metacpan/buildorder > $@
         
 
-### all *bio* targets are for BioPerl related modules
+### all *base* targets are for metacpan related modules
 MyConfig.pm: MyConfig.pm.in
 	sed 's%/root/%$(PWD)/%g' MyConfig.pm.in > MyConfig.pm
 
@@ -161,12 +157,3 @@ debug: diag
 	echo $(GENERATE)
 	echo "BIO: $(BIO)"
 	echo "BASELINE: $(BASELINE)"
-
-#NAMES = $(subst auto-,,$(BIO))
-#temp:
-#	for name in $(NAMES); do \
-#	    mv bioperl/auto-$$name.yaml bioperl/$$name.yaml ; \
-#	done
-# common and module specific filters
-#FILTERSIN=$(shell ls filter*.in)
-#FILTERS = $(FILTERSIN:.in=)
