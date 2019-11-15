@@ -46,10 +46,10 @@ modules.bootstrap:
 MyConfig.pm: MyConfig.pm.in
 	sed 's%/root/%$(PWD)/%g' MyConfig.pm.in > MyConfig.pm
 
-README.baseline: metacpan/README.baseline.in
+README.metacpan: metacpan/README.metacpan.in
 	sed 's/@VERSION@/$(PERLVER)/' $^ > $@
 	
-baseprep: MyConfig.pm README.baseline modules.bootstrap
+baseprep: MyConfig.pm README.metacpan modules.bootstrap
 	echo $(BASELINELIST) > modules.build
 	/bin/cp metacpan/*yaml .
 
@@ -66,7 +66,7 @@ baseclean:
 	for name in $(BASELINE) $(BASELINELIST); do \
 	    /bin/rm -f $$name.yaml;                 \
 	done
-	/bin/rm -f README.baseline MyConfig.pm 
+	/bin/rm -f README.metacpan MyConfig.pm 
 	/bin/rm -f modules.build modules.bootstrap
 
 baseerase: baseclean

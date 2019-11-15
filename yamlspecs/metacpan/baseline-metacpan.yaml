@@ -1,20 +1,20 @@
 !include common.yaml
 ---
 - package: Perl Programming Language {{ version }} base RPMS
-  name: baseline
+  name: baseline-metacpan
   version: "{{ versions.perl }}"
   no_src_dir: true
   description: >
     Perl {{ version }} and its base modules to enable MetaCPAN::Client
   addfile: 
-    - README.baseline
+    - README.metacpan
   build:
     configure: echo no configure required
     modules:
     target: 
   install:
     makeinstall: >
-      cp README.baseline $(ROOT)/$(PKGROOT)
+      cp README.metacpan $(ROOT)/$(PKGROOT)
   rpm:
   files:
     - "{{ root }}/README*"
