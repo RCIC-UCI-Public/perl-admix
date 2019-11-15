@@ -32,11 +32,12 @@ default: modules.manifest base bio
 
 modules.manifest: 
 	/bin/rm -f $(MANIFEST_FILE)
-	echo $(BOOTSTRAP_MODULES) > $(MANIFEST_FILE)
+	cat modules.bootstrap.base > $(MANIFEST_FILE)
 	for name in $(GROUPS); do \
 	    cat $$name/buildorder >> $(MANIFEST_FILE); \
 	    echo baseline-$$name >> $(MANIFEST_FILE); \
 	done
+	sed -i 's/^/perl_$(PERLVER)-/' modules.manifest
 
 modules.bootstrap:
 	cat $@.base metacpan/buildorder > $@
