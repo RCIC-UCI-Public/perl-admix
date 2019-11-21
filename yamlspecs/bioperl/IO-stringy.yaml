@@ -3,7 +3,7 @@
 - package: IO::Scalar Perl module 
   name: IO-stringy
   version: "2.111"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DS/DSKOLL/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DS/DSKOLL/{{name}}-{{version}}.{{extension}}
   description: >
     IO::Scalar perl module. IO:: interface for reading/writing an array of scalars
   rpm: !include rpm.extras.yaml

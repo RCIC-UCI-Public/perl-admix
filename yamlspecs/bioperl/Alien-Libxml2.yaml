@@ -3,7 +3,7 @@
 - package: Alien::Libxml2 Perl module 
   name: Alien-Libxml2
   version: "0.09"
-  vendor_source: https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/{{name}}-{{version}}.{{extension}}
   description: >
     Alien::Libxml2 perl module. Install the C libxml2 library on your system
   rpm: !include rpm.extras.yaml

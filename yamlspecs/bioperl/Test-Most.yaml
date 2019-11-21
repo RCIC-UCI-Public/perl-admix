@@ -3,7 +3,7 @@
 - package: Test::Most Perl module 
   name: Test-Most
   version: "0.35"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OV/OVID/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OV/OVID/{{name}}-{{version}}.{{extension}}
   description: >
     Test::Most perl module. Most commonly needed test functions and features.
   rpm: !include rpm.extras.yaml

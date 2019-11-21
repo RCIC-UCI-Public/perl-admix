@@ -3,7 +3,7 @@
 - package: MLDBM Perl module 
   name: MLDBM
   version: "2.05"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CH/CHORNY/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/C/CH/CHORNY/{{name}}-{{version}}.{{extension}}
   description: >
     MLDBM perl module. store multi-level Perl hash structure in single level tied hash
   rpm: !include rpm.extras.yaml

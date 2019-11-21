@@ -3,7 +3,7 @@
 - package: XML::SAX::DocumentLocator Perl module 
   name: XML-SAX
   version: "1.02"
-  vendor_source: https://cpan.metacpan.org/authors/id/G/GR/GRANTM/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GR/GRANTM/{{name}}-{{version}}.{{extension}}
   description: >
     XML::SAX::DocumentLocator perl module. Simple API for XML
   filter_provides:

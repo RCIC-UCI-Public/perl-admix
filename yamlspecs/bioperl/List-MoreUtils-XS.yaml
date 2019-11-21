@@ -3,7 +3,7 @@
 - package: List::MoreUtils::XS Perl module 
   name: List-MoreUtils-XS
   version: "0.428"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RE/REHSACK/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RE/REHSACK/{{name}}-{{version}}.{{extension}}
   description: >
     List::MoreUtils::XS perl module. Provide the stuff missing in List::Util in XS
   rpm: !include rpm.extras.yaml

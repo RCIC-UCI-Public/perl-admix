@@ -3,7 +3,7 @@
 - package: Class::Data::Inheritable Perl module 
   name: Class-Data-Inheritable
   version: "0.08"
-  vendor_source: https://cpan.metacpan.org/authors/id/T/TM/TMTM/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/T/TM/TMTM/{{name}}-{{version}}.{{extension}}
   description: >
     Class::Data::Inheritable perl module. Inheritable, overridable class data
   rpm: !include rpm.extras.yaml

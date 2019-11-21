@@ -3,7 +3,7 @@
 - package: Sort::Versions Perl module 
   name: Sort-Versions
   version: "1.62"
-  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/{{name}}-{{version}}.{{extension}}
   description: >
     Sort::Versions perl module. a perl 5 module for sorting of revision-like numbers
   rpm: !include rpm.extras.yaml

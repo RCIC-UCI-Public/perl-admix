@@ -3,7 +3,7 @@
 - package: Devel::StackTrace Perl module 
   name: Devel-StackTrace
   version: "2.04"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/{{name}}-{{version}}.{{extension}}
   description: >
     Devel::StackTrace perl module. An object representing a stack trace
   rpm: !include rpm.extras.yaml

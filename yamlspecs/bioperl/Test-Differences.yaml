@@ -3,7 +3,7 @@
 - package: Test::Differences Perl module 
   name: Test-Differences
   version: "0.67"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DC/DCANTRELL/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DC/DCANTRELL/{{name}}-{{version}}.{{extension}}
   description: >
     Test::Differences perl module. Test strings and data structures and show differences if not ok
   rpm: !include rpm.extras.yaml

@@ -3,7 +3,7 @@
 - package: Data::Stag Perl module 
   name: Data-Stag
   version: "0.14"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CM/CMUNGALL/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/C/CM/CMUNGALL/{{name}}-{{version}}.{{extension}}
   description: >
     Data::Stag perl module. Structured Tags
   rpm: !include rpm.extras.yaml

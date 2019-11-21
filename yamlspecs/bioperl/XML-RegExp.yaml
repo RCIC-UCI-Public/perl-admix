@@ -3,7 +3,7 @@
 - package: XML::RegExp Perl module 
   name: XML-RegExp
   version: "0.04"
-  vendor_source: https://cpan.metacpan.org/authors/id/T/TJ/TJMATHER/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/T/TJ/TJMATHER/{{name}}-{{version}}.{{extension}}
   description: >
     XML::RegExp perl module. Regular expressions for XML tokens
   rpm: !include rpm.extras.yaml

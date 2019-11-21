@@ -3,7 +3,7 @@
 - package: XML::XPathEngine Perl module 
   name: XML-XPathEngine
   version: "0.14"
-  vendor_source: https://cpan.metacpan.org/authors/id/M/MI/MIROD/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/M/MI/MIROD/{{name}}-{{version}}.{{extension}}
   description: >
     XML::XPathEngine perl module. a re-usable XPath engine for DOM-like trees
   rpm: !include rpm.extras.yaml

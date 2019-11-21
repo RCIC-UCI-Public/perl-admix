@@ -3,7 +3,7 @@
 - package: List::MoreUtils Perl module 
   name: List-MoreUtils
   version: "0.428"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RE/REHSACK/{{ name }}-{{ version }}.{{ extension }}
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RE/REHSACK/{{name}}-{{version}}.{{extension}}
   description: >
     List::MoreUtils perl module. Provide the stuff missing in List::Util
   rpm: !include rpm.extras.yaml
