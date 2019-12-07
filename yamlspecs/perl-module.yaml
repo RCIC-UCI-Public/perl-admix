@@ -1,8 +1,8 @@
 !include perl.yaml
-!include /opt/rcic/include/rcic-module.yaml
+!include rcic-module.yaml
 ---
 - package: Perl module
   category: LANGUAGES
   requires:
-    - perl_{{ versions.perl }}
+    - perl_{{versions.perl}}
     - rcic-module-support
