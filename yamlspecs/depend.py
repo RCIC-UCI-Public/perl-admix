@@ -23,10 +23,10 @@ RPMEXTRATEMPLATE="""  rpm:
       %define _python_bytecompile_errors_terminate_build 0\\n\\
       %define __spec_install_post \\
       %{?__debug_package:%{__debug_install_post}}\\
-      module load {{ build.modules }};\\
+      module load {{build.modules}};\\
       %{__arch_install_post}\\
       %{__os_install_post}\\
-      module unload {{ build.modules }}\\
+      module unload {{build.modules}}\\
       %{nil}\\n\\
       %define _use_internal_dependency_generator 0\\n\\
       %define __find_requires %{_builddir}/%{name}-%{version}/REQUIRES\\n\\
@@ -391,7 +391,7 @@ class BuildDepend(object):
             distrofile = fullUrl[i:]
             schemaname = "%s-%s.tar.gz" % (name, version)
             if  distrofile == schemaname:
-                url = fullUrl[:i] + "{{ name }}-{{ version }}.{{ extension }}"
+                url = fullUrl[:i] + "{{name}}-{{version}}.{{extension}}"
             else:
                 url = fullUrl
             txt = YAMLTEMPLATE % (perlname, name, version, url, perlname, mod.getDescription())
@@ -432,9 +432,9 @@ class BuildDepend(object):
     def writePrereqs(self, mod):
         ''' write prerequisites modules if any '''
         # add perl as a requirement to all yaml files
-        txt = "  requires:\n    - perl_{{ versions.perl }}\n" 
+        txt = "  requires:\n    - perl_{{versions.perl}}\n" 
         for i in mod.getPrereqs().keys():
-            txt += "    - perl_{{ versions.perl }}-%s\n" % i.replace("::","-")
+            txt += "    - perl_{{versions.perl}}-%s\n" % i.replace("::","-")
 
         return (txt)
 
