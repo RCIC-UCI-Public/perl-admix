@@ -6,6 +6,7 @@ DOWNLOADER=$(ROCKSSHARE)/bin/get_sources.sh
 include  $(ROCKSSHARE)/src/roll/etc/Rules-repo-centos.mk
 download: sources
 	SURL=$(SURL) $(DOWNLOADER)
+	(cd sources; tar xzvf sources-bioperl.tar.gz; tar xzvf sources-metacpan.tar.gz)
 sources:
 	mkdir sources
 
