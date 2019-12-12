@@ -56,8 +56,8 @@ baseprep: MyConfig.pm README.metacpan modules.bootstrap
 
 basedownload: baseprep
 	for name in perl $(BASELINE); do                        \
-	    echo "Checking if need to download $$distro ";      \
 	    distro=$$($(GENERATE) --query=tarball $$name.yaml);	\
+	    echo "Checking if need to download $$distro ";      \
 	    if [ ! -f ../sources/$$distro ]; then 		\
 	        make download PKG=$$name; 			\
 	    fi;							\
@@ -91,8 +91,8 @@ bioprep: README.bioperl
 
 biodownload: bioprep
 	for name in perl $(BIO); do \
-	    echo "Checking if need to download $$distro "; \
 	    distro=$$($(GENERATE) --query=tarball $$name.yaml);	\
+	    echo "Checking if need to download $$distro "; \
 	    if [ ! -f ../sources/$$distro ]; then 		\
 	        make download PKG=$$name; 			\
 	    fi;							\
