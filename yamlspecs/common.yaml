@@ -2,12 +2,12 @@
 - category: perl module
   versions: !include versions.yaml 
   extension: tar.gz
-  download_file: "{{ name }}-{{ version  }}.{{ extension }}"
-  src_tarball: "{{ download_file }}"
-  pkgname: "perl_{{ versions.perl }}-{{ name }}"
+  download_file: "{{name}}-{{version}}.{{extension}}"
+  src_tarball: "{{download_file}}"
+  pkgname: "perl_{{versions.perl}}-{{name}}"
 
-  root: "{{ pkg_defaults.app_path }}/perl/{{ versions.perl }}"
-  prefix: "{{ root }}" 
+  root: "{{pkg_defaults.app_path}}/perl/{{versions.perl}}"
+  prefix: "{{root}}" 
 
   addfile: 
     - listRpmFiles.py
@@ -23,7 +23,7 @@
       unset PERL_MM_USE_DEFAULT
     configure_args:
     modules: 
-      - "perl/{{ versions.perl }}"
+      - "perl/{{versions.perl}}"
     target: 
 
   install:
@@ -38,4 +38,4 @@
   fileslist: LISTFILES
 
   requires:
-     - perl_{{ versions.perl }}
+     - perl_{{versions.perl}}
