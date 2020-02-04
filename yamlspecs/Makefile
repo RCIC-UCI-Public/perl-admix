@@ -3,6 +3,8 @@
 # This includes the Generic yaml2rpm Makefile - most packaging should
 # be able to use this.
 
+# Re-define BUILDALL_TARGETS
+ALL_TARGETS = modules.manifest base bio 
 include $(YAML2RPM_HOME)/sys/Makefile
 
 # generic settings
@@ -27,8 +29,10 @@ BIORPMS = $(addprefix perl_$(PERLVER)-,$(BIO)) perl_$(PERLVER)-baseline-bioperl
 AUTOYAML = $(shell cat buildorder)
 DRPMS = $(subst auto,perl_$(PERLVER),$(AUTOYAML))
 
+
 # Default target to build bootstrap and all perl modules defined in metacpan/ and bioperl/
 default: modules.manifest base bio
+
 
 modules.manifest: 
 	/bin/rm -f $(MANIFEST_FILE)
