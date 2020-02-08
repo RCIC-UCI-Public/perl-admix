@@ -5,6 +5,7 @@
 
 # Re-define BUILDALL_TARGETS
 ALL_TARGETS = modules.manifest base bio 
+MODULEYAML = perl-module
 include $(YAML2RPM_HOME)/sys/Makefile
 
 # generic settings
