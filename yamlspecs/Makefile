@@ -121,8 +121,7 @@ bio: biodownload  bootstrap
 
 ### for creating desired modules yamls
 desired-yaml: desired
-	module load perl
-	python depend.py desired
+	module load perl; python depend.py desired
 
 desired-download:
 	for name in $(AUTOYAML); do \

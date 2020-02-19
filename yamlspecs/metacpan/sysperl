@@ -3,6 +3,7 @@ PadWalker	2.3
 Term::ReadKey	2.38
 Net::SSLeay	1.88
 Net::SSLeay::Handle	1.88
+Math::Random	0.72
 PerlIO::utf8_strict	0.007
 YAML::LibYAML	0.80
 YAML::XS	0.80
@@ -221,6 +222,7 @@ PadWalker	2.3
 Term::ReadKey	2.38
 Net::SSLeay	1.88
 Net::SSLeay::Handle	1.88
+Math::Random	0.72
 PerlIO::utf8_strict	0.007
 YAML::LibYAML	0.80
 YAML::XS	0.80

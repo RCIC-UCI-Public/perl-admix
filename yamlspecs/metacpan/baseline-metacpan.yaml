@@ -69,6 +69,7 @@
     - perl_{{ version }}-JSON-MaybeXS
     - perl_{{ version }}-libwww-perl
     - perl_{{ version }}-LWP-MediaTypes
+    - perl_{{ version }}-Math-Random
     - perl_{{ version }}-MetaCPAN-Client
     - perl_{{ version }}-Mixin-Linewise
     - perl_{{ version }}-Module-Build
