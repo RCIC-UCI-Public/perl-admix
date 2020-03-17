@@ -1,3 +1,7 @@
+# for perl RPM to include build NDBM_File.so
+gdbm-devel
+# for perl RPM to include build DB_File.so
+libdb-devel
 #### for GD/BioPerl
 gd-devel
 fontconfig
