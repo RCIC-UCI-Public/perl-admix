@@ -15,7 +15,6 @@ YAMLTEMPLATE="""!include common.yaml
   vendor_source: %s
   description: >
     %s perl module. %s
-  rpm: !include rpm.extras.yaml
 """
 
 RPMEXTRATEMPLATE="""  rpm:
@@ -211,16 +210,20 @@ class BuildDepend(object):
         return
 
     def exitHelp(self):
-        helpstr = "NAME\n        %s - create perl modules dependency list \n" % self.prog \
+        helpstr = "NAME\n        %s - create perl modules yaml files and ordered dependency list\n" % self.prog \
                 + "\nSYNOPSIS\n        %s FILE\n" % self.prog \
                 + "\nDESCRIPTION\n" \
-                + "        Check information about perl system installed modules on the host using default 'sysperl' file. \n" \
-                + "        assume 'sysperl file is in the current directory where this program is run. \n" \
-                + "        The 'sysperl file is generated via running 'cpan -l > sysperl' command. \n" \
-                + "        FILE - list of perl modules names (perl notation using ::) to install one per line  \n" \
-                + "        For each module name in FILE, get cpan info about the module and build a \n\n" \
-                + "        module dependency ordered list.  \n\n" \
-                + "        -h, --h, --help, help\n              Print usage info.\n\n"
+                + "        Check information about installed perl modules on the host from a 'sysperl' file.\n" \
+                + "        Assume 'sysperl file is in the current directory where this program is run. \n" \
+                + "        The 'sysperl file is generated via running 'cpan -l > sysperl' command. \n\n" \
+                + "        FILE - a file with perl modules names (perl notation using ::) to install, one name \n" \
+                + "        per line. For each module name in FILE, get cpan info about the module, create a yaml\n" \
+                + "        file for it, and a resulting module dependency ordered list. Modules found in 'sysperl'\n" \
+                + "        will not be added to buildorder. \n\n" \
+                + "        -h, --h, --help, help\n              Print usage info.\n\n" \
+                + "\nOUTPUT\n" \
+                + "        buildorder - a file with ordered module names that need to be build \n" \
+                + "        MOD-NAME.yaml - yaml file for each MOD-NAME module listed in buildorder file.\n" \
 
         print (helpstr)
         sys.exit(0)
@@ -402,7 +405,8 @@ class BuildDepend(object):
             #txt += self.writePrereqs(mod)
 
             #FIXME name: need to change auto- ?
-            prefname = "auto-" + name
+            #prefname = "auto-" + name
+            prefname = name
             order += "%s\n" % prefname
             print ("Writing %s.yaml" % prefname)
             f = open('%s.yaml' % prefname, "w")
@@ -423,7 +427,7 @@ class BuildDepend(object):
             name, perlname = mod.getName()
             modver = mod.getVersion()
             #verfile.write("%s: %s\n" % (name, modver))
-            txt += "%s: %s\n" % (name, modver)
+            txt += "%s: \"%s\"\n" % (name, modver)
 
         verfile.write(txt)
         verfile.close()
