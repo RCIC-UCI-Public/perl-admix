@@ -30,10 +30,13 @@ BIORPMS = $(addprefix perl_$(PERLVER)-,$(BIO)) perl_$(PERLVER)-baseline-bioperl
 AUTOYAML = $(shell cat buildorder)
 DRPMS = $(subst auto,perl_$(PERLVER),$(AUTOYAML))
 
-
 # Default target to build bootstrap and all perl modules defined in metacpan/ and bioperl/
-default: modules.manifest base bio
+default: prepdownload modules.manifest base bio
 
+prepdownload:
+	(cd ../sources; \
+	tar xvf sources-bioperl.tar.gz; \
+	tar xvf sources-metacpan.tar.gz)
 
 modules.manifest: 
 	/bin/rm -f $(MANIFEST_FILE)
@@ -49,11 +52,9 @@ modules.bootstrap:
         
 
 ### all *base* targets are for metacpan related modules
-MyConfig.pm: MyConfig.pm.in
-	sed 's%/root/%$(PWD)/%g' MyConfig.pm.in > MyConfig.pm
-
 README.metacpan: metacpan/README.metacpan.in
 	sed 's/@VERSION@/$(PERLVER)/' $^ > $@
+	./writeVersions.sh metacpan >> $@
 	
 baseprep: MyConfig.pm README.metacpan modules.bootstrap
 	echo $(BASELINELIST) > modules.build
@@ -68,6 +69,10 @@ basedownload: baseprep
 	    fi;							\
 	done
 
+base: basedownload bootstrap
+	make -f $(THISMAKE) $(PKGS) 
+	make -f $(THISMAKE) baseclean clean
+
 baseclean:
 	for name in $(BASELINE) $(BASELINELIST); do \
 	    /bin/rm -f $$name.yaml;                 \
@@ -81,13 +86,10 @@ baseerase: baseclean
 	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;	\
 	done
 
-base: basedownload bootstrap
-	make -f $(THISMAKE) $(PKGS) 
-	make -f $(THISMAKE) baseclean clean
-
 ### all *bio* targets are for BioPerl related modules
 README.bioperl: bioperl/README.bioperl.in
 	sed 's/@VERSION@/$(PERLVER)/' $^ > $@
+	./writeVersions.sh bioperl >> $@
 
 bioprep: README.bioperl
 	/bin/cp bioperl/buildorder modules.bootstrap
@@ -103,6 +105,10 @@ biodownload: bioprep
 	    fi;							\
 	done
 
+bio: biodownload  bootstrap
+	make -f $(THISMAKE) $(PKGS) 
+	make -f $(THISMAKE) bioclean clean
+
 bioclean:
 	for name in $(BIO) $(BIOLIST); do \
 	    /bin/rm -f $$name.yaml; \
@@ -115,11 +121,10 @@ bioerase: bioclean
 	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;	\
 	done
 
-bio: biodownload  bootstrap
-	make -f $(THISMAKE) $(PKGS) 
-	make -f $(THISMAKE) bioclean clean
-
 ### for creating desired modules yamls
+MyConfig.pm: MyConfig.pm.in
+	sed 's%/root/%$(PWD)/%g' MyConfig.pm.in > MyConfig.pm
+
 desired-yaml: desired
 	module load perl; python depend.py desired
 
