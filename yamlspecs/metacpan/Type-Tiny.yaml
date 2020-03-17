@@ -2,8 +2,7 @@
 ---
 - package: Type::Tiny Perl module 
   name: Type-Tiny
-  version: "1.004004"
-  vendor_source: https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Type-Tiny-1.004004.tar.gz
+  version: "1.010001"
+  vendor_source: https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/{{name}}-{{version}}.{{extension}}
   description: >
     Type::Tiny perl module. tiny, yet Moo(se)-compatible type constraint
-  rpm: !include rpm.extras.yaml

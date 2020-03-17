@@ -3,7 +3,6 @@
 - package: HTTP::Daemon Perl module 
   name: HTTP-Daemon
   version: "6.06"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.06.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/{{name}}-{{version}}.{{extension}}
   description: >
     HTTP::Daemon perl module. A simple http server class
-  rpm: !include rpm.extras.yaml

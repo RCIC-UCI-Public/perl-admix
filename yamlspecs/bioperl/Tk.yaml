@@ -8,4 +8,3 @@
     Tk perl module. Tk - a Graphical User Interface Toolkit
   filter_provides:
     - '$ a perl_5.30.0(Tk::LabRadio)'
-  rpm: !include rpm.extras.yaml

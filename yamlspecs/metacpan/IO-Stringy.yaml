@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: IO::Stringy Perl module 
+  name: IO-Stringy
+  version: "2.113"
+  vendor_source: https://cpan.metacpan.org/authors/id/C/CA/CAPOEIRAB/{{name}}-{{version}}.{{extension}}
+  description: >
+    IO::Stringy perl module. I/O on in-core objects like strings and arrays

@@ -3,7 +3,6 @@
 - package: Net::HTTP Perl module 
   name: Net-HTTP
   version: "6.19"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.19.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/{{name}}-{{version}}.{{extension}}
   description: >
     Net::HTTP perl module. Low-level HTTP connection (client)
-  rpm: !include rpm.extras.yaml

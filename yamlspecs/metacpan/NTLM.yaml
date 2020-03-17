@@ -1,9 +1,8 @@
 !include common.yaml
 ---
-- package: Authen::NTLM Perl module 
+- package: NTLM Perl module 
   name: NTLM
   version: "1.09"
-  vendor_source: https://cpan.metacpan.org/authors/id/N/NB/NBEBOUT/NTLM-1.09.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/N/NB/NBEBOUT/{{name}}-{{version}}.{{extension}}
   description: >
-    Authen::NTLM perl module. An NTLM authentication module
-  rpm: !include rpm.extras.yaml
+    NTLM perl module. An NTLM authentication module

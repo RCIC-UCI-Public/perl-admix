@@ -3,7 +3,6 @@
 - package: Module::Implementation Perl module 
   name: Module-Implementation
   version: "0.09"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Module-Implementation-0.09.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/{{name}}-{{version}}.{{extension}}
   description: >
     Module::Implementation perl module. Loads one of several alternate underlying implementations for a module
-  rpm: !include rpm.extras.yaml

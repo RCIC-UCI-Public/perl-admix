@@ -8,4 +8,3 @@
     JSON perl module. JSON (JavaScript Object Notation) encoder/decoder
   filter_requires:
     - -e '/perl(JSON::backportPP/d'
-  rpm: !include rpm.extras.yaml

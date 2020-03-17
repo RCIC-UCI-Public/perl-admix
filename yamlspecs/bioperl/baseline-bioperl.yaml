@@ -1,18 +1,14 @@
 !include common.yaml
 ---
-- package: BioPerl  and its dependend modules 
+- package: BioPerl and its dependend modules 
   name: baseline-bioperl
-  version: "{{versions.BioPerl}}"
+  version: "{{versions.perl}}"
   no_src_dir: true
   src_tarball: none
   description: >
-    BioPerl {{version}} and its base modules list
+    BioPerl {{version}} and its base modules 
   addfile: 
     - README.bioperl
-  build:
-    configure: echo no configure required
-    modules:
-    target: 
   install:
     makeinstall: >
       cp README.bioperl $(ROOT)/$(PKGROOT)
@@ -21,57 +17,57 @@
     - "{{root}}/README*"
   requires:
     - rcic-module-support
-    - perl_{{versions.perl}}
-    - perl_{{versions.perl}}-module
-    - perl_{{versions.perl}}-IO-String
-    - perl_{{versions.perl}}-XML-Writer
-    - perl_{{versions.perl}}-Graph
-    - perl_{{versions.perl}}-XML-NamespaceSupport
-    - perl_{{versions.perl}}-Tk
-    - perl_{{versions.perl}}-Sort-Versions
-    - perl_{{versions.perl}}-Set-Scalar
-    - perl_{{versions.perl}}-Capture-Tiny
-    - perl_{{versions.perl}}-JSON
-    - perl_{{versions.perl}}-FFI-CheckLib
-    - perl_{{versions.perl}}-XML-RegExp
-    - perl_{{versions.perl}}-XML-XPathEngine
-    - perl_{{versions.perl}}-Sub-Uplevel
-    - perl_{{versions.perl}}-Devel-StackTrace
-    - perl_{{versions.perl}}-Test-RequiresInternet
-    - perl_{{versions.perl}}-List-MoreUtils-XS
-    - perl_{{versions.perl}}-Algorithm-Diff
-    - perl_{{versions.perl}}-XML-Parser
-    - perl_{{versions.perl}}-libxml-perl
-    - perl_{{versions.perl}}-Class-Data-Inheritable
-    - perl_{{versions.perl}}-File-chdir
-    - perl_{{versions.perl}}-Error
-    - perl_{{versions.perl}}-XML-SAX-Base
-    - perl_{{versions.perl}}-ExtUtils-PkgConfig
-    - perl_{{versions.perl}}-XML-Filter-BufferText
-    - perl_{{versions.perl}}-IO-Tty
-    - perl_{{versions.perl}}-Test-Deep
-    - perl_{{versions.perl}}-YAML
-    - perl_{{versions.perl}}-IO-stringy
-    - perl_{{versions.perl}}-Mojo-DOM58
-    - perl_{{versions.perl}}-XML-SAX-Writer
-    - perl_{{versions.perl}}-Alien-Build
-    - perl_{{versions.perl}}-IPC-Run
-    - perl_{{versions.perl}}-List-MoreUtils
-    - perl_{{versions.perl}}-XML-DOM
-    - perl_{{versions.perl}}-XML-DOM-XPath
-    - perl_{{versions.perl}}-Alien-Libxml2
-    - perl_{{versions.perl}}-XML-SAX
-    - perl_{{versions.perl}}-XML-LibXML
-    - perl_{{versions.perl}}-Text-Diff
-    - perl_{{versions.perl}}-Test-Differences
-    - perl_{{versions.perl}}-Test-Warn
-    - perl_{{versions.perl}}-Test-Exception
-    - perl_{{versions.perl}}-Exception-Class
-    - perl_{{versions.perl}}-Test-Most
-    - perl_{{versions.perl}}-XML-Twig
-    - perl_{{versions.perl}}-XML-LibXSLT
-    - perl_{{versions.perl}}-GD
-    - perl_{{versions.perl}}-FreezeThaw
-    - perl_{{versions.perl}}-MLDBM
-    - perl_{{versions.perl}}-Data-Stag
-    - perl_{{versions.perl}}-BioPerl
+    - perl_{{version}}
+    - perl_{{version}}-module
+    - perl_{{version}}-IO-String
+    - perl_{{version}}-XML-Writer
+    - perl_{{version}}-Graph
+    - perl_{{version}}-XML-NamespaceSupport
+    - perl_{{version}}-Tk
+    - perl_{{version}}-Sort-Versions
+    - perl_{{version}}-Set-Scalar
+    - perl_{{version}}-Capture-Tiny
+    - perl_{{version}}-JSON
+    - perl_{{version}}-FFI-CheckLib
+    - perl_{{version}}-XML-RegExp
+    - perl_{{version}}-XML-XPathEngine
+    - perl_{{version}}-Sub-Uplevel
+    - perl_{{version}}-Devel-StackTrace
+    - perl_{{version}}-Test-RequiresInternet
+    - perl_{{version}}-List-MoreUtils-XS
+    - perl_{{version}}-Algorithm-Diff
+    - perl_{{version}}-XML-Parser
+    - perl_{{version}}-libxml-perl
+    - perl_{{version}}-Class-Data-Inheritable
+    - perl_{{version}}-File-chdir
+    - perl_{{version}}-Error
+    - perl_{{version}}-XML-SAX-Base
+    - perl_{{version}}-ExtUtils-PkgConfig
+    - perl_{{version}}-XML-Filter-BufferText
+    - perl_{{version}}-IO-Tty
+    - perl_{{version}}-Test-Deep
+    - perl_{{version}}-YAML
+    - perl_{{version}}-IO-stringy
+    - perl_{{version}}-Mojo-DOM58
+    - perl_{{version}}-XML-SAX-Writer
+    - perl_{{version}}-Alien-Build
+    - perl_{{version}}-IPC-Run
+    - perl_{{version}}-List-MoreUtils
+    - perl_{{version}}-XML-DOM
+    - perl_{{version}}-XML-DOM-XPath
+    - perl_{{version}}-Alien-Libxml2
+    - perl_{{version}}-XML-SAX
+    - perl_{{version}}-XML-LibXML
+    - perl_{{version}}-Text-Diff
+    - perl_{{version}}-Test-Differences
+    - perl_{{version}}-Test-Warn
+    - perl_{{version}}-Test-Exception
+    - perl_{{version}}-Exception-Class
+    - perl_{{version}}-Test-Most
+    - perl_{{version}}-XML-Twig
+    - perl_{{version}}-XML-LibXSLT
+    - perl_{{version}}-GD
+    - perl_{{version}}-FreezeThaw
+    - perl_{{version}}-MLDBM
+    - perl_{{version}}-Data-Stag
+    - perl_{{version}}-BioPerl

@@ -3,7 +3,6 @@
 - package: File::Which Perl module 
   name: File-Which
   version: "1.23"
-  vendor_source: https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/{{name}}-{{version}}.{{extension}}
   description: >
     File::Which perl module. Perl implementation of the which utility as an API
-  rpm: !include rpm.extras.yaml

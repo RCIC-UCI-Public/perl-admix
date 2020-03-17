@@ -6,4 +6,3 @@
   vendor_source: https://cpan.metacpan.org/authors/id/B/BI/BIGJ/{{name}}-{{version}}.{{extension}}
   description: >
     Test::Warn perl module. Perl extension to test methods for warnings
-  rpm: !include rpm.extras.yaml

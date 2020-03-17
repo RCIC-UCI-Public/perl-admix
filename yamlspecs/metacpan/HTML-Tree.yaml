@@ -1,9 +1,8 @@
 !include common.yaml
 ---
-- package: HTML::TreeBuilder Perl module 
+- package: HTML::Tree Perl module 
   name: HTML-Tree
   version: "5.07"
-  vendor_source: https://cpan.metacpan.org/authors/id/K/KE/KENTNL/HTML-Tree-5.07.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/K/KE/KENTNL/{{name}}-{{version}}.{{extension}}
   description: >
-    HTML::TreeBuilder perl module. Work with HTML in a DOM-like tree structure
-  rpm: !include rpm.extras.yaml
+    HTML::Tree perl module. Work with HTML in a DOM-like tree structure

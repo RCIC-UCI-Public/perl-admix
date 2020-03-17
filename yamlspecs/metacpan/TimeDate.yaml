@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Time::Zone Perl module 
+  name: TimeDate
+  version: "2.32"
+  vendor_source: https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/{{name}}-{{version}}.{{extension}}
+  description: >
+    Time::Zone perl module. miscellaneous timezone manipulations routines

@@ -6,4 +6,3 @@
   vendor_source: https://cpan.metacpan.org/authors/id/R/RU/RURBAN/{{name}}-{{version}}.{{extension}}
   description: >
     GD perl module. Perl interface to the gd2 graphics library
-  rpm: !include rpm.extras.yaml

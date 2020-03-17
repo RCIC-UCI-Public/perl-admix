@@ -3,7 +3,6 @@
 - package: Sub::Install Perl module 
   name: Sub-Install
   version: "0.928"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Sub-Install-0.928.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
   description: >
     Sub::Install perl module. install subroutines into packages easily
-  rpm: !include rpm.extras.yaml

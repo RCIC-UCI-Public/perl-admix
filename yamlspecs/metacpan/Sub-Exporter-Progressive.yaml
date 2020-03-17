@@ -3,7 +3,6 @@
 - package: Sub::Exporter::Progressive Perl module 
   name: Sub-Exporter-Progressive
   version: "0.001013"
-  vendor_source: https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/F/FR/FREW/{{name}}-{{version}}.{{extension}}
   description: >
     Sub::Exporter::Progressive perl module. Only use Sub::Exporter if you need it
-  rpm: !include rpm.extras.yaml

@@ -3,12 +3,11 @@
 - package: Module::Pluggable Perl module 
   name: Module-Pluggable
   version: "5.2"
-  vendor_source: https://cpan.metacpan.org/authors/id/S/SI/SIMONW/Module-Pluggable-5.2.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/S/SI/SIMONW/{{name}}-{{version}}.{{extension}}
   description: >
     Module::Pluggable perl module. automatically give your module the ability to have plugins
   filter_requires:
     - -e '/perl(Mac::Pasteboard)/d' 
     - -e '/perl(Win32::Clipboard)/d' 
     - -e '/perl(Win32)/d' 
-    - -e '/package/d' 
-  rpm: !include rpm.extras.yaml
+   - -e '/package/d' 

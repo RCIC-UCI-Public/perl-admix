@@ -3,7 +3,6 @@
 - package: Carp::Assert Perl module 
   name: Carp-Assert
   version: "0.21"
-  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/Carp-Assert-0.21.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/{{name}}-{{version}}.{{extension}}
   description: >
     Carp::Assert perl module. executable comments
-  rpm: !include rpm.extras.yaml

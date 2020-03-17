@@ -6,4 +6,3 @@
   vendor_source: https://cpan.metacpan.org/authors/id/D/DB/DBOOK/{{name}}-{{version}}.{{extension}}
   description: >
     Mojo::DOM58 perl module. Minimalistic HTML/XML DOM parser with CSS selectors
-  rpm: !include rpm.extras.yaml

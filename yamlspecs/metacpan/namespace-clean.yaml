@@ -3,9 +3,8 @@
 - package: namespace::clean Perl module 
   name: namespace-clean
   version: "0.27"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RI/RIBASUSHI/namespace-clean-0.27.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RI/RIBASUSHI/{{name}}-{{version}}.{{extension}}
   description: >
     namespace::clean perl module. Keep imports and functions out of your namespace
-  filter_provides:
+  filter_provides: 
     - '$ a perl_5.30.0(namespace::clean::_Util)'
-  rpm: !include rpm.extras.yaml

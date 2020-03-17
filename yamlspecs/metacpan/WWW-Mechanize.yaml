@@ -2,8 +2,7 @@
 ---
 - package: WWW::Mechanize Perl module 
   name: WWW-Mechanize
-  version: "1.92"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-1.92.tar.gz
+  version: "1.96"
+  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/{{name}}-{{version}}.{{extension}}
   description: >
     WWW::Mechanize perl module. Handy web browsing in a Perl object
-  rpm: !include rpm.extras.yaml

@@ -2,8 +2,7 @@
 ---
 - package: Path::Tiny Perl module 
   name: Path-Tiny
-  version: "0.108"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.108.tar.gz
+  version: "0.112"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/{{name}}-{{version}}.{{extension}}
   description: >
     Path::Tiny perl module. File path utility
-  rpm: !include rpm.extras.yaml

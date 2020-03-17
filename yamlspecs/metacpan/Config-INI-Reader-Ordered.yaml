@@ -3,7 +3,6 @@
 - package: Config::INI::Reader::Ordered Perl module 
   name: Config-INI-Reader-Ordered
   version: "0.020"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Config-INI-Reader-Ordered-0.020.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
   description: >
     Config::INI::Reader::Ordered perl module. .ini-file parser that returns sections in order
-  rpm: !include rpm.extras.yaml

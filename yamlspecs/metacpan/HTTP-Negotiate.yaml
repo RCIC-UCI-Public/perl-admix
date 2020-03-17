@@ -3,7 +3,6 @@
 - package: HTTP::Negotiate Perl module 
   name: HTTP-Negotiate
   version: "6.01"
-  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Negotiate-6.01.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/{{name}}-{{version}}.{{extension}}
   description: >
     HTTP::Negotiate perl module. choose a variant to serve
-  rpm: !include rpm.extras.yaml

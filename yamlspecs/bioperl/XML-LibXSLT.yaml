@@ -2,8 +2,7 @@
 ---
 - package: XML::LibXSLT Perl module 
   name: XML-LibXSLT
-  version: "1.96"
+  version: "1.99"
   vendor_source: https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/{{name}}-{{version}}.{{extension}}
   description: >
     XML::LibXSLT perl module. Interface to GNOME libxslt library
-  rpm: !include rpm.extras.yaml

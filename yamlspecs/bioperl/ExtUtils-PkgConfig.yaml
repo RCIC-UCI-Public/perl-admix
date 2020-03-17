@@ -6,4 +6,3 @@
   vendor_source: https://cpan.metacpan.org/authors/id/X/XA/XAOC/{{name}}-{{version}}.{{extension}}
   description: >
     ExtUtils::PkgConfig perl module. simplistic interface to pkg-config
-  rpm: !include rpm.extras.yaml

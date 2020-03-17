@@ -3,7 +3,6 @@
 - package: Variable::Magic Perl module 
   name: Variable-Magic
   version: "0.62"
-  vendor_source: https://cpan.metacpan.org/authors/id/V/VP/VPIT/Variable-Magic-0.62.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/V/VP/VPIT/{{name}}-{{version}}.{{extension}}
   description: >
     Variable::Magic perl module. Associate user-defined magic to variables from Perl.
-  rpm: !include rpm.extras.yaml

@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Time::Local Perl module 
+  name: Time-Local
+  version: "1.30"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/{{name}}-{{version}}.{{extension}}
+  description: >
+    Time::Local perl module. Efficiently compute time from local and GMT time

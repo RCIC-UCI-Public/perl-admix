@@ -3,7 +3,6 @@
 - package: Dist::CheckConflicts Perl module 
   name: Dist-CheckConflicts
   version: "0.11"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DO/DOY/Dist-CheckConflicts-0.11.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DO/DOY/{{name}}-{{version}}.{{extension}}
   description: >
     Dist::CheckConflicts perl module. declare version conflicts for your dist
-  rpm: !include rpm.extras.yaml

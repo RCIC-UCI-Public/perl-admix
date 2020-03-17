@@ -3,7 +3,6 @@
 - package: Encode::Locale Perl module 
   name: Encode-Locale
   version: "1.05"
-  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/Encode-Locale-1.05.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/{{name}}-{{version}}.{{extension}}
   description: >
     Encode::Locale perl module. Determine the locale encoding
-  rpm: !include rpm.extras.yaml

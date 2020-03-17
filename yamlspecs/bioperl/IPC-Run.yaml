@@ -7,5 +7,4 @@
   description: >
     IPC::Run perl module. system() and background procs w/ piping, redirs, ptys (Unix, Win32)
   filter_requires:
-    - -e '/perl(Win32/d'
-  rpm: !include rpm.extras.yaml
+     - -e '/perl(Win32/d'

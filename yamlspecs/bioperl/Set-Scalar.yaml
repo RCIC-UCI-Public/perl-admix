@@ -6,4 +6,3 @@
   vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DAVIDO/{{name}}-{{version}}.{{extension}}
   description: >
     Set::Scalar perl module. basic set operations
-  rpm: !include rpm.extras.yaml

@@ -12,4 +12,3 @@
     perl_5.30.0(XML::SAX::PurePerl::DTDDecls) \
     perl_5.30.0(XML::SAX::PurePerl::EncodingDetect) \
     perl_5.30.0(XML::SAX::PurePerl::XMLDecl) '
-  rpm: !include rpm.extras.yaml

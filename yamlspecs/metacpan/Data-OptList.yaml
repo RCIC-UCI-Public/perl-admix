@@ -3,7 +3,6 @@
 - package: Data::OptList Perl module 
   name: Data-OptList
   version: "0.110"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Data-OptList-0.110.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
   description: >
     Data::OptList perl module. parse and validate simple name/value option pairs
-  rpm: !include rpm.extras.yaml

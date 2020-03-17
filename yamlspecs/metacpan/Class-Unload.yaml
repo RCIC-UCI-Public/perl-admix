@@ -3,7 +3,6 @@
 - package: Class::Unload Perl module 
   name: Class-Unload
   version: "0.11"
-  vendor_source: https://cpan.metacpan.org/authors/id/I/IL/ILMARI/Class-Unload-0.11.tar.gz
+  vendor_source: https://cpan.metacpan.org/authors/id/I/IL/ILMARI/{{name}}-{{version}}.{{extension}}
   description: >
     Class::Unload perl module. Unload a class
-  rpm: !include rpm.extras.yaml

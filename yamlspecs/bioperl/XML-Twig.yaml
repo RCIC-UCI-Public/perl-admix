@@ -8,4 +8,3 @@
     XML::Twig perl module. XML, The Perl Way
   filter_requires:
     - -e '/perl(xml_split::state)/d'
-  rpm: !include rpm.extras.yaml
