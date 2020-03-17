@@ -5,13 +5,10 @@
   download_file: "{{name}}-{{version}}.{{extension}}"
   src_tarball: "{{download_file}}"
   pkgname: "perl_{{versions.perl}}-{{name}}"
-
   root: "{{pkg_defaults.app_path}}/perl/{{versions.perl}}"
   prefix: "{{root}}" 
-
   addfile: 
     - listRpmFiles.py
-
   build:
     configure: >
       export PERL_MM_USE_DEFAULT=true; 
@@ -25,7 +22,6 @@
     modules: 
       - "perl/{{versions.perl}}"
     target: 
-
   install:
     makeinstall: >
       if [ -f Makefile.PL ]; then \
@@ -34,8 +30,7 @@
         perl Build; perl Build --destdir=$(ROOT) pure_install; \
       fi ; 
       (cd ..;  python listRpmFiles.py $(ROOT))
-
   fileslist: LISTFILES
-
   requires:
      - perl_{{versions.perl}}
+  rpm: !include rpm.extras.yaml
