@@ -47,7 +47,6 @@
     - perl_{{version}}-ExtUtils-Config
     - perl_{{version}}-ExtUtils-Helpers
     - perl_{{version}}-ExtUtils-InstallPaths
-    - perl_{{version}}-File-chdir
     - perl_{{version}}-File-HomeDir
     - perl_{{version}}-File-Listing
     - perl_{{version}}-File-Which
