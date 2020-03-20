@@ -10,4 +10,4 @@
     - -e '/perl(Mac::Pasteboard)/d' 
     - -e '/perl(Win32::Clipboard)/d' 
     - -e '/perl(Win32)/d' 
-   - -e '/package/d' 
+    - -e '/package/d' 
