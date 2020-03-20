@@ -47,7 +47,7 @@
     - perl_{{version}}-IO-Tty
     - perl_{{version}}-Test-Deep
     - perl_{{version}}-YAML
-    - perl_{{version}}-IO-stringy
+    - perl_{{version}}-IO-Stringy
     - perl_{{version}}-Mojo-DOM58
     - perl_{{version}}-XML-SAX-Writer
     - perl_{{version}}-Alien-Build
