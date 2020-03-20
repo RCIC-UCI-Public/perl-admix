@@ -7,8 +7,6 @@
   pkgname: "perl_{{versions.perl}}-{{name}}"
   root: "{{pkg_defaults.app_path}}/perl/{{versions.perl}}"
   prefix: "{{root}}" 
-  addfile: 
-    - listRpmFiles.py
   build:
     configure: >
       export PERL_MM_USE_DEFAULT=true; 
@@ -30,7 +28,7 @@
         perl Build; perl Build --destdir=$(ROOT) pure_install; \
       fi ; 
       (cd ..;  python listRpmFiles.py $(ROOT))
-  fileslist: LISTFILES
+  files: "{{root}}"
   requires:
      - perl_{{versions.perl}}
   rpm: !include rpm.extras.yaml
