@@ -1,8 +1,0 @@
-!include common.yaml
----
-- package: Encode Perl module 
-  name: Encode
-  version: "3.04"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DANKOGAI/{{name}}-{{version}}.{{extension}}
-  description: >
-    Encode perl module. character encodings in Perl
