@@ -41,7 +41,6 @@
     - perl_{{version}}-Devel-OverrideGlobalRequire
     - perl_{{version}}-Digest-HMAC
     - perl_{{version}}-Dist-CheckConflicts
-    - perl_{{version}}-Encode
     - perl_{{version}}-Encode-Locale
     - perl_{{version}}-Eval-Closure
     - perl_{{version}}-Exporter-Tiny
@@ -64,7 +63,6 @@
     - perl_{{version}}-HTTP-Negotiate
     - perl_{{version}}-IO-HTML
     - perl_{{version}}-IO-Socket-SSL
-    - perl_{{version}}-IO-Stringy
     - perl_{{version}}-Jcode
     - perl_{{version}}-JSON-MaybeXS
     - perl_{{version}}-libwww-perl
@@ -104,7 +102,6 @@
     - perl_{{version}}-Sub-Quote
     - perl_{{version}}-TermReadKey
     - perl_{{version}}-TimeDate
-    - perl_{{version}}-Time-Local
     - perl_{{version}}-Try-Tiny
     - perl_{{version}}-Type-Tiny
     - perl_{{version}}-Unicode-Map
