@@ -4,6 +4,7 @@
   name: perl
   versions: !include versions.yaml 
   version: "{{versions.perl}}"
+  version_tarsources: "{{versions.tarsources}}"
   vendor_source: https://www.cpan.org/src/5.0/{{name}}-{{version}}.{{extension}}
   pkgname: "{{name}}_{{version}}"
   description: >

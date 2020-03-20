@@ -11,6 +11,7 @@ include $(YAML2RPM_HOME)/sys/Makefile
 # generic settings
 SHELL = /bin/bash
 PERLVER = $(shell $(GENERATE) --query=version perl.yaml)
+SRCVER = $(shell $(GENERATE) --query=version_tarsources perl.yaml)
 BOOTSTRAP_MODULES_FILE = modules.bootstrap
 BUILD_MODULES_FILE = modules.build
 MANIFEST_FILE = modules.manifest
@@ -37,8 +38,8 @@ default: prepdownload MyConfig.pm modules.manifest base bio
 
 prepdownload:
 	(cd ../sources; \
-	tar xvf sources-bioperl.tar.gz; \
-	tar xvf sources-metacpan.tar.gz)
+	tar xvf sources-bioperl-$(SRCVER).tar.gz; \
+	tar xvf sources-metacpan-$(SRCVER).tar.gz)
 
 modules.manifest: 
 	/bin/rm -f $(MANIFEST_FILE)
