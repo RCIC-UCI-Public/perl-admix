@@ -88,3 +88,6 @@ TimeDate
 Parse-RecDescent
 Unicode-Map
 Spreadsheet-WriteExcel
+Text-Template-Simple
+Sys-Info-Base
+Sys-Info

@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Sys::Info Perl module 
+  name: Sys-Info
+  version: "0.7811"
+  vendor_source: https://cpan.metacpan.org/authors/id/B/BU/BURAK/{{name}}-{{version}}.{{extension}}
+  description: >
+    Sys::Info perl module. Fetch information from the host system

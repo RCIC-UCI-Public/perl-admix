@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Text::Template::Simple Perl module 
+  name: Text-Template-Simple
+  version: "0.91"
+  vendor_source: https://cpan.metacpan.org/authors/id/B/BU/BURAK/{{name}}-{{version}}.{{extension}}
+  description: >
+    Text::Template::Simple perl module. Simple text template engine
