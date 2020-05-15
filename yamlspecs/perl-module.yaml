@@ -3,6 +3,3 @@
 ---
 - package: Perl module
   category: LANGUAGES
-  requires:
-    - perl_{{versions.perl}}
-    - rcic-module-support

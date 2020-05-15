@@ -1,12 +1,11 @@
+!include rcic-package.yaml
 ---
 - category: perl module
   versions: !include versions.yaml 
-  extension: tar.gz
   download_file: "{{name}}-{{version}}.{{extension}}"
   src_tarball: "{{download_file}}"
-  pkgname: "perl_{{versions.perl}}-{{name}}"
+  baserpm: "perl_{{versions.perl}}-{{name}}"
   root: "{{pkg_defaults.app_path}}/perl/{{versions.perl}}"
-  prefix: "{{root}}" 
   build:
     configure: >
       export PERL_MM_USE_DEFAULT=true; 
