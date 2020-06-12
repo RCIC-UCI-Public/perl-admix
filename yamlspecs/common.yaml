@@ -1,4 +1,5 @@
 !include rcic-package.yaml
+!include rpm.yaml
 ---
 - category: perl module
   versions: !include versions.yaml 
@@ -30,4 +31,4 @@
   files: "{{root}}"
   requires:
      - perl_{{versions.perl}}
-  rpm: !include rpm.extras.yaml
+  rpmFilters: *Perl
