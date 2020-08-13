@@ -120,7 +120,10 @@ class ModInfo(object):
         self.name        = data['distribution'] # notation where "::" is changed to "-"
         self.provides    = data['provides']
         self.download    = data['download_url']
-        description = re.sub("`", "'", data['abstract']) # rm back single quote, they break RPM build
+        try: 
+            description = re.sub("`", "'", data['abstract']) # rm back single quote, they break RPM build
+        except:
+            description = "Lazy perl programmers did not bother to make one"
 
         # rm unicode characters
         try:
