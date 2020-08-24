@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Digest::SHA1 Perl module 
+  name: Digest-SHA1
+  version: "2.13"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/{{name}}-{{version}}.{{extension}}
+  description: >
+    Digest::SHA1 perl module. Perl interface to the SHA-1 algorithm

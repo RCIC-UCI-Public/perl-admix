@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Bio::DB::EMBL Perl module 
+  name: Bio-DB-EMBL
+  version: "1.7.4"
+  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/{{name}}-{{version}}.{{extension}}
+  description: >
+    Bio::DB::EMBL perl module. Database object interface for EMBL entry retrieval

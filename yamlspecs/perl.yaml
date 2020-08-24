@@ -5,7 +5,9 @@
   name: perl
   versions: !include versions.yaml 
   version: "{{versions.perl}}"
-  version_tarsources: "{{versions.tarsources}}"
+  bioperl_tarsources: "{{versions.bioperl_tarsources}}"
+  metacpan_tarsources: "{{versions.metacpan_tarsources}}"
+  genomics_tarsources: "{{versions.genomics_tarsources}}"
   vendor_source: https://www.cpan.org/src/5.0/{{name}}-{{version}}.{{extension}}
   description: >
     Perl Programming Language version {{version}}

@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: IPC::ShareLite Perl module 
+  name: IPC-ShareLite
+  version: "0.17"
+  vendor_source: https://cpan.metacpan.org/authors/id/A/AN/ANDYA/{{name}}-{{version}}.{{extension}}
+  description: >
+    IPC::ShareLite perl module. Lightweight interface to shared memory

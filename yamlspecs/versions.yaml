@@ -1,4 +1,6 @@
 # for boostrap installing perl and modules in metacpan/
 ---
 perl: "5.30.0"
-tarsources: "202003"
+bioperl_tarsources: "202003"
+metacpan_tarsources: "202003"
+genomics_tarsources: "202008"

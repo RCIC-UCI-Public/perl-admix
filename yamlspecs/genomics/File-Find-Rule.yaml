@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: File::Find::Rule Perl module 
+  name: File-Find-Rule
+  version: "0.34"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/{{name}}-{{version}}.{{extension}}
+  description: >
+    File::Find::Rule perl module. command line wrapper to File::Find::Rule

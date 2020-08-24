@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Params::ValidationCompiler Perl module 
+  name: Params-ValidationCompiler
+  version: "0.30"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/{{name}}-{{version}}.{{extension}}
+  description: >
+    Params::ValidationCompiler perl module. Build an optimized subroutine parameter validator once, use it forever

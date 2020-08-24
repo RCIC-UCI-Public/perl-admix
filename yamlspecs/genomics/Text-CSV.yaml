@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Text::CSV Perl module 
+  name: Text-CSV
+  version: "2.00"
+  vendor_source: https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/{{name}}-{{version}}.{{extension}}
+  description: >
+    Text::CSV perl module. comma-separated values manipulator (using XS or PurePerl)

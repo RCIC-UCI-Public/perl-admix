@@ -1,0 +1,63 @@
+!include common.yaml
+---
+- package: Basic perl modules to support genomics applications
+  name: baseline-genomics
+  version: "{{versions.perl}}"
+  no_src_dir: true
+  description: |
+    Perl {{version}} and its general modules to enable
+    basic prerequisites  for genomics applications
+  addfile: 
+    - README.genomics
+  install:
+    makeinstall: >
+      cp README.genomics $(ROOT)/$(PKGROOT)
+  rpm:
+  files:
+    - "{{root}}/README*"
+  requires:
+    - rcic-module-support
+    - perl_{{version}}
+    - perl_{{version}}-module
+    - perl_{{version}}-Array-Utils
+    - perl_{{version}}-Bio-ASN1-EntrezGene
+    - perl_{{version}}-Bio-Cluster
+    - perl_{{version}}-Bio-DB-EMBL
+    - perl_{{version}}-Bio-DB-NCBIHelper
+    - perl_{{version}}-Bio-DB-RefSeq
+    - perl_{{version}}-Bio-DB-SwissProt
+    - perl_{{version}}-Bio-Procedural
+    - perl_{{version}}-Bio-Tools-Run-RemoteBlast
+    - perl_{{version}}-Bio-Variation
+    - perl_{{version}}-Cache-Cache
+    - perl_{{version}}-CGI
+    - perl_{{version}}-Devel-OverloadInfo
+    - perl_{{version}}-Digest-MD5-File
+    - perl_{{version}}-Digest-SHA1
+    - perl_{{version}}-Email-Date-Format
+    - perl_{{version}}-File-Find-Rule
+    - perl_{{version}}-File-Grep
+    - perl_{{version}}-File-Slurper
+    - perl_{{version}}-Graph-ReadWrite
+    - perl_{{version}}-IPC-ShareLite
+    - perl_{{version}}-Log-Dispatch
+    - perl_{{version}}-Log-Log4perl
+    - perl_{{version}}-LWP-Protocol-https
+    - perl_{{version}}-Mail-Sender
+    - perl_{{version}}-Mail-Sendmail
+    - perl_{{version}}-MailTools
+    - perl_{{version}}-MIME-Lite
+    - perl_{{version}}-Moose
+    - perl_{{version}}-MRO-Compat
+    - perl_{{version}}-namespace-autoclean
+    - perl_{{version}}-Net-SMTP-SSL
+    - perl_{{version}}-Number-Compare
+    - perl_{{version}}-Package-DeprecationManager
+    - perl_{{version}}-Params-ValidationCompiler
+    - perl_{{version}}-Parse-Yapp
+    - perl_{{version}}-Specio
+    - perl_{{version}}-Sub-Identify
+    - perl_{{version}}-Sub-Name
+    - perl_{{version}}-Test-Fatal
+    - perl_{{version}}-Text-CSV
+    - perl_{{version}}-Text-Glob

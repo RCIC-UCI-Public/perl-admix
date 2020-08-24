@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Devel::OverloadInfo Perl module 
+  name: Devel-OverloadInfo
+  version: "0.005"
+  vendor_source: https://cpan.metacpan.org/authors/id/I/IL/ILMARI/{{name}}-{{version}}.{{extension}}
+  description: >
+    Devel::OverloadInfo perl module. introspect overloaded operators

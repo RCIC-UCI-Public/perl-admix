@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Package::DeprecationManager Perl module 
+  name: Package-DeprecationManager
+  version: "0.17"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/{{name}}-{{version}}.{{extension}}
+  description: >
+    Package::DeprecationManager perl module. Manage deprecation warnings for your distribution

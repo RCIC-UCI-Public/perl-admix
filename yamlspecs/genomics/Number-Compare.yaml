@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Number::Compare Perl module 
+  name: Number-Compare
+  version: "0.03"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/{{name}}-{{version}}.{{extension}}
+  description: >
+    Number::Compare perl module. numeric comparisons

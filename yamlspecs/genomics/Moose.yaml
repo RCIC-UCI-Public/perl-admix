@@ -1,0 +1,10 @@
+!include common.yaml
+---
+- package: Moose Perl module 
+  name: Moose
+  version: "2.2013"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/{{name}}-{{version}}.{{extension}}
+  description: >
+    Moose perl module. A postmodern object system for Perl 5
+  filter_requires:
+    - -e '/perl(Moose::Conflicts)/d' 

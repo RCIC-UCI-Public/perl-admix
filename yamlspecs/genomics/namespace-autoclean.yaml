@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: namespace::autoclean Perl module 
+  name: namespace-autoclean
+  version: "0.29"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/{{name}}-{{version}}.{{extension}}
+  description: >
+    namespace::autoclean perl module. Keep imports out of your namespace

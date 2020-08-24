@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: File::Slurper Perl module 
+  name: File-Slurper
+  version: "0.012"
+  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/{{name}}-{{version}}.{{extension}}
+  description: >
+    File::Slurper perl module. A simple, sane and efficient module to slurp a file

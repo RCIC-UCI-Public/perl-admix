@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Cache::FileCache Perl module 
+  name: Cache-Cache
+  version: "1.08"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  description: >
+    Cache::FileCache perl module. extends Cache::SizeAwareMemoryCache

@@ -1,0 +1,13 @@
+!include common.yaml
+---
+- package: Log::Log4perl Perl module 
+  name: Log-Log4perl
+  version: "1.50"
+  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETJ/{{name}}-{{version}}.{{extension}}
+  description: >
+    Log::Log4perl perl module. Log4j implementation for Perl
+  filter_requires:
+    - -e '/perl(RRDs)/d' 
+    - -e '/perl(DBI)/d' 
+    - -e '/\/usr/d' 
+    - -e '/perl(Log::Dispatch::FileRotate)/d'

@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Specio::Library::String Perl module 
+  name: Specio
+  version: "0.46"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/{{name}}-{{version}}.{{extension}}
+  description: >
+    Specio::Library::String perl module. Type constraints and coercions for Perl

@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Net::SMTP::SSL Perl module 
+  name: Net-SMTP-SSL
+  version: "1.04"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  description: >
+    Net::SMTP::SSL perl module. SSL support for Net::SMTP

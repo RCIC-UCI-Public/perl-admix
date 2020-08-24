@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Parse::Yapp::Driver Perl module 
+  name: Parse-Yapp
+  version: "1.21"
+  vendor_source: https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/{{name}}-{{version}}.{{extension}}
+  description: >
+    Parse::Yapp::Driver perl module. A perl frontend to the Parse::Yapp module

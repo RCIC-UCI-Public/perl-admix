@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Test::Fatal Perl module 
+  name: Test-Fatal
+  version: "0.014"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  description: >
+    Test::Fatal perl module. incredibly simple helpers for testing code with exceptions

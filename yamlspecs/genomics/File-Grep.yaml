@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: File::Grep Perl module 
+  name: File-Grep
+  version: "0.02"
+  vendor_source: https://cpan.metacpan.org/authors/id/M/MN/MNEYLON/{{name}}-{{version}}.{{extension}}
+  description: >
+    File::Grep perl module. Find matches to a pattern in a series of files and related functions

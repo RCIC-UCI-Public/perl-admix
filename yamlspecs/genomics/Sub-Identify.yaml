@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Sub::Identify Perl module 
+  name: Sub-Identify
+  version: "0.14"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RG/RGARCIA/{{name}}-{{version}}.{{extension}}
+  description: >
+    Sub::Identify perl module. Retrieve names of code references

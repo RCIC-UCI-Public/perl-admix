@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Mail::Sendmail Perl module 
+  name: Mail-Sendmail
+  version: "0.80"
+  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/{{name}}-{{version}}.{{extension}}
+  description: >
+    Mail::Sendmail perl module. Simple platform independent mailer

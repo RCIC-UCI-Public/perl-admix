@@ -1,0 +1,5 @@
+The perl_@VERSION@-baseline-genomics RPM installs prerequisite
+perl modules for roary. Together, they provide basic funcitonality. The list below 
+shows modules with their versions that are are installed via their own RPMS.
+The rpm naming schema is perl_@VERSION@-MODNAME-MODVERSION.
+

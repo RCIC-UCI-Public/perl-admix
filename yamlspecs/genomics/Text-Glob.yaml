@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Text::Glob Perl module 
+  name: Text-Glob
+  version: "0.11"
+  vendor_source: https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/{{name}}-{{version}}.{{extension}}
+  description: >
+    Text::Glob perl module. match globbing patterns against text
