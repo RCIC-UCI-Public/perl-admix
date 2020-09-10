@@ -166,7 +166,10 @@ genomicserase: genomicsclean
 MyConfig.pm: MyConfig.pm.in
 	sed 's%/root/%$(PWD)/%g' MyConfig.pm.in > MyConfig.pm
 
-desired-yaml: desired
+sysperl:
+	module load perl; cpan -l > sysperl
+
+desired-yaml: desired sysperl
 	module load perl; python depend.py desired
 
 desired-download:
