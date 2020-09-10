@@ -35,6 +35,7 @@
     - perl_{{version}}-Digest-MD5-File
     - perl_{{version}}-Digest-SHA1
     - perl_{{version}}-Email-Date-Format
+    - perl_{{version}}-File-Copy-Recursive
     - perl_{{version}}-File-Find-Rule
     - perl_{{version}}-File-Grep
     - perl_{{version}}-File-Slurper

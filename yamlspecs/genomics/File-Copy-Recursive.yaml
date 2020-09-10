@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: File::Copy::Recursive Perl module 
+  name: File-Copy-Recursive
+  version: "0.45"
+  vendor_source: https://cpan.metacpan.org/authors/id/D/DM/DMUEY/{{name}}-{{version}}.{{extension}}
+  description: >
+    File::Copy::Recursive perl module. Perl extension for recursively copying files and directories

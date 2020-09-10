@@ -40,3 +40,4 @@ Package-DeprecationManager
 Moose
 Graph-ReadWrite
 File-Find-Rule
+File-Copy-Recursive

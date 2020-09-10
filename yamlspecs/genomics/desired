@@ -17,3 +17,4 @@ Moose::Role
 Text::CSV
 Devel::OverloadInfo
 Digest::MD5::File
+File::Copy::Recursive
