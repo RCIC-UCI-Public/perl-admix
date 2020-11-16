@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: XML::Simple Perl module 
+  name: XML-Simple
+  version: "2.25"
+  vendor_source: https://cpan.metacpan.org/authors/id/G/GR/GRANTM/{{name}}-{{version}}.{{extension}}
+  description: >
+    XML::Simple perl module. An API for simple XML files

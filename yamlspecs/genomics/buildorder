@@ -41,3 +41,6 @@ Moose
 Graph-ReadWrite
 File-Find-Rule
 File-Copy-Recursive
+XML-SAX-Expat
+HTML-Template
+XML-Simple

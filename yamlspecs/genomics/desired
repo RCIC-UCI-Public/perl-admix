@@ -18,3 +18,5 @@ Text::CSV
 Devel::OverloadInfo
 Digest::MD5::File
 File::Copy::Recursive
+HTML::Template
+XML::Simple
