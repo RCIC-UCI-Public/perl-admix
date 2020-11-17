@@ -2,7 +2,7 @@
 ---
 - package: Basic perl modules to support genomics applications
   name: baseline-genomics
-  release: 2
+  release: 3
   version: "{{versions.perl}}"
   no_src_dir: true
   description: |
