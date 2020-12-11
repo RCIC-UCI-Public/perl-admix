@@ -1,0 +1,8 @@
+!include common.yaml
+---
+- package: Statistics::Descriptive Perl module 
+  name: Statistics-Descriptive
+  version: "3.0800"
+  vendor_source: https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/{{name}}-{{version}}.{{extension}}
+  description: >
+    Statistics::Descriptive perl module. Module of basic descriptive statistical functions.
