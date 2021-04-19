@@ -71,3 +71,5 @@
     - perl_{{version}}-MLDBM
     - perl_{{version}}-Data-Stag
     - perl_{{version}}-BioPerl
+    - perl_{{version}}-Statistics-Descriptive
+
