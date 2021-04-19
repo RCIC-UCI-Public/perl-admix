@@ -6,3 +6,6 @@
   vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/{{name}}-{{version}}.{{extension}}
   description: >
     Module::Build::Tiny perl module. A tiny replacement for Module::Build
+  install:
+    makeinstall: >
+        ./Build build; ./Build install --destdir=$(ROOT)
