@@ -49,10 +49,10 @@ modules.manifest:
 	/bin/rm -f $(MANIFEST_FILE)
 	cat modules.bootstrap.base > $(MANIFEST_FILE)
 	for name in $(GROUPS); do \
-	    cat $$name/buildorder >> $(MANIFEST_FILE); \
-	    echo baseline-$$name >> $(MANIFEST_FILE); \
+	    cat $$name/buildorder | sed  's/^/perl-/' >> $(MANIFEST_FILE); \
+	    echo baseline-$$name  | sed  's/^/perl-/' >> $(MANIFEST_FILE); \
 	done
-	sed -i 's/^/perl_$(PERLVER)-/' modules.manifest
+	sed -i 's/^perl/perl_$(PERLVER)/' modules.manifest
 
 ### all *base* targets are for modules in metacpan/
 README.metacpan: metacpan/README.metacpan.in
@@ -99,7 +99,7 @@ bioprep: README.bioperl
 	/bin/cp bioperl/*yaml .
 
 biodownload: bioprep
-	(cd ../sources; tar xvf sources-metacpan-$(BIO_SRCVER).tar.gz)
+	(cd ../sources; tar xvf sources-bioperl-$(BIO_SRCVER).tar.gz)
 	for name in $(BIO); do \
 	    distro=$$($(GENERATE) --query=tarball $$name.yaml);	\
 	    echo "Checking if need to download $$distro "; \
