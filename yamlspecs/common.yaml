@@ -26,8 +26,7 @@
         $(MAKE); $(MAKE) DESTDIR=$(ROOT) pure_install; \
       elif [ -f Build.PL ]; then \
         perl Build; perl Build --destdir=$(ROOT) pure_install; \
-      fi ; 
-      (cd ..;  python listRpmFiles.py $(ROOT))
+      fi
   files: "{{root}}"
   requires:
      - perl_{{versions.perl}}

@@ -407,8 +407,6 @@ class BuildDepend(object):
             #txt += self.writeAddFiles(pkg.name)
             #txt += self.writePrereqs(mod)
 
-            #FIXME name: need to change auto- ?
-            #prefname = "auto-" + name
             prefname = name
             order += "%s\n" % prefname
             print ("Writing %s.yaml" % prefname)

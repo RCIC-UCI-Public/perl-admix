@@ -8,5 +8,4 @@
     FreezeThaw perl module. converting Perl structures to strings and back.
   install:
     makeinstall: >
-      $(MAKE); sed -i '1,/=cut/d' blib/lib/FreezeThaw.pm; $(MAKE) DESTDIR=$(ROOT) pure_install; 
-      (cd ..;  python listRpmFiles.py $(ROOT))
+      $(MAKE); sed -i '1,/=cut/d' blib/lib/FreezeThaw.pm; $(MAKE) DESTDIR=$(ROOT) pure_install
