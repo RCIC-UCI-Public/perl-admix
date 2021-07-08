@@ -14,8 +14,6 @@
   build:
     configure: ./Configure
     configure_args: -des -Dprefix=$(PKGROOT) -Dusethreads -Duseshrplib
-    modules: ""
-    target: 
   install:
     makeinstall: $(MAKE); $(MAKE) DESTDIR=$(ROOT) install 
   filter_requires:

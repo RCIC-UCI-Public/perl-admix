@@ -16,10 +16,8 @@
         perl Build.PL --prefix=$(PKGROOT); \
       fi; \
       unset PERL_MM_USE_DEFAULT
-    configure_args:
     modules: 
       - "perl/{{versions.perl}}"
-    target: 
   install:
     makeinstall: >
       if [ -f Makefile.PL ]; then \
