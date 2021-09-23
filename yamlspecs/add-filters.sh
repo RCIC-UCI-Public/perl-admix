@@ -30,7 +30,7 @@ createFilter ()
     fname=$BDIR/filter-$ftype-$NAME.sh  # filter file name to write
 
     # check package yaml for directives
-    add=`$COMMAND --query=filter_$ftype -l ' ' $PKGYAML`      
+    add=`$COMMAND --query=filter_$ftype $PKGYAML`      
     if [ "x$add" == "xFalse" ]; then # use defauts
         [ $ftype == "requires" ] && add=$default_requires || add=$default_provides
     else # use directives
