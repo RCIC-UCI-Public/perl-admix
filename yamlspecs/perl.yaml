@@ -25,3 +25,6 @@
     - -e '/perl(Mac::InternetConfig)/d' 
     - -e '/perl(Mac::BuildTools)/d' 
   rpmFilters: *filterPerl
+
+  provides:
+    - perl_{{version}}(:VERSION) = {{version}}
