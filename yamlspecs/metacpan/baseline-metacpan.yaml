@@ -12,7 +12,6 @@
   install:
     makeinstall: >
       cp README.metacpan $(ROOT)/$(PKGROOT)
-  rpm:
   files:
     - "{{root}}/README*"
   requires:
@@ -95,6 +94,7 @@
     - perl_{{version}}-Safe-Isa
     - perl_{{version}}-Sort-Naturally
     - perl_{{version}}-Spreadsheet-WriteExcel
+    - perl_{{version}}-String-ShellQuote
     - perl_{{version}}-Sub-Exporter
     - perl_{{version}}-Sub-Exporter-Progressive
     - perl_{{version}}-Sub-Install
