@@ -32,6 +32,7 @@ YAML-LibYAML
 Sub-Quote
 Carp-Assert
 LWP-MediaTypes
+Shell-StringQuote
 App-cpanminus
 Exporter-Tiny
 Devel-OverrideGlobalRequire
