@@ -6,3 +6,7 @@
   vendor_source: https://cpan.metacpan.org/authors/id/B/BU/BURAK/{{name}}-{{version}}.{{extension}}
   description: >
     Sys::Info::Base perl module. Base class for Sys::Info
+  provides:
+    - perl_{{versions.perl}}(Sys::Info::Base)
+    - perl_{{versions.perl}}(Sys::Info::Constants)
+    - perl_{{versions.perl}}(TARGET_CLASS)
