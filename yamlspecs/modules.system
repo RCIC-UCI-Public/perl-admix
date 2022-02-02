@@ -10,5 +10,5 @@ libjpeg-turbo-devel
 libpng-devel
 libX11-devel
 libXpm-devel
-libz-devel
+zlib-devel
 libxslt-devel

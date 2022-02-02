@@ -12,7 +12,6 @@
   install:
     makeinstall: >
       cp README.bioperl $(ROOT)/$(PKGROOT)
-  rpm:
   files:
     - "{{root}}/README*"
   requires:

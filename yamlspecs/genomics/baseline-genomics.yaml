@@ -13,7 +13,6 @@
   install:
     makeinstall: >
       cp README.genomics $(ROOT)/$(PKGROOT)
-  rpm:
   files:
     - "{{root}}/README*"
   requires:
