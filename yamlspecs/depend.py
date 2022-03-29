@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
+from builtins import object
 import sys
 import os
 import subprocess
@@ -11,7 +13,8 @@ YAMLTEMPLATE="""!include common.yaml
 ---
 - package: %s Perl module 
   name: %s
-  version: "%s"
+  version: "{{versions.%s}}"
+  loc: "{{versions.%s}}"
   vendor_source: %s
   description: >
     %s perl module. %s
@@ -95,7 +98,8 @@ class ModInfo(object):
         '''Parse the output of the perl command '''
         #print ("DEBUG workling on ", self.perlname)
         p = subprocess.Popen( self.cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        (output, error) = p.communicate()
+        (outputB, error) = p.communicate()
+        output = outputB.decode('utf-8')
 
         # discard perl "blessed" part that has illegal !! in yaml
         # leave only what we need to process
@@ -104,6 +108,7 @@ class ModInfo(object):
 
         if error: #FIXME
             print (error)
+            sys.exit(1)
 
         info = yaml.load(output)
         data = info['data']
@@ -129,6 +134,7 @@ class ModInfo(object):
         try:
             # python 3
             self.description = description.encode('ascii', 'ignore') 
+            self.description = self.description.decode('utf-8')
         except:
             # python 2
             self.description = description.decode('unicode_escape').encode('ascii','ignore')
@@ -156,32 +162,32 @@ class ModInfo(object):
             #rPrereqs = phase1.copy()
             #rPrereqs.update(phase2)
             rPrereqs = prereqs['runtime']['requires']
-	except:
+        except:
             rPrereqs = {}
 
         self.prereqs = cPrereqs.copy()
         self.prereqs.update(rPrereqs)
-        #print ("DEBUG HERE", self.name, self.prereqs.keys())
+        #print ("DEBUG", self.name, self.prereqs.keys())
 
     def updatePrereqs(self, syspkgs):
         ''' check against the list of system modules and update prerequisites '''
-        instnames = syspkgs.keys()  # names of system perl modules currently avail 
+        instnames = list(syspkgs.keys())  # names of system perl modules currently avail 
 
         # rm perl from prereqs
-        if 'perl' in self.prereqs.keys():
+        if 'perl' in list(self.prereqs.keys()):
             self.prereqs.pop('perl')
 
         # check module prereqs vs system installed 
-        for k in self.prereqs.keys():
-	    if k in instnames:
+        for k in list(self.prereqs.keys()):
+            if k in instnames:
                if self.prereqs[k] < syspkgs[k]: 
                    del self.prereqs[k] # system installed version is sufficient, rm module from prereqs
 
     def updatePrereqsMap(self, mmap):
         ''' update prereqs according to the names in mmap '''
-        mapkeys = mmap.keys()
+        mapkeys = list(mmap.keys())
         result = {}
-        for k, v in self.prereqs.items():
+        for k, v in list(self.prereqs.items()):
             if k in mapkeys:
                 modname, modversion = mmap[k]
                 result[modname] = modversion # use updated name/version
@@ -259,7 +265,7 @@ class BuildDepend(object):
         f = open(fname)
         txt = f.read()
         f.close()
-        lines = txt.decode('utf-8').splitlines()
+        lines = txt.splitlines()
         return (lines)
 
     def getDesiredList(self):
@@ -297,7 +303,7 @@ class BuildDepend(object):
         dict2 = self.depends     # current collected dependencies
         # this does not work in python2
         #result = {key: dict1.get(key, 0) if dict1.get(key, 0) > dict2.get(key, 0) else dict2.get(key,0) for key in set(dict1) | set(dict2)}
-        for k,v in dict1.items():
+        for k,v in list(dict1.items()):
             if k in self.depends: 
                 if self.depends[k] < v:
                     self.depends[k] = v  
@@ -312,7 +318,7 @@ class BuildDepend(object):
     def createMap(self):
         # remap desired modules names according to their main modules 
         self.namemap = {}
-        modnames = self.desired.keys()
+        modnames = list(self.desired.keys())
         result = {}
         for m in modnames:
             mod = self.desired[m]
@@ -331,24 +337,24 @@ class BuildDepend(object):
         if self.namemap == {}:
             return
         
-        for k in self.desired.keys():
+        for k in list(self.desired.keys()):
             mod = self.desired[k]
             mod.updatePrereqsMap(self.namemap)
 
     def allPrereqs(self):
         self.getPrereqs(self.modnames)
-        modnames = self.depends.keys()
+        modnames = list(self.depends.keys())
         # get cpan info on all prereqs till all are accounted 
         while len(modnames):
             self.getPrereqs(modnames)
-            modnames = [x for x in self.depends.keys() if x not in self.desired.keys()]
+            modnames = [x for x in list(self.depends.keys()) if x not in list(self.desired.keys())]
 
         # create mapping for renaming modules and rename all prereqs
         self.createMap()
         self.mapPrereqs()
 
     def printInfo(self):
-        for k,v in self.namemap.items():
+        for k,v in list(self.namemap.items()):
             print ("MAP", k, v)
 
         #print ("modnames", len (self.modnames), "prereqs=", len(self.depends), "desired=", len(self.desired)) 
@@ -357,7 +363,7 @@ class BuildDepend(object):
         pass
 
     def createNodes(self):
-        for k in self.desired.keys():
+        for k in list(self.desired.keys()):
             self.nodes.append(Node(k))
 
         # make a  master Node to and add all edges to it to make sure that the dependency graph is connected
@@ -368,9 +374,9 @@ class BuildDepend(object):
             deps = self.desired[node.name].getPrereqs()
             if not deps:
                 resolved.append(node)
-            print ("DEBUG NODE prereqs ", node.name, deps)
+            #print ("DEBUG NODE prereqs ", node.name, deps)
             try:
-                edges = filter(lambda x: x.name in deps, self.nodes)
+                edges = [x for x in self.nodes if x.name in deps]
                 for edge in edges:
                     node.addEdge(edge)
                     #DEBUG print ("    add EDGE", edge.name)
@@ -385,37 +391,53 @@ class BuildDepend(object):
 
     def writeYaml(self):
         #self.checkFilters()
-        fo = open("buildorder","w")
-        order = ""
-        
+        order = ""     # for writing build order
+        versions = ""  # for writing versions info
+
         for pkg in self.resolved[:-1]: # dont look at the 'root' node
             mod = self.desired[pkg.name]
             name, perlname = mod.getName()
             version = mod.getVersion()
             fullUrl = mod.getDownload()
             i = fullUrl.rfind("/") + 1
+            i0 = fullUrl.rfind("authors/id/") + len("authors/id/")
+            loc = fullUrl[i0:i-1]
             distrofile = fullUrl[i:]
             schemaname = "%s-%s.tar.gz" % (name, version)
             if  distrofile == schemaname:
-                url = fullUrl[:i] + "{{name}}-{{version}}.{{extension}}"
+                url = fullUrl[:i0] + "{{loc}}/{{name}}-{{version}}.{{extension}}"
             else:
                 url = fullUrl
-            txt = YAMLTEMPLATE % (perlname, name, version, url, perlname, mod.getDescription())
             
             # Next 2 were for previous filter writing. Currently, filters are
             # added in the yaml afterwards, there is no way to automate the addition
             #txt += self.writeAddFiles(pkg.name)
             #txt += self.writePrereqs(mod)
 
-            prefname = name
-            order += "%s\n" % prefname
-            print ("Writing %s.yaml" % prefname)
-            f = open('%s.yaml' % prefname, "w")
+            order += "  - %s\n" % name
+
+            # create names to put in versions-bootstrap
+            vname = name.replace("-","_")
+            vname_loc = vname + "_loc"
+            versions += "%s: \"%s\"\n" % (vname,version)
+            versions += "%s: \"%s\"\n" % (vname_loc,loc)
+
+            print ("Writing %s.yaml" % name)
+            f = open('%s.yaml' % name, "w")
+            txt = YAMLTEMPLATE % (perlname, name, vname, vname_loc, url, perlname, mod.getDescription())
             f.write(txt)
             f.close()
 
+        # file with build order
+        fo = open("buildorder","w")
         fo.write(order)
         fo.close()
+
+        # file with versions and location in cpan for url
+        fv = open("versions-bootstrap","w")
+        fv.write(versions)
+        fv.close()
+
 
     def writeVersions(self):
         verfile=open("versions-desired","w")
@@ -438,7 +460,7 @@ class BuildDepend(object):
         ''' write prerequisites modules if any '''
         # add perl as a requirement to all yaml files
         txt = "  requires:\n    - perl_{{versions.perl}}\n" 
-        for i in mod.getPrereqs().keys():
+        for i in list(mod.getPrereqs().keys()):
             txt += "    - perl_{{versions.perl}}-%s\n" % i.replace("::","-")
 
         return (txt)
@@ -449,8 +471,8 @@ class BuildDepend(object):
         name = fullname.replace("::","-")
         txt = ""
         rpmtxt = ""
-        p = filter(lambda x: name in x, self.filterProvides)
-        r = filter(lambda x: name in x, self.filterRequires)
+        p = [x for x in self.filterProvides if name in x]
+        r = [x for x in self.filterRequires if name in x]
 
         if p or r:
             txt = "  addfile:\n    - listRpmFiles.py\n" + txt
@@ -477,14 +499,14 @@ class BuildDepend(object):
     def checkFilters(self):
         # check provides filters available
         fp = glob.glob('filter-provides*.sh.in')
-        fp = list(map(lambda x: x.replace('.in',''),fp))
-        self.filterProvides = filter(lambda x: 'perl' not in x, fp)
+        fp = list([x.replace('.in','') for x in fp])
+        self.filterProvides = [x for x in fp if 'perl' not in x]
         self.defaultProvides = 'filter-provides-perlmodules.sh'
 
         # check requires filters available
         fr = glob.glob('filter-requires*.sh.in')
-        fr = list(map(lambda x: x.replace('.in',''),fr))
-        self.filterRequires = filter(lambda x: 'perl' not in x, fr)
+        fr = list([x.replace('.in','') for x in fr])
+        self.filterRequires = [x for x in fr if 'perl' not in x]
         self.defaultRequires = 'filter-requires-perlmodules.sh'
 
     def run(self):
