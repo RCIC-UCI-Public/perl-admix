@@ -2,7 +2,8 @@
 ---
 - package: Bio::DB::RefSeq Perl module 
   name: Bio-DB-RefSeq
-  version: "1.7.4"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Bio_DB_RefSeq}}"
+  loc: "{{versions.Bio_DB_RefSeq_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Bio::DB::RefSeq perl module. Database object interface for RefSeq retrieval

@@ -2,7 +2,8 @@
 ---
 - package: Class::Method::Modifiers Perl module 
   name: Class-Method-Modifiers
-  version: "2.13"
-  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Class_Method_Modifiers}}"
+  loc: "{{versions.Class_Method_Modifiers_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Class::Method::Modifiers perl module. Provides Moose-like method modifiers

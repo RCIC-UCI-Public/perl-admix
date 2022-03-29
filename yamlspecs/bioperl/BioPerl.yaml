@@ -2,7 +2,8 @@
 ---
 - package: BioPerl Perl module 
   name: BioPerl
-  version: "1.7.7"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.BioPerl}}"
+  loc: "{{versions.BioPerl_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     BioPerl perl module. Perl modules for biology

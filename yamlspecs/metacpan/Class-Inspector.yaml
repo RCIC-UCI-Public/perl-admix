@@ -2,7 +2,8 @@
 ---
 - package: Class::Inspector Perl module 
   name: Class-Inspector
-  version: "1.36"
-  vendor_source: https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Class_Inspector}}"
+  loc: "{{versions.Class_Inspector_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Class::Inspector perl module. Get information about a class and its structure

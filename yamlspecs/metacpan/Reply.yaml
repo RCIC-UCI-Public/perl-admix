@@ -2,7 +2,8 @@
 ---
 - package: Reply Perl module 
   name: Reply
-  version: "0.42"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DO/DOY/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Reply}}"
+  loc: "{{versions.Reply_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Reply perl module. read, eval, print, loop, yay!

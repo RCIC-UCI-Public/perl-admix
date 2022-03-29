@@ -2,7 +2,8 @@
 ---
 - package: Test::Most Perl module 
   name: Test-Most
-  version: "0.35"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OV/OVID/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Test_Most}}"
+  loc: "{{versions.Test_Most_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Test::Most perl module. Most commonly needed test functions and features.

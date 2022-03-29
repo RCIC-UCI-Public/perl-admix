@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Class::Load::XS Perl module 
+  name: Class-Load-XS
+  version: "{{versions.Class_Load_XS}}"
+  loc: "{{versions.Class_Load_XS_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
+  description: >
+    Class::Load::XS perl module. XS implementation of parts of Class::Load

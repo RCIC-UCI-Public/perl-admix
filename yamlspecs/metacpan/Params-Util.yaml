@@ -2,7 +2,8 @@
 ---
 - package: Params::Util Perl module 
   name: Params-Util
-  version: "1.07"
-  vendor_source: https://cpan.metacpan.org/authors/id/A/AD/ADAMK/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Params_Util}}"
+  loc: "{{versions.Params_Util_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Params::Util perl module. Simple, compact and correct param-checking functions

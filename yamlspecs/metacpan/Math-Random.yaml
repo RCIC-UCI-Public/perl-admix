@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Math::Random Perl module 
+- package: Math-Random Perl module 
   name: Math-Random
-  version: "0.72"
-  vendor_source: https://cpan.metacpan.org/authors/id/G/GR/GROMMEL/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Math_Random}}"
+  loc: "{{versions.Math_Random_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Math::Random perl module. Random Number Generators
+    Math-Random perl module. Random Number Generators

@@ -2,7 +2,8 @@
 ---
 - package: Safe::Isa Perl module 
   name: Safe-Isa
-  version: "1.000010"
-  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Safe_Isa}}"
+  loc: "{{versions.Safe_Isa_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Safe::Isa perl module. Call isa, can, does and DOES safely on things that may not be objects

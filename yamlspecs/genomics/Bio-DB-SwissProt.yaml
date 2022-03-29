@@ -2,7 +2,8 @@
 ---
 - package: Bio::DB::SwissProt Perl module 
   name: Bio-DB-SwissProt
-  version: "1.7.4"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Bio_DB_SwissProt}}"
+  loc: "{{versions.Bio_DB_SwissProt_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Bio::DB::SwissProt perl module. Database object interface to SwissProt retrieval

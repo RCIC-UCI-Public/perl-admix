@@ -2,7 +2,8 @@
 ---
 - package: XML::Parser Perl module 
   name: XML-Parser
-  version: "2.46"
-  vendor_source: https://cpan.metacpan.org/authors/id/T/TO/TODDR/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_Parser}}"
+  loc: "{{versions.XML_Parser_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::Parser perl module. A perl module for parsing XML documents

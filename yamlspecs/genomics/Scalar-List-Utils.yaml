@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: List::Util Perl module 
+  name: Scalar-List-Utils
+  version: "{{versions.Scalar_List_Utils}}"
+  loc: "{{versions.Scalar_List_Utils_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
+  description: >
+    List::Util perl module. Common Scalar and List utility subroutines

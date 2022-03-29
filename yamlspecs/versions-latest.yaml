@@ -1,0 +1,5 @@
+---
+perl: "5.34.1"
+bioperl_tarsources: "202203"
+metacpan_tarsources: "202203"
+genomics_tarsources: "202203"

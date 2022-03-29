@@ -2,7 +2,8 @@
 ---
 - package: Exception::Class Perl module 
   name: Exception-Class
-  version: "1.44"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Exception_Class}}"
+  loc: "{{versions.Exception_Class_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Exception::Class perl module. A module that allows you to declare real exception classes in Perl

@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Log::Dispatch Perl module 
+- package: Log-Dispatch Perl module 
   name: Log-Dispatch
-  version: "2.70"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Log_Dispatch}}"
+  loc: "{{versions.Log_Dispatch_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Log::Dispatch perl module. Dispatches messages to one or more outputs
+    Log-Dispatch perl module. Dispatches messages to one or more outputs

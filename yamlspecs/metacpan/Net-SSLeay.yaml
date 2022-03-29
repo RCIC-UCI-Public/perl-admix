@@ -2,7 +2,8 @@
 ---
 - package: Net::SSLeay Perl module 
   name: Net-SSLeay
-  version: "1.88"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CH/CHRISN/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Net_SSLeay}}"
+  loc: "{{versions.Net_SSLeay_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Net::SSLeay perl module. Perl extension for using OpenSSL
+    Net::SSLeay perl module. Perl bindings for OpenSSL and LibreSSL

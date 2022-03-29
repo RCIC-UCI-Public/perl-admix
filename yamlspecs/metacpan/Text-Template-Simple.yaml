@@ -2,9 +2,10 @@
 ---
 - package: Text::Template::Simple Perl module 
   name: Text-Template-Simple
-  version: "0.91"
-  vendor_source: https://cpan.metacpan.org/authors/id/B/BU/BURAK/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Text_Template_Simple}}"
+  loc: "{{versions.Text_Template_Simple_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Text::Template::Simple perl module. Simple text template engine
   provides:
-     - perl_{{versions.perl}}(Text::Template::Simple) 
+    - perl_{{versions.perl}}(Text::Template::Simple)

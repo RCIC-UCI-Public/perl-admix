@@ -2,7 +2,8 @@
 ---
 - package: Text::Diff Perl module 
   name: Text-Diff
-  version: "1.45"
-  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Text_Diff}}"
+  loc: "{{versions.Text_Diff_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Text::Diff perl module. Perform diffs on files and record sets

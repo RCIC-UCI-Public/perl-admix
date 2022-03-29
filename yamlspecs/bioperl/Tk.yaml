@@ -2,9 +2,10 @@
 ---
 - package: Tk Perl module 
   name: Tk
-  version: "804.034"
-  vendor_source: https://cpan.metacpan.org/authors/id/S/SR/SREZIC/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Tk}}"
+  loc: "{{versions.Tk_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Tk perl module. Tk - a Graphical User Interface Toolkit
   filter_provides:
-    - '$ a perl_5.30.0(Tk::LabRadio)'
+    - '$ a perl_{{versions.perl}}(Tk::LabRadio)'

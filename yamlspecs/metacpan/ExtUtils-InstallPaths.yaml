@@ -2,7 +2,8 @@
 ---
 - package: ExtUtils::InstallPaths Perl module 
   name: ExtUtils-InstallPaths
-  version: "0.012"
-  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.ExtUtils_InstallPaths}}"
+  loc: "{{versions.ExtUtils_InstallPaths_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     ExtUtils::InstallPaths perl module. Build.PL install path logic made easy

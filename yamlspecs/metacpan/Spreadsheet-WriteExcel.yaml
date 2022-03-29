@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Spreadsheet::WriteExcel Perl module 
+- package: Spreadsheet-WriteExcel Perl module 
   name: Spreadsheet-WriteExcel
-  version: "2.40"
-  vendor_source: https://cpan.metacpan.org/authors/id/J/JM/JMCNAMARA/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Spreadsheet_WriteExcel}}"
+  loc: "{{versions.Spreadsheet_WriteExcel_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Spreadsheet::WriteExcel perl module. Write to a cross platform Excel binary file
+    Spreadsheet-WriteExcel perl module. Write to a cross platform Excel binary file

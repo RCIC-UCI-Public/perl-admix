@@ -2,7 +2,8 @@
 ---
 - package: FFI::CheckLib Perl module 
   name: FFI-CheckLib
-  version: "0.26"
-  vendor_source: https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.FFI_CheckLib}}"
+  loc: "{{versions.FFI_CheckLib_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     FFI::CheckLib perl module. Check that a library is available for FFI

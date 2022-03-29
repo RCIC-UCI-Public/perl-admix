@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Package::Stash::XS Perl module 
+  name: Package-Stash-XS
+  version: "{{versions.Package_Stash_XS}}"
+  loc: "{{versions.Package_Stash_XS_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
+  description: >
+    Package::Stash::XS perl module. faster and more correct implementation of the Package::Stash API

@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: MIME::Lite Perl module 
+- package: MIME-Lite Perl module 
   name: MIME-Lite
-  version: "3.031"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.MIME_Lite}}"
+  loc: "{{versions.MIME_Lite_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    MIME::Lite perl module. low-calorie MIME generator
+    MIME-Lite perl module. Handy-dandy MIME mailing class

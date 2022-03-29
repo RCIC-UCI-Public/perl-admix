@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Sub::Defer Perl module 
+- package: Sub::Quote Perl module 
   name: Sub-Quote
-  version: "2.006006"
-  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Sub_Quote}}"
+  loc: "{{versions.Sub_Quote_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Sub::Defer perl module. Efficient generation of subroutines via string eval
+    Sub::Quote perl module. Efficient generation of subroutines via string eval

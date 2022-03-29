@@ -2,7 +2,8 @@
 ---
 - package: IO::Scalar Perl module 
   name: IO-Stringy
-  version: "2.113"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CA/CAPOEIRAB/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.IO_Stringy}}"
+  loc: "{{versions.IO_Stringy_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     IO::Scalar perl module. I/O on in-core objects like strings and arrays

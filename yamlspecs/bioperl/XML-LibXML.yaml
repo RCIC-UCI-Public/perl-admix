@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: XML::LibXML Perl module 
+- package: XML::LibXML::Reader Perl module 
   name: XML-LibXML
-  version: "2.0204"
-  vendor_source: https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_LibXML}}"
+  loc: "{{versions.XML_LibXML_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    XML::LibXML perl module. Interface to Gnome libxml2 xml parsing and DOM library
+    XML::LibXML::Reader perl module. Interface to Gnome libxml2 xml parsing and DOM library

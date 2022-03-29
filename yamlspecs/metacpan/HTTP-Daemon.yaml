@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: HTTP::Daemon Perl module 
+- package: HTTP-Daemon Perl module 
   name: HTTP-Daemon
-  version: "6.06"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.HTTP_Daemon}}"
+  loc: "{{versions.HTTP_Daemon_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    HTTP::Daemon perl module. A simple http server class
+    HTTP-Daemon perl module. A simple http server class

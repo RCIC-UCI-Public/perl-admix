@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: MIME::Types Perl module 
+  name: MIME-Types
+  version: "{{versions.MIME_Types}}"
+  loc: "{{versions.MIME_Types_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
+  description: >
+    MIME::Types perl module. Definition of MIME types

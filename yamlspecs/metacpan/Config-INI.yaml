@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Config::INI Perl module 
+- package: Config::INI::Reader Perl module 
   name: Config-INI
-  version: "0.025"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Config_INI}}"
+  loc: "{{versions.Config_INI_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Config::INI perl module. simple .ini-file format
+    Config::INI::Reader perl module. simple .ini-file format

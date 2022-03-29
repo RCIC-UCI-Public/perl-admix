@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Mixin::Linewise Perl module 
+- package: Mixin::Linewise::Writers Perl module 
   name: Mixin-Linewise
-  version: "0.108"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Mixin_Linewise}}"
+  loc: "{{versions.Mixin_Linewise_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Mixin::Linewise perl module. write your linewise code for handles; this does the rest
+    Mixin::Linewise::Writers perl module. write your linewise code for handles; this does the rest

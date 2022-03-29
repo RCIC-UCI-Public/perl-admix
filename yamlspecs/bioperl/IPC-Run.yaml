@@ -2,9 +2,10 @@
 ---
 - package: IPC::Run Perl module 
   name: IPC-Run
-  version: "20180523.0"
-  vendor_source: https://cpan.metacpan.org/authors/id/T/TO/TODDR/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.IPC_Run}}"
+  loc: "{{versions.IPC_Run_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     IPC::Run perl module. system() and background procs w/ piping, redirs, ptys (Unix, Win32)
   filter_requires:
-     - -e '/perl(Win32/d'
+    -e '/perl(Win32/d'

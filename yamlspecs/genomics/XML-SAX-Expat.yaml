@@ -2,7 +2,8 @@
 ---
 - package: XML::SAX::Expat Perl module 
   name: XML-SAX-Expat
-  version: "0.51"
-  vendor_source: https://cpan.metacpan.org/authors/id/B/BJ/BJOERN/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_SAX_Expat}}"
+  loc: "{{versions.XML_SAX_Expat_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::SAX::Expat perl module. SAX Driver for Expat

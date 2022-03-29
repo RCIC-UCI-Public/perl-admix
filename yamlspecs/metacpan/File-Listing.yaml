@@ -2,7 +2,8 @@
 ---
 - package: File::Listing Perl module 
   name: File-Listing
-  version: "6.04"
-  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.File_Listing}}"
+  loc: "{{versions.File_Listing_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    File::Listing perl module. parse directory listing
+    File::Listing perl module. Parse directory listing

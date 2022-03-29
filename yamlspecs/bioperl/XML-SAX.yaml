@@ -2,13 +2,14 @@
 ---
 - package: XML::SAX::DocumentLocator Perl module 
   name: XML-SAX
-  version: "1.02"
-  vendor_source: https://cpan.metacpan.org/authors/id/G/GR/GRANTM/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_SAX}}"
+  loc: "{{versions.XML_SAX_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::SAX::DocumentLocator perl module. Simple API for XML
   filter_provides:
     - '$ a \
-    perl_5.30.0(XML::SAX::PurePerl::DocType) \
-    perl_5.30.0(XML::SAX::PurePerl::DTDDecls) \
-    perl_5.30.0(XML::SAX::PurePerl::EncodingDetect) \
-    perl_5.30.0(XML::SAX::PurePerl::XMLDecl) '
+    perl_{{versions.perl}}(XML::SAX::PurePerl::DocType) \
+    perl_{{versions.perl}}(XML::SAX::PurePerl::DTDDecls) \
+    perl_{{versions.perl}}(XML::SAX::PurePerl::EncodingDetect) \
+    perl_{{versions.perl}}(XML::SAX::PurePerl::XMLDecl) '

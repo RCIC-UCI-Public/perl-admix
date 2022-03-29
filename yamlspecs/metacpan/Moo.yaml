@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Moo Perl module 
+- package: Moo::Role Perl module 
   name: Moo
-  version: "2.003006"
-  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Moo}}"
+  loc: "{{versions.Moo_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Moo perl module. Minimalist Object Orientation (with Moose compatibility)
+    Moo::Role perl module. Minimalist Object Orientation (with Moose compatibility)

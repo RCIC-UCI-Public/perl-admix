@@ -2,7 +2,8 @@
 ---
 - package: Email::Date::Format Perl module 
   name: Email-Date-Format
-  version: "1.005"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Email_Date_Format}}"
+  loc: "{{versions.Email_Date_Format_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Email::Date::Format perl module. produce RFC 2822 date strings

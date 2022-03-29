@@ -5,13 +5,19 @@
   release: 3
   version: "{{versions.perl}}"
   no_src_dir: true
+  src_tarball: none
   description: |
     Perl {{version}} and its general modules to enable
     basic prerequisites  for genomics applications
-  addfile: 
-    - README.genomics
   install:
     makeinstall: >
+      echo "The perl_{{version}}-baseline-genomics RPM installs prerequisite modules" > README.genomics
+      echo "for roary. Together, they provide basic functionality. The list below" >> README.genomics
+      echo "shows modules with their versions that are are installed via their own RPMS." >> README.genomics
+      echo "The rpm naming schema is perl_{{version}}-MODNAME-MODVERSION." >> README.genomics
+      echo "To find exact version of a specific package use perl or perldoc commands, for example" >> README.genomics;
+      echo "    perldoc -m PKGNAME | grep VERSION." >> README.genomics;
+      (for i in {{requires}}; do echo $$i >> README.genomics; done);
       cp README.genomics $(ROOT)/$(PKGROOT)
   files:
     - "{{root}}/README*"

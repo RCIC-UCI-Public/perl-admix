@@ -7,10 +7,15 @@
   src_tarball: none
   description: >
     BioPerl {{version}} and its base modules 
-  addfile: 
-    - README.bioperl
   install:
     makeinstall: >
+      echo "The perl_{{version}}-baseline-bioperl RPM installs BioPerl and its prerequisite" > README.bioperl;
+      echo "modules. Together, they provide basic BioPerl funcitonality. The list below" >> README.bioperl;
+      echo "shows modules with their versions that are are installed via their own RPMS." >> README.bioperl;
+      echo "The rpm naming schema is perl_{{version}}-MODNAME-MODVERSION." >> README.bioperl;
+      echo "To fid exact version of a specific package use perl or perldoc commands, for example" >> README.bioperl;
+      echo "    perldoc -m PKGNAME | grep VERSION." >> README.bioperl;
+      (for i in {{requires}}; do echo $$i >> README.bioperl; done);
       cp README.bioperl $(ROOT)/$(PKGROOT)
   files:
     - "{{root}}/README*"
@@ -71,4 +76,3 @@
     - perl_{{version}}-Data-Stag
     - perl_{{version}}-BioPerl
     - perl_{{version}}-Statistics-Descriptive
-

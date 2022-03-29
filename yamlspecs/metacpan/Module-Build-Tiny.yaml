@@ -2,8 +2,9 @@
 ---
 - package: Module::Build::Tiny Perl module 
   name: Module-Build-Tiny
-  version: "0.039"
-  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Module_Build_Tiny}}"
+  loc: "{{versions.Module_Build_Tiny_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Module::Build::Tiny perl module. A tiny replacement for Module::Build
   install:

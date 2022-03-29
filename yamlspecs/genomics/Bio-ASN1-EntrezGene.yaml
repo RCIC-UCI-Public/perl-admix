@@ -2,7 +2,8 @@
 ---
 - package: Bio::SeqIO::entrezgene Perl module 
   name: Bio-ASN1-EntrezGene
-  version: "1.73"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Bio_ASN1_EntrezGene}}"
+  loc: "{{versions.Bio_ASN1_EntrezGene_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Bio::SeqIO::entrezgene perl module. Regular expression-based Perl Parser for NCBI Entrez Gene.

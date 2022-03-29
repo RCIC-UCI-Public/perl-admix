@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: App::cpanminus Perl module 
+- package: App-cpanminus Perl module 
   name: App-cpanminus
-  version: "1.7044"
-  vendor_source: https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.App_cpanminus}}"
+  loc: "{{versions.App_cpanminus_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    App::cpanminus perl module. get, unpack, build and install modules from CPAN
+    App-cpanminus perl module. get, unpack, build and install modules from CPAN

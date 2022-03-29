@@ -2,7 +2,8 @@
 ---
 - package: HTML::Parser Perl module 
   name: HTML-Parser
-  version: "3.72"
-  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.HTML_Parser}}"
+  loc: "{{versions.HTML_Parser_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     HTML::Parser perl module. HTML parser class

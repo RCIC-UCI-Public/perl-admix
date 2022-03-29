@@ -2,7 +2,8 @@
 ---
 - package: GD Perl module 
   name: GD
-  version: "2.71"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RU/RURBAN/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.GD}}"
+  loc: "{{versions.GD_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     GD perl module. Perl interface to the gd2 graphics library

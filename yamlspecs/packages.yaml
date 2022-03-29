@@ -1,0 +1,29 @@
+---
+site: !include site.yaml
+system:
+  - gdbm-devel
+  - libdb-devel
+  - gd-devel
+  - fontconfig
+  - freetype
+  - libjpeg-turbo-devel
+  - libpng-devel
+  - libX11-devel
+  - libXpm-devel
+  - zlib-devel
+  - libxslt-devel
+bootstrap:
+  - perl
+  - perl-module
+build:
+manifest:
+  - "{{bootstrap}}"
+  - "{{build}}"
+sets:
+  - latest
+  - meta
+  - meta-latest
+  - bio
+  - bio-latest
+  - gen
+  - gen-latest

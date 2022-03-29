@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Graph::Writer::Dot Perl module 
+- package: Graph-ReadWrite Perl module 
   name: Graph-ReadWrite
-  version: "2.09"
-  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Graph_ReadWrite}}"
+  loc: "{{versions.Graph_ReadWrite_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Graph::Writer::Dot perl module. modules for reading and writing directed graphs
+    Graph-ReadWrite perl module. modules for reading and writing directed graphs

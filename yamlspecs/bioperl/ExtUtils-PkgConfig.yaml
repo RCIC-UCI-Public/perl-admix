@@ -2,7 +2,8 @@
 ---
 - package: ExtUtils::PkgConfig Perl module 
   name: ExtUtils-PkgConfig
-  version: "1.16"
-  vendor_source: https://cpan.metacpan.org/authors/id/X/XA/XAOC/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.ExtUtils_PkgConfig}}"
+  loc: "{{versions.ExtUtils_PkgConfig_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     ExtUtils::PkgConfig perl module. simplistic interface to pkg-config

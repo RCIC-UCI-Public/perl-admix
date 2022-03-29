@@ -2,7 +2,8 @@
 ---
 - package: Path::Tiny Perl module 
   name: Path-Tiny
-  version: "0.112"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Path_Tiny}}"
+  loc: "{{versions.Path_Tiny_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Path::Tiny perl module. File path utility

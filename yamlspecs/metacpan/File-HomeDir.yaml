@@ -2,7 +2,8 @@
 ---
 - package: File::HomeDir Perl module 
   name: File-HomeDir
-  version: "1.004"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RE/REHSACK/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.File_HomeDir}}"
+  loc: "{{versions.File_HomeDir_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     File::HomeDir perl module. Find your home and other directories on any platform

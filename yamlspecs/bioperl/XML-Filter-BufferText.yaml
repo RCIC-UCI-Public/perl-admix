@@ -2,7 +2,8 @@
 ---
 - package: XML::Filter::BufferText Perl module 
   name: XML-Filter-BufferText
-  version: "1.01"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RB/RBERJON/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_Filter_BufferText}}"
+  loc: "{{versions.XML_Filter_BufferText_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::Filter::BufferText perl module. Filter to put all characters() in one event

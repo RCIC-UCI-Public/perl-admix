@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: HTML::Template Perl module 
+- package: HTML-Template Perl module 
   name: HTML-Template
-  version: "2.97"
-  vendor_source: https://cpan.metacpan.org/authors/id/S/SA/SAMTREGAR/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.HTML_Template}}"
+  loc: "{{versions.HTML_Template_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    HTML::Template perl module. Perl module to use HTML-like templating language
+    HTML-Template perl module. Perl module to use HTML-like templating language

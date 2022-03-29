@@ -1,9 +1,9 @@
 !include common.yaml
 ---
-- package: String:ShellQuote Perl module 
-  name: String-ShellQuote 
-  version: "1.04"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RO/ROSCH/{{name}}-{{version}}.{{extension}}
+- package: String-ShellQuote Perl module 
+  name: String-ShellQuote
+  version: "{{versions.String_ShellQuote}}"
+  loc: "{{versions.String_ShellQuote_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    String::ShellQuote perl module contains some functions which are useful for quoting strings 
-    which are going to pass through the shell or a shell-like object. 
+    String-ShellQuote perl module. quote strings for passing through the shell

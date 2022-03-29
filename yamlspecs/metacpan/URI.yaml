@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: URI Perl module 
+- package: URI::file Perl module 
   name: URI
-  version: "1.76"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.URI}}"
+  loc: "{{versions.URI_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    URI perl module. Uniform Resource Identifiers (absolute and relative)
+    URI::file perl module. Uniform Resource Identifiers (absolute and relative)

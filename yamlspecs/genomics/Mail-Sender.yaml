@@ -1,10 +1,11 @@
 !include common.yaml
 ---
-- package: Mail::Sender Perl module 
+- package: Mail-Sender Perl module 
   name: Mail-Sender
-  version: "0.903"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CA/CAPOEIRAB/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Mail_Sender}}"
+  loc: "{{versions.Mail_Sender_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Mail::Sender perl module. (DEPRECATED) module for sending mails with attachments through an SMTP server
+    Mail-Sender perl module. (DEPRECATED) module for sending mails with attachments through an SMTP server
   filter_requires:
     - -e '/perl(Win32/d'

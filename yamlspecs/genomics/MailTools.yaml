@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Mail::Send Perl module 
+- package: Mail::Address Perl module 
   name: MailTools
-  version: "2.21"
-  vendor_source: https://cpan.metacpan.org/authors/id/M/MA/MARKOV/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.MailTools}}"
+  loc: "{{versions.MailTools_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Mail::Send perl module. Various ancient e-mail related modules
+    Mail::Address perl module. Various ancient e-mail related modules

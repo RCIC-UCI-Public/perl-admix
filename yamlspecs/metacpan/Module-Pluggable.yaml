@@ -2,8 +2,9 @@
 ---
 - package: Module::Pluggable Perl module 
   name: Module-Pluggable
-  version: "5.2"
-  vendor_source: https://cpan.metacpan.org/authors/id/S/SI/SIMONW/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Module_Pluggable}}"
+  loc: "{{versions.Module_Pluggable_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Module::Pluggable perl module. automatically give your module the ability to have plugins
   filter_requires:

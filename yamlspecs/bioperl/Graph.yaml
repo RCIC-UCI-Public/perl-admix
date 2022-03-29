@@ -2,7 +2,8 @@
 ---
 - package: Graph::Directed Perl module 
   name: Graph
-  version: "0.9704"
-  vendor_source: https://cpan.metacpan.org/authors/id/J/JH/JHI/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Graph}}"
+  loc: "{{versions.Graph_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Graph::Directed perl module. graph data structures and algorithms

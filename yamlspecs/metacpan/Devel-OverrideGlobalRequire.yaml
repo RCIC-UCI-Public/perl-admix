@@ -2,7 +2,8 @@
 ---
 - package: Devel::OverrideGlobalRequire Perl module 
   name: Devel-OverrideGlobalRequire
-  version: "0.001"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Devel_OverrideGlobalRequire}}"
+  loc: "{{versions.Devel_OverrideGlobalRequire_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Devel::OverrideGlobalRequire perl module. Override CORE::GLOBAL::require safely

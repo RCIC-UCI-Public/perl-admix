@@ -2,7 +2,8 @@
 ---
 - package: XML::SAX::Writer Perl module 
   name: XML-SAX-Writer
-  version: "0.57"
-  vendor_source: https://cpan.metacpan.org/authors/id/P/PE/PERIGRIN/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_SAX_Writer}}"
+  loc: "{{versions.XML_SAX_Writer_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::SAX::Writer perl module. SAX2 XML Writer

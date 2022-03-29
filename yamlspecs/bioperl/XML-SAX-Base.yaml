@@ -2,7 +2,8 @@
 ---
 - package: XML::SAX::Base Perl module 
   name: XML-SAX-Base
-  version: "1.09"
-  vendor_source: https://cpan.metacpan.org/authors/id/G/GR/GRANTM/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_SAX_Base}}"
+  loc: "{{versions.XML_SAX_Base_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::SAX::Base perl module. Base class for SAX Drivers and Filters

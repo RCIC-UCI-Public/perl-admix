@@ -2,7 +2,8 @@
 ---
 - package: XML::Parser::PerlSAX Perl module 
   name: libxml-perl
-  version: "0.08"
-  vendor_source: https://cpan.metacpan.org/authors/id/K/KM/KMACLEOD/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.libxml_perl}}"
+  loc: "{{versions.libxml_perl_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::Parser::PerlSAX perl module. support for deeply nested structures

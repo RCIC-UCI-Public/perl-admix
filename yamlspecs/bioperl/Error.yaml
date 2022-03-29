@@ -2,7 +2,8 @@
 ---
 - package: Error Perl module 
   name: Error
-  version: "0.17029"
-  vendor_source: https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Error}}"
+  loc: "{{versions.Error_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Error perl module. Error/exception handling in an OO-ish way

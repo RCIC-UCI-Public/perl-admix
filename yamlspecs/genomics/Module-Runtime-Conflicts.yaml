@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Module::Runtime::Conflicts Perl module 
+  name: Module-Runtime-Conflicts
+  version: "{{versions.Module_Runtime_Conflicts}}"
+  loc: "{{versions.Module_Runtime_Conflicts_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
+  description: >
+    Module::Runtime::Conflicts perl module. Provide information on conflicts for Module::Runtime

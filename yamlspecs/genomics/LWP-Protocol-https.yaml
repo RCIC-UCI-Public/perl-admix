@@ -2,9 +2,10 @@
 ---
 - package: LWP::Protocol::https Perl module 
   name: LWP-Protocol-https
-  version: "6.09"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.LWP_Protocol_https}}"
+  loc: "{{versions.LWP_Protocol_https_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     LWP::Protocol::https perl module. Provide https support for LWP::UserAgent
   filter_requires:
-    - -e '/perl(LWP::Protocol::http::SocketMethods)/d' 
+    - -e '/perl(LWP::Protocol::http::SocketMethods)/d'

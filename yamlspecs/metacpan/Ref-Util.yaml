@@ -2,7 +2,8 @@
 ---
 - package: Ref::Util Perl module 
   name: Ref-Util
-  version: "0.204"
-  vendor_source: https://cpan.metacpan.org/authors/id/A/AR/ARC/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Ref_Util}}"
+  loc: "{{versions.Ref_Util_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Ref::Util perl module. Utility functions for checking references

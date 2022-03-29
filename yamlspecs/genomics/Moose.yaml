@@ -2,9 +2,10 @@
 ---
 - package: Moose Perl module 
   name: Moose
-  version: "2.2013"
-  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Moose}}"
+  loc: "{{versions.Moose_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Moose perl module. A postmodern object system for Perl 5
   filter_requires:
-    - -e '/perl(Moose::Conflicts)/d' 
+    - -e '/perl(Moose::Conflicts)/d'

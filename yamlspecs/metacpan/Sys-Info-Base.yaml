@@ -2,8 +2,9 @@
 ---
 - package: Sys::Info::Base Perl module 
   name: Sys-Info-Base
-  version: "0.7807"
-  vendor_source: https://cpan.metacpan.org/authors/id/B/BU/BURAK/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Sys_Info_Base}}"
+  loc: "{{versions.Sys_Info_Base_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Sys::Info::Base perl module. Base class for Sys::Info
   provides:

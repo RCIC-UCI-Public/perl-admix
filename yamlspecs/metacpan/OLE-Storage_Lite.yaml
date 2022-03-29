@@ -2,7 +2,8 @@
 ---
 - package: OLE::Storage_Lite Perl module 
   name: OLE-Storage_Lite
-  version: "0.20"
-  vendor_source: https://cpan.metacpan.org/authors/id/J/JM/JMCNAMARA/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.OLE_Storage_Lite}}"
+  loc: "{{versions.OLE_Storage_Lite_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     OLE::Storage_Lite perl module. Read and write OLE storage files.

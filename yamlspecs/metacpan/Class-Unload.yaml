@@ -2,7 +2,8 @@
 ---
 - package: Class::Unload Perl module 
   name: Class-Unload
-  version: "0.11"
-  vendor_source: https://cpan.metacpan.org/authors/id/I/IL/ILMARI/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Class_Unload}}"
+  loc: "{{versions.Class_Unload_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Class::Unload perl module. Unload a class

@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: App::Nopaste Perl module 
+- package: App-Nopaste Perl module 
   name: App-Nopaste
-  version: "1.013"
-  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.App_Nopaste}}"
+  loc: "{{versions.App_Nopaste_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    App::Nopaste perl module. Easy access to any pastebin
+    App-Nopaste perl module. Easy access to any pastebin

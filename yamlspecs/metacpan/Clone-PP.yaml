@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Clone::PP Perl module 
+- package: Clone-PP Perl module 
   name: Clone-PP
-  version: "1.07"
-  vendor_source: https://cpan.metacpan.org/authors/id/N/NE/NEILB/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Clone_PP}}"
+  loc: "{{versions.Clone_PP_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Clone::PP perl module. Recursively copy Perl datatypes
+    Clone-PP perl module. Recursively copy Perl datatypes

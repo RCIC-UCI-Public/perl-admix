@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Sub::Exporter Perl module 
+- package: Sub::Exporter::Util Perl module 
   name: Sub-Exporter
-  version: "0.987"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Sub_Exporter}}"
+  loc: "{{versions.Sub_Exporter_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Sub::Exporter perl module. a sophisticated exporter for custom-built routines
+    Sub::Exporter::Util perl module. a sophisticated exporter for custom-built routines

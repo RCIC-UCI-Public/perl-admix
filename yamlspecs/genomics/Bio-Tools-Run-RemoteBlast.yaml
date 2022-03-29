@@ -2,7 +2,8 @@
 ---
 - package: Bio::Tools::Run::RemoteBlast Perl module 
   name: Bio-Tools-Run-RemoteBlast
-  version: "1.7.3"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Bio_Tools_Run_RemoteBlast}}"
+  loc: "{{versions.Bio_Tools_Run_RemoteBlast_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Bio::Tools::Run::RemoteBlast perl module. Object for remote execution of the NCBI Blast via HTTP

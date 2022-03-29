@@ -2,7 +2,8 @@
 ---
 - package: Alien::Libxml2 Perl module 
   name: Alien-Libxml2
-  version: "0.14"
-  vendor_source: https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Alien_Libxml2}}"
+  loc: "{{versions.Alien_Libxml2_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Alien::Libxml2 perl module. Install the C libxml2 library on your system

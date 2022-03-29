@@ -2,7 +2,8 @@
 ---
 - package: Try::Tiny Perl module 
   name: Try-Tiny
-  version: "0.30"
-  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Try_Tiny}}"
+  loc: "{{versions.Try_Tiny_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Try::Tiny perl module. Minimal try/catch with proper preservation of $@

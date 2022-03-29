@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Set::Object Perl module 
+  name: Set-Object
+  version: "{{versions.Set_Object}}"
+  loc: "{{versions.Set_Object_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
+  description: >
+    Set::Object perl module. Unordered collections (sets) of Perl Objects

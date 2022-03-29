@@ -2,7 +2,8 @@
 ---
 - package: Getopt::Long::Descriptive Perl module 
   name: Getopt-Long-Descriptive
-  version: "0.105"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Getopt_Long_Descriptive}}"
+  loc: "{{versions.Getopt_Long_Descriptive_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Getopt::Long::Descriptive perl module. Getopt::Long, but simpler and more powerful

@@ -2,7 +2,8 @@
 ---
 - package: Parse::RecDescent Perl module 
   name: Parse-RecDescent
-  version: "1.967015"
-  vendor_source: https://cpan.metacpan.org/authors/id/J/JT/JTBRAUN/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Parse_RecDescent}}"
+  loc: "{{versions.Parse_RecDescent_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Parse::RecDescent perl module. Generate Recursive-Descent Parsers

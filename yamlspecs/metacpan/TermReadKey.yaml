@@ -2,7 +2,8 @@
 ---
 - package: TermReadKey Perl module 
   name: TermReadKey
-  version: "2.38"
-  vendor_source: https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.TermReadKey}}"
+  loc: "{{versions.TermReadKey_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     TermReadKey perl module. Change terminal modes, and perform non-blocking reads.

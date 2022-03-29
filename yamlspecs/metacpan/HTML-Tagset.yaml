@@ -2,7 +2,8 @@
 ---
 - package: HTML::Tagset Perl module 
   name: HTML-Tagset
-  version: "3.20"
-  vendor_source: https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.HTML_Tagset}}"
+  loc: "{{versions.HTML_Tagset_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     HTML::Tagset perl module. data tables useful in parsing HTML

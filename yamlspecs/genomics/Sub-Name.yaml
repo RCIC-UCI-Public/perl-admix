@@ -2,7 +2,8 @@
 ---
 - package: Sub::Name Perl module 
   name: Sub-Name
-  version: "0.26"
-  vendor_source: https://cpan.metacpan.org/authors/id/E/ET/ETHER/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Sub_Name}}"
+  loc: "{{versions.Sub_Name_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Sub::Name perl module. (Re)name a sub

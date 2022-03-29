@@ -2,7 +2,8 @@
 ---
 - package: LWP::MediaTypes Perl module 
   name: LWP-MediaTypes
-  version: "6.04"
-  vendor_source: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.LWP_MediaTypes}}"
+  loc: "{{versions.LWP_MediaTypes_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     LWP::MediaTypes perl module. guess media type for a file or a URL

@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: YAML::LibYAML Perl module 
+- package: YAML-LibYAML Perl module 
   name: YAML-LibYAML
-  version: "0.81"
-  vendor_source: https://cpan.metacpan.org/authors/id/T/TI/TINITA/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.YAML_LibYAML}}"
+  loc: "{{versions.YAML_LibYAML_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    YAML::LibYAML perl module. Perl YAML Serialization using XS and libyaml
+    YAML-LibYAML perl module. Perl YAML Serialization using XS and libyaml

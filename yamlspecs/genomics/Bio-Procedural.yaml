@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Bio::Perl Perl module 
+- package: Bio-Procedural Perl module 
   name: Bio-Procedural
-  version: "1.7.4"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Bio_Procedural}}"
+  loc: "{{versions.Bio_Procedural_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Bio::Perl perl module. Simple low-dependency procedural interfaces to BioPerl
+    Bio-Procedural perl module. Simple low-dependency procedural interfaces to BioPerl

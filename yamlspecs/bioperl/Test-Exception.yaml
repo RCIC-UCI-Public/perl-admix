@@ -2,7 +2,8 @@
 ---
 - package: Test::Exception Perl module 
   name: Test-Exception
-  version: "0.43"
-  vendor_source: https://cpan.metacpan.org/authors/id/E/EX/EXODIST/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Test_Exception}}"
+  loc: "{{versions.Test_Exception_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Test::Exception perl module. Test exception-based code

@@ -2,7 +2,8 @@
 ---
 - package: XML::XPathEngine Perl module 
   name: XML-XPathEngine
-  version: "0.14"
-  vendor_source: https://cpan.metacpan.org/authors/id/M/MI/MIROD/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_XPathEngine}}"
+  loc: "{{versions.XML_XPathEngine_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::XPathEngine perl module. a re-usable XPath engine for DOM-like trees

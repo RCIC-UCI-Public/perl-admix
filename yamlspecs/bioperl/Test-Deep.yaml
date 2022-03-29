@@ -2,7 +2,8 @@
 ---
 - package: Test::Deep Perl module 
   name: Test-Deep
-  version: "1.130"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Test_Deep}}"
+  loc: "{{versions.Test_Deep_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Test::Deep perl module. Extremely flexible deep comparison

@@ -2,8 +2,9 @@
 ---
 - package: XML::Twig Perl module 
   name: XML-Twig
-  version: "3.52"
-  vendor_source: https://cpan.metacpan.org/authors/id/M/MI/MIROD/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_Twig}}"
+  loc: "{{versions.XML_Twig_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::Twig perl module. XML, The Perl Way
   filter_requires:

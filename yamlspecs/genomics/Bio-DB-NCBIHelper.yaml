@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Bio::DB::GenBank Perl module 
+- package: Bio::DB::GenPept Perl module 
   name: Bio-DB-NCBIHelper
-  version: "1.7.6"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Bio_DB_NCBIHelper}}"
+  loc: "{{versions.Bio_DB_NCBIHelper_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Bio::DB::GenBank perl module. A collection of routines useful for queries to NCBI databases.
+    Bio::DB::GenPept perl module. A collection of routines useful for queries to NCBI databases.

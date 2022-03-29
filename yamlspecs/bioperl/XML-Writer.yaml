@@ -2,7 +2,8 @@
 ---
 - package: XML::Writer Perl module 
   name: XML-Writer
-  version: "0.625"
-  vendor_source: https://cpan.metacpan.org/authors/id/J/JO/JOSEPHW/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_Writer}}"
+  loc: "{{versions.XML_Writer_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::Writer perl module. Easily generate well-formed, namespace-aware XML.

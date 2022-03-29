@@ -2,7 +2,8 @@
 ---
 - package: Test::RequiresInternet Perl module 
   name: Test-RequiresInternet
-  version: "0.05"
-  vendor_source: https://cpan.metacpan.org/authors/id/M/MA/MALLEN/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Test_RequiresInternet}}"
+  loc: "{{versions.Test_RequiresInternet_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Test::RequiresInternet perl module. Easily test network connectivity

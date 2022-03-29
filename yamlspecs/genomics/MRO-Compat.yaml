@@ -2,7 +2,8 @@
 ---
 - package: MRO::Compat Perl module 
   name: MRO-Compat
-  version: "0.13"
-  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.MRO_Compat}}"
+  loc: "{{versions.MRO_Compat_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     MRO::Compat perl module. mro::* interface compatibility for Perls < 5.9.5

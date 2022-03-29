@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: B::Keywords Perl module 
+- package: B-Keywords Perl module 
   name: B-Keywords
-  version: "1.21"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RU/RURBAN/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.B_Keywords}}"
+  loc: "{{versions.B_Keywords_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    B::Keywords perl module. Lists of reserved barewords and symbol names
+    B-Keywords perl module. Lists of reserved barewords and symbol names

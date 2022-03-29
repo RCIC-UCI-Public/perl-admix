@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Data::Dump Perl module 
+- package: Data-Dump Perl module 
   name: Data-Dump
-  version: "1.23"
-  vendor_source: https://cpan.metacpan.org/authors/id/G/GA/GAAS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Data_Dump}}"
+  loc: "{{versions.Data_Dump_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Data::Dump perl module. Pretty printing of data structures
+    Data-Dump perl module. Pretty printing of data structures

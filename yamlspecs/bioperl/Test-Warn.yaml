@@ -2,7 +2,8 @@
 ---
 - package: Test::Warn Perl module 
   name: Test-Warn
-  version: "0.36"
-  vendor_source: https://cpan.metacpan.org/authors/id/B/BI/BIGJ/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Test_Warn}}"
+  loc: "{{versions.Test_Warn_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Test::Warn perl module. Perl extension to test methods for warnings

@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: XML::DOM::XPath Perl module 
+- package: XML-DOM-XPath Perl module 
   name: XML-DOM-XPath
-  version: "0.14"
-  vendor_source: https://cpan.metacpan.org/authors/id/M/MI/MIROD/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_DOM_XPath}}"
+  loc: "{{versions.XML_DOM_XPath_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    XML::DOM::XPath perl module. Perl extension to add XPath support to XML::DOM, using XML::XPath engine
+    XML-DOM-XPath perl module. Perl extension to add XPath support to XML::DOM, using XML::XPath engine

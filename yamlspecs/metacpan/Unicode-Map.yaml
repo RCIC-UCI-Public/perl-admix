@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Unicode::Map Perl module 
+- package: Unicode-Map Perl module 
   name: Unicode-Map
-  version: "0.112"
-  vendor_source: https://cpan.metacpan.org/authors/id/M/MS/MSCHWARTZ/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Unicode_Map}}"
+  loc: "{{versions.Unicode_Map_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Unicode::Map perl module. An utility to map texts from and to unicode
+    Unicode-Map perl module. An utility to map texts from and to unicode

@@ -7,10 +7,15 @@
   description: |
     Perl {{version}} and its general modules to enable
     basic functionality including MetaCPAN::Client
-  addfile: 
-    - README.metacpan
   install:
     makeinstall: >
+      echo "The perl_{{version}}-baseline-metacpan RPM installs basic Perl modules needed" > README.metacpan;
+      echo "for enabling MetaCPAN::Client. Together, they provide basic Perl funcitonality." >> README.metacpan;
+      echo "The list below shows modules with their versions that are are installed via" >> README.metacpan;
+      echo "their own RPMS. The rpm naming schema is perl_{{version}}-MODNAME-MODVERSION." >> README.metacpan;
+      echo "To fid exact version of a specific package use perl or perldoc commands, for example" >> README.metacpan;
+      echo "    perldoc -m PKGNAME | grep VERSION." >> README.metacpan;
+      (for i in {{requires}}; do echo $$i >> README.metacpan; done);
       cp README.metacpan $(ROOT)/$(PKGROOT)
   files:
     - "{{root}}/README*"
@@ -28,6 +33,7 @@
     - perl_{{version}}-Class-Method-Modifiers
     - perl_{{version}}-Class-Refresh
     - perl_{{version}}-Class-Unload
+    - perl_{{version}}-Clone
     - perl_{{version}}-Clone-PP
     - perl_{{version}}-Config-INI
     - perl_{{version}}-Config-INI-Reader-Ordered
@@ -99,7 +105,10 @@
     - perl_{{version}}-Sub-Exporter-Progressive
     - perl_{{version}}-Sub-Install
     - perl_{{version}}-Sub-Quote
+    - perl_{{version}}-Sys-Info
+    - perl_{{version}}-Sys-Info-Base
     - perl_{{version}}-TermReadKey
+    - perl_{{version}}-Text-Template-Simple
     - perl_{{version}}-TimeDate
     - perl_{{version}}-Try-Tiny
     - perl_{{version}}-Type-Tiny

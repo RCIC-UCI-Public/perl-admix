@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Mojo::DOM58 Perl module 
+- package: Mojo-DOM58 Perl module 
   name: Mojo-DOM58
-  version: "2.000"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DB/DBOOK/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Mojo_DOM58}}"
+  loc: "{{versions.Mojo_DOM58_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Mojo::DOM58 perl module. Minimalistic HTML/XML DOM parser with CSS selectors
+    Mojo-DOM58 perl module. Minimalistic HTML/XML DOM parser with CSS selectors

@@ -2,7 +2,8 @@
 ---
 - package: Clone Perl module 
   name: Clone
-  version: "0.43"
-  vendor_source: https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Clone}}"
+  loc: "{{versions.Clone_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Clone perl module. recursively copy Perl datatypes

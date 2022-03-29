@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Variable::Magic Perl module 
+- package: Variable-Magic Perl module 
   name: Variable-Magic
-  version: "0.62"
-  vendor_source: https://cpan.metacpan.org/authors/id/V/VP/VPIT/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Variable_Magic}}"
+  loc: "{{versions.Variable_Magic_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Variable::Magic perl module. Associate user-defined magic to variables from Perl.
+    Variable-Magic perl module. Associate user-defined magic to variables from Perl.

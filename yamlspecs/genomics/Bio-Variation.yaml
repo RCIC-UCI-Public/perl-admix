@@ -2,7 +2,8 @@
 ---
 - package: Bio::Variation::SNP Perl module 
   name: Bio-Variation
-  version: "1.7.5"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Bio_Variation}}"
+  loc: "{{versions.Bio_Variation_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Bio::Variation::SNP perl module. BioPerl variation-related functionality

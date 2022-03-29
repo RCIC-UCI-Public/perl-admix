@@ -2,7 +2,8 @@
 ---
 - package: JSON::MaybeXS Perl module 
   name: JSON-MaybeXS
-  version: "1.004000"
-  vendor_source: https://cpan.metacpan.org/authors/id/H/HA/HAARG/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.JSON_MaybeXS}}"
+  loc: "{{versions.JSON_MaybeXS_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     JSON::MaybeXS perl module. Use Cpanel::JSON::XS with a fallback to JSON::XS and JSON::PP

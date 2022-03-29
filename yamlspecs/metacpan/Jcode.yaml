@@ -2,7 +2,8 @@
 ---
 - package: Jcode Perl module 
   name: Jcode
-  version: "2.07"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DANKOGAI/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Jcode}}"
+  loc: "{{versions.Jcode_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Jcode perl module. Japanese Charset Handler

@@ -2,8 +2,9 @@
 ---
 - package: ExtUtils::Helpers Perl module 
   name: ExtUtils-Helpers
-  version: "0.026"
-  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEONT/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.ExtUtils_Helpers}}"
+  loc: "{{versions.ExtUtils_Helpers_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     ExtUtils::Helpers perl module. Various portability utilities for module builders
   filter_requires:

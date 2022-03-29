@@ -1,0 +1,61 @@
+!include packages.yaml
+---
+versions: versions-gen.yaml
+bootstrap:
+  - Net-SMTP-SSL
+  - Mail-Sendmail
+  - MailTools
+  - Mail-Sender
+  - Email-Date-Format
+  - MIME-Lite
+  - File-Grep
+  - IPC-ShareLite
+  - Bio-DB-EMBL
+  - File-Slurper
+  - Number-Compare
+  - Bio-Tools-Run-RemoteBlast
+  - Digest-SHA1
+  - MRO-Compat
+  - Sub-Name
+  - Parse-Yapp
+  - Test-Fatal
+  - Bio-Variation
+  - Text-CSV
+  - Array-Utils
+  - Bio-DB-RefSeq
+  - Bio-DB-SwissProt
+  - Digest-MD5-File
+  - Sub-Identify
+  - Text-Glob
+  - Params-ValidationCompiler
+  - namespace-autoclean
+  - Specio
+  - Log-Dispatch
+  - Log-Log4perl
+  - CGI
+  - Bio-Cluster
+  - Bio-ASN1-EntrezGene
+  - Cache-Cache
+  - LWP-Protocol-https
+  - Bio-DB-NCBIHelper
+  - Bio-Procedural
+  - Devel-OverloadInfo
+  - Package-DeprecationManager
+  - Moose
+  - Graph-ReadWrite
+  - File-Find-Rule
+  - File-Copy-Recursive
+  - XML-SAX-Expat
+  - HTML-Template
+  - XML-Simple
+  - baseline-genomics
+######
+# The following are generated via depend.py script when running 
+# with newer perl version. Keep for a reference in case they become needed
+# - MIME-Types
+# - Class-Load-XS
+# - Scalar-List-Utils
+# - Module-Runtime-Conflicts
+# - Package-Stash-XS
+# - Heap
+# - Set-Object

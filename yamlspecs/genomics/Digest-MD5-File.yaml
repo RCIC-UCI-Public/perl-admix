@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Digest::MD5::File Perl module 
+- package: Digest-MD5-File Perl module 
   name: Digest-MD5-File
-  version: "0.08"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DM/DMUEY/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Digest_MD5_File}}"
+  loc: "{{versions.Digest_MD5_File_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Digest::MD5::File perl module. Perl extension for getting MD5 sums for files and urls.
+    Digest-MD5-File perl module. Perl extension for getting MD5 sums for files and urls.

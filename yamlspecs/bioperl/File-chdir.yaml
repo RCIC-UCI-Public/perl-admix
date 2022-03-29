@@ -2,7 +2,8 @@
 ---
 - package: File::chdir Perl module 
   name: File-chdir
-  version: "0.1010"
-  vendor_source: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.File_chdir}}"
+  loc: "{{versions.File_chdir_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     File::chdir perl module. a more sensible way to change directories

@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: Heap Perl module 
+  name: Heap
+  version: "{{versions.Heap}}"
+  loc: "{{versions.Heap_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
+  description: >
+    Heap perl module. Perl extensions for keeping data partially sorted

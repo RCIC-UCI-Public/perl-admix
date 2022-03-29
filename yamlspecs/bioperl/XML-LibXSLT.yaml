@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: XML::LibXSLT Perl module 
+- package: XML-LibXSLT Perl module 
   name: XML-LibXSLT
-  version: "1.99"
-  vendor_source: https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.XML_LibXSLT}}"
+  loc: "{{versions.XML_LibXSLT_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    XML::LibXSLT perl module. Interface to GNOME libxslt library
+    XML-LibXSLT perl module. Interface to GNOME libxslt library

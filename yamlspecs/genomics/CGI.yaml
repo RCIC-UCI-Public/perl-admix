@@ -2,7 +2,8 @@
 ---
 - package: CGI Perl module 
   name: CGI
-  version: "4.50"
-  vendor_source: https://cpan.metacpan.org/authors/id/L/LE/LEEJO/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.CGI}}"
+  loc: "{{versions.CGI_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     CGI perl module. Handle Common Gateway Interface requests and responses

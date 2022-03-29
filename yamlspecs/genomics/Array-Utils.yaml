@@ -1,8 +1,9 @@
 !include common.yaml
 ---
-- package: Array::Utils Perl module 
+- package: Array-Utils Perl module 
   name: Array-Utils
-  version: "0.5"
-  vendor_source: https://cpan.metacpan.org/authors/id/Z/ZM/ZMIJ/Array/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Array_Utils}}"
+  loc: "{{versions.Array_Utils_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
-    Array::Utils perl module. small utils for array manipulation
+    Array-Utils perl module. small utils for array manipulation

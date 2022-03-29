@@ -2,7 +2,8 @@
 ---
 - package: Bio::Cluster::SequenceFamily Perl module 
   name: Bio-Cluster
-  version: "1.7.3"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Bio_Cluster}}"
+  loc: "{{versions.Bio_Cluster_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Bio::Cluster::SequenceFamily perl module. BioPerl cluster modules

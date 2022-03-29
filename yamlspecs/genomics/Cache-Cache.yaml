@@ -2,7 +2,8 @@
 ---
 - package: Cache::FileCache Perl module 
   name: Cache-Cache
-  version: "1.08"
-  vendor_source: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Cache_Cache}}"
+  loc: "{{versions.Cache_Cache_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Cache::FileCache perl module. extends Cache::SizeAwareMemoryCache

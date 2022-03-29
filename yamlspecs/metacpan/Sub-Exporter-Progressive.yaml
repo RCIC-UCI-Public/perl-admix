@@ -2,7 +2,8 @@
 ---
 - package: Sub::Exporter::Progressive Perl module 
   name: Sub-Exporter-Progressive
-  version: "0.001013"
-  vendor_source: https://cpan.metacpan.org/authors/id/F/FR/FREW/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.Sub_Exporter_Progressive}}"
+  loc: "{{versions.Sub_Exporter_Progressive_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     Sub::Exporter::Progressive perl module. Only use Sub::Exporter if you need it

@@ -2,7 +2,8 @@
 ---
 - package: IO::HTML Perl module 
   name: IO-HTML
-  version: "1.001"
-  vendor_source: https://cpan.metacpan.org/authors/id/C/CJ/CJM/{{name}}-{{version}}.{{extension}}
+  version: "{{versions.IO_HTML}}"
+  loc: "{{versions.IO_HTML_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     IO::HTML perl module. Open an HTML file with automatic charset detection
