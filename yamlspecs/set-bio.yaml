@@ -32,8 +32,6 @@ bootstrap:
   - Mojo-DOM58
   - FreezeThaw
   - MLDBM
-##### - Heap
-##### - Set-Object
   - Graph
   - XML-SAX-Writer
   - Alien-Build
