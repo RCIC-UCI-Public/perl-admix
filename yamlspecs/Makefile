@@ -5,20 +5,30 @@
 
 # redefine BUILDALL_TARGETS
 ALL_TARGETS = MyConfig.pm bootstrap default
-manifest buildall :: prep
+manifest :: manifestprep
+buildall :: prep
 
 include $(YAML2RPM_HOME)/sys/Makefile
 
-# when building targets for different perl version need to give on a commadn line
+# when building targets for different perl version need to give on a command line
 # set name, for example SET='latest'
 ifeq ($(SET),)
     VERSIONS := versions.yaml
+    GENVERSION = 
+    MAKESET = 
 else
     VERSIONS := versions-$(SET).yaml
+    GENVERSION = "-V  $(VERSIONS)"
+    MAKESET = "SET=$(SET)"
+    ISMETA = $(findstring meta,$(SET))
+    ISGEN = $(findstring gen,$(SET))
+    ISBIO = $(findstring bio,$(SET))
 endif
-PERLVER = $(shell $(GENERATE) --query=version perl.yaml -V $(VERSIONS))
+
+PERLVER = $(shell $(GENERATE) --versions=$(VERSIONS) --query=version perl.yaml)
 
 prep: metaprep bioprep genprep alldownload
+manifestprep: metaprep bioprep genprep
 alldownload: metadownload biodownload gendownload
 
 # specific to metacpan/ modules
@@ -41,16 +51,17 @@ AUTOYAML = $(shell cat buildorder | awk '{print $$2}')
 DRPMS = $(addprefix perl_$(PERLVER)-,$(AUTOYAML))
 
 ### metacpan targets
+# Only do real work if the set has meta in the name
+ifeq ($(findstring meta,$(SET)),meta)
 metaprep: 
 	/bin/cp metacpan/*yaml .
-
 metadownload: metaprep
 	(cd ../sources; tar xvf sources-metacpan-$(BASE_SRCVER).tar.gz)
 	for name in $(shell cat metacpan/buildorder); do                        \
-	    distro=$$($(GENERATE) --query=tarball $$name.yaml -V versions-$(SET).yaml );	\
+	    distro=$$($(GENERATE) --versions=$(VERSIONS) --query=tarball $$name.yaml);	\
 	    echo "Checking if need to download $$distro ";      \
 	    if [ ! -f ../sources/$$distro ]; then 		\
-	        make download PKG=$$name SET=$(SET); 		\
+	        make download PKG=$$name $(MAKESET); 		\
 	    fi;							\
 	done
 metaclean:
@@ -64,17 +75,23 @@ metaerase: metaclean
 	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;	\
 	done
 
+else
+metaprep metadownload metaclean metaerase:
+endif
+
 ### bioperl targets
+# Only do real work if the set has bio in the name
+ifeq ($(findstring bio,$(SET)),bio)
 bioprep: 
 	/bin/cp bioperl/*yaml .
 
 biodownload: bioprep
 	(cd ../sources; tar xvf sources-bioperl-$(BIO_SRCVER).tar.gz)
 	for name in $(shell cat bioperl/buildorder); do                        \
-	    distro=$$($(GENERATE) --query=tarball $$name.yaml -V versions-$(SET).yaml );	\
+	    distro=$$($(GENERATE) --versions=$(VERSIONS) --query=tarball $$name.yaml);	\
 	    echo "Checking if need to download $$distro ";      \
 	    if [ ! -f ../sources/$$distro ]; then 		\
-	        make download PKG=$$name SET=$(SET); 		\
+	        make download PKG=$$name $(MAKESET); 		\
 	    fi;							\
 	done
 bioclean:
@@ -87,18 +104,23 @@ bioerase: bioclean
 	for name in $(BIORPMS); do			\
 	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;	\
 	done
+else
+bioprep biodownload bioclean bioerase:
+endif
 
 ### genomics targets
+# Only do real work if the set has gen in the name
+ifeq ($(findstring gen,$(SET)),gen)
 genprep: 
 	/bin/cp genomics/*yaml .
 
 gendownload: genprep
 	(cd ../sources; tar xvf sources-genomics-$(GENOMICS_SRCVER).tar.gz)
 	for name in $(shell cat genomics/buildorder); do                        \
-	    distro=$$($(GENERATE) --query=tarball $$name.yaml -V versions-$(SET).yaml );	\
+	    distro=$$($(GENERATE) --versions=$(VERSIONS) --query=tarball $$name.yaml);	\
 	    echo "Checking if need to download $$distro ";      \
 	    if [ ! -f ../sources/$$distro ]; then 		\
-	        make download PKG=$$name SET=$(SET); 		\
+	        make download PKG=$$name $(MAKESET); 		\
 	    fi;							\
 	done
 genclean:
@@ -111,6 +133,9 @@ generase: genclean
 	for name in $(GENOMICSRPMS); do			\
 	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;	\
 	done
+else
+genprep gendownload genclean generase:
+endif
 
 ### for creating  and adding specific desired modules see ../README.md
 MyConfig.pm: MyConfig.pm.in
@@ -124,7 +149,7 @@ desired-yaml: desired sysperl
 
 desired-download:
 	for name in $(AUTOYAML); do \
-	    distro=$$($(GENERATE) --query=tarball $$name.yaml);	\
+	    distro=$$($(GENERATE) --versions=$(VERSIONS) --query=tarball $$name.yaml);	\
 	    if [ ! -f ../sources/$$distro ]; then 		\
 	        make download PKG=$$name; 			\
 	    fi;							\
@@ -134,7 +159,7 @@ desired-build: desired-download
 	for name in $(AUTOYAML); do					\
 	    make -e -f $(THISMAKE) $$name.pkg;			\
 	    make -e -C $(LOCALREPODIR) createlocalrepo; 		\
-	    rpmname=$$($(GENERATE) --query=pkgname $$name.yaml);	\
+	    rpmname=$$($(GENERATE) --versions=$(VERSIONS) --query=pkgname $$name.yaml);	\
 	    yum -y -c $(LOCALREPODIR)/yum.conf install $$rpmname;	\
 	done								\
 
