@@ -2,6 +2,7 @@
 ---
 versions: versions-bio.yaml
 bootstrap:
+  - IO-String
   - XML-Writer
   - XML-NamespaceSupport
   - Tk
