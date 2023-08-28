@@ -22,7 +22,6 @@ PadWalker
 PerlIO-utf8_strict
 Params-Util
 IO-HTML
-IO-String
 TermReadKey
 URI
 Variable-Magic
