@@ -54,25 +54,27 @@ DRPMS = $(addprefix perl_$(PERLVER)-,$(AUTOYAML))
 # Only do real work if the set has meta in the name
 ifeq ($(findstring meta,$(SET)),meta)
 metaprep: 
-	/bin/cp metacpan/*yaml .
+	for name in $(shell cat metacpan/buildorder) baseline-metacpan; do		\
+	    /bin/cp metacpan/$$name.yaml .;						\
+	done
 metadownload: metaprep
 	(cd ../sources; tar xvf sources-metacpan-$(BASE_SRCVER).tar.gz)
-	for name in $(shell cat metacpan/buildorder); do                        \
+	for name in $(shell cat metacpan/buildorder); do				\
 	    distro=$$($(GENERATE) --versions=$(VERSIONS) --query=tarball $$name.yaml);	\
-	    echo "Checking if need to download $$distro ";      \
-	    if [ ! -f ../sources/$$distro ]; then 		\
-	        make download PKG=$$name $(MAKESET); 		\
-	    fi;							\
+	    echo "Checking if need to download $$distro ";				\
+	    if [ ! -f ../sources/$$distro ]; then 					\
+	        make download PKG=$$name $(MAKESET); 					\
+	    fi;										\
 	done
 metaclean:
-	for name in $(shell cat metacpan/buildorder) baseline-metacpan; do \
-	    /bin/rm -f $$name.yaml;                 \
+	for name in $(shell cat metacpan/buildorder) baseline-metacpan; do		\
+	    /bin/rm -f $$name.yaml;							\
 	done
 
 metaerase: metaclean
 	yum -y erase $(BASERPMS)
-	for name in $(BASERPMS); do			\
-	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;	\
+	for name in $(BASERPMS); do							\
+	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;					\
 	done
 
 else
@@ -83,26 +85,28 @@ endif
 # Only do real work if the set has bio in the name
 ifeq ($(findstring bio,$(SET)),bio)
 bioprep: 
-	/bin/cp bioperl/*yaml .
+	for name in $(shell cat bioperl/buildorder) baseline-bioperl; do		\
+	    /bin/cp bioperl/$$name.yaml .;						\
+	done
 
 biodownload: bioprep
 	(cd ../sources; tar xvf sources-bioperl-$(BIO_SRCVER).tar.gz)
-	for name in $(shell cat bioperl/buildorder); do                        \
+	for name in $(shell cat bioperl/buildorder); do					\
 	    distro=$$($(GENERATE) --versions=$(VERSIONS) --query=tarball $$name.yaml);	\
-	    echo "Checking if need to download $$distro ";      \
-	    if [ ! -f ../sources/$$distro ]; then 		\
-	        make download PKG=$$name $(MAKESET); 		\
-	    fi;							\
+	    echo "Checking if need to download $$distro ";				\
+	    if [ ! -f ../sources/$$distro ]; then 					\
+	        make download PKG=$$name $(MAKESET);					\
+	    fi;										\
 	done
 bioclean:
-	for name in $(shell cat bioperl/buildorder) baseline-bioperl; do \
-	    /bin/rm -f $$name.yaml;                 \
+	for name in $(shell cat bioperl/buildorder) baseline-bioperl; do 		\
+	    /bin/rm -f $$name.yaml;							\
 	done
 
 bioerase: bioclean
 	yum -y erase $(BIORPMS)
-	for name in $(BIORPMS); do			\
-	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;	\
+	for name in $(BIORPMS); do							\
+	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;					\
 	done
 else
 bioprep biodownload bioclean bioerase:
@@ -112,26 +116,28 @@ endif
 # Only do real work if the set has gen in the name
 ifeq ($(findstring gen,$(SET)),gen)
 genprep: 
-	/bin/cp genomics/*yaml .
+	for name in $(shell cat genomics/buildorder) baseline-genomics; do		\
+	    /bin/cp genomics/$$name.yaml .;						\
+	done
 
 gendownload: genprep
 	(cd ../sources; tar xvf sources-genomics-$(GENOMICS_SRCVER).tar.gz)
-	for name in $(shell cat genomics/buildorder); do                        \
+	for name in $(shell cat genomics/buildorder); do				\
 	    distro=$$($(GENERATE) --versions=$(VERSIONS) --query=tarball $$name.yaml);	\
-	    echo "Checking if need to download $$distro ";      \
-	    if [ ! -f ../sources/$$distro ]; then 		\
-	        make download PKG=$$name $(MAKESET); 		\
-	    fi;							\
+	    echo "Checking if need to download $$distro ";				\
+	    if [ ! -f ../sources/$$distro ]; then 					\
+	        make download PKG=$$name $(MAKESET);					\
+	    fi;										\
 	done
 genclean:
-	for name in $(shell cat genomics/buildorder) baseline-genomics; do \
-	    /bin/rm -f $$name.yaml;                 \
+	for name in $(shell cat genomics/buildorder) baseline-genomics; do 		\
+	    /bin/rm -f $$name.yaml;							\
 	done
 
 generase: genclean
 	yum -y erase $(GENOMICSRPMS)
-	for name in $(GENOMICSRPMS); do			\
-	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;	\
+	for name in $(GENOMICSRPMS); do							\
+	    rm -rf ../RPMS/x86_64/$$name-[0-9]* ;					\
 	done
 else
 genprep gendownload genclean generase:
@@ -150,34 +156,34 @@ desired-yaml: desired sysperl
 desired-download:
 	for name in $(AUTOYAML); do \
 	    distro=$$($(GENERATE) --versions=$(VERSIONS) --query=tarball $$name.yaml);	\
-	    if [ ! -f ../sources/$$distro ]; then 		\
-	        make download PKG=$$name; 			\
-	    fi;							\
+	    if [ ! -f ../sources/$$distro ]; then 					\
+	        make download PKG=$$name; 						\
+	    fi;										\
 	done
 
 desired-build: desired-download
-	for name in $(AUTOYAML); do					\
-	    make -e -f $(THISMAKE) $$name.pkg;			\
-	    make -e -C $(LOCALREPODIR) createlocalrepo; 		\
+	for name in $(AUTOYAML); do							\
+	    make -e -f $(THISMAKE) $$name.pkg;						\
+	    make -e -C $(LOCALREPODIR) createlocalrepo; 				\
 	    rpmname=$$($(GENERATE) --versions=$(VERSIONS) --query=pkgname $$name.yaml);	\
-	    yum -y -c $(LOCALREPODIR)/yum.conf install $$rpmname;	\
-	done								\
+	    yum -y -c $(LOCALREPODIR)/yum.conf install $$rpmname;			\
+	done										\
 
 desired-erase:
 	echo $(DRPM)
 	yum -y erase $(DRPMS)
-	( for name in $(DRPMS); do			\
-	  	rm -rf ../RPMS/x86_64/$$name-[0-9]* ;	\
-	  done						\
+	( for name in $(DRPMS); do							\
+		rm -rf ../RPMS/x86_64/$$name-[0-9]* ;					\
+	  done										\
 	)
 	/bin/rm buildorder
 
 ### this target creates provides/requires filters for each module yaml
 addfilters::
-	if [ -f add-filters.sh ]; then \
-		/bin/bash add-filters.sh $(thismod) $(TMPBUILD) "$(GENERATE)"; \
-	else \
-		echo; \
+	if [ -f add-filters.sh ]; then 							\
+		/bin/bash add-filters.sh $(thismod) $(TMPBUILD) "$(GENERATE)";		\
+	else										\
+		echo;									\
 	fi
 
 clean: metaclean bioclean genclean
