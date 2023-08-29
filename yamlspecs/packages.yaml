@@ -20,10 +20,10 @@ manifest:
   - "{{bootstrap}}"
   - "{{build}}"
 sets:
-  - latest
+  - "534"
   - meta
-  - meta-latest
+  - meta-534
   - bio
-  - bio-latest
+  - bio-534
   - gen
-  - gen-latest
+  - gen-534

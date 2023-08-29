@@ -1,5 +1,5 @@
 !include versions-gen.yaml
-!include versions-latest.yaml
+!include versions-534.yaml
 ---
 Bio_DB_NCBIHelper: "1.7.7"
 CGI: "4.54"

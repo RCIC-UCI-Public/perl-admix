@@ -1,5 +1,5 @@
 !include versions-meta.yaml
-!include versions-latest.yaml
+!include versions-534.yaml
 ---
 App_cpanminus: "1.7045"
 B_Hooks_EndOfScope: "0.26"
