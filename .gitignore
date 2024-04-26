@@ -10,3 +10,4 @@ yum.*
 .cpan
 filter*sh
 .rpmmacros
+*.pkg
