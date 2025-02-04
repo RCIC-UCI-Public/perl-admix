@@ -1,4 +1,4 @@
-!include versions.yaml
+!include versions-530.yaml
 ---
 baseline_genomics: "{{versions.perl}}"
 Array_Utils: "0.5"

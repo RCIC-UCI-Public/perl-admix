@@ -1,4 +1,4 @@
-!include versions.yaml
+!include versions-530.yaml
 ---
 baseline_metacpan: "{{versions.perl}}"
 App_cpanminus: "1.7044"

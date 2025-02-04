@@ -1,6 +1,6 @@
 !include packages.yaml
 ---
-versions: versions-meta.yaml
+versions: versions-530-meta.yaml
 bootstrap:
   - Class-Method-Modifiers
   - Safe-Isa

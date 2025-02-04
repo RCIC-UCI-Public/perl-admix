@@ -1,6 +1,6 @@
 !include packages.yaml
 ---
-versions: versions-bio.yaml
+versions: versions-530-bio.yaml
 bootstrap:
   - IO-String
   - XML-Writer

@@ -1,3 +1,4 @@
+!include versions.yaml
 ---
 perl: "5.34.1"
 bioperl_tarsources: "202203"

@@ -1,4 +1,4 @@
-!include versions-meta.yaml
+!include versions-530-meta.yaml
 !include versions-534.yaml
 ---
 App_cpanminus: "1.7045"

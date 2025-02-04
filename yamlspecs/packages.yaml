@@ -13,17 +13,16 @@ system:
   - zlib-devel
   - libxslt-devel
 bootstrap:
-  - perl
-  - perl-module
 build:
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
 sets:
+  - "530"
   - "534"
-  - meta
-  - meta-534
-  - bio
-  - bio-534
-  - gen
-  - gen-534
+  - "530-meta"
+  - "530-bio"
+  - "530-gen"
+  - "534-meta"
+  - "534-bio"
+  - "534-gen"

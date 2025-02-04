@@ -1,4 +1,4 @@
-!include versions.yaml
+!include versions-530.yaml
 ---
 baseline_bioperl: "{{versions.perl}}"
 Algorithm_Diff: "1.1903"

@@ -1,6 +1,6 @@
 !include packages.yaml
 ---
-versions: versions-gen.yaml
+versions: versions-530-gen.yaml
 bootstrap:
   - Net-SMTP-SSL
   - Mail-Sendmail

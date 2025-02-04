@@ -1,4 +1,4 @@
-!include versions-gen.yaml
+!include versions-530-gen.yaml
 !include versions-534.yaml
 ---
 Bio_DB_NCBIHelper: "1.7.7"
