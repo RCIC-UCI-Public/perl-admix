@@ -7,6 +7,7 @@
 ALL_TARGETS = MyConfig.pm bootstrap default
 manifest :: manifestprep
 buildall :: prep
+module-info :: manifestprep
 
 include $(YAML2RPM_HOME)/sys/Makefile
 
