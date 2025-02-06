@@ -1,4 +1,5 @@
 # for boostrap installing perl and modules in metacpan/
+!include versions.yaml
 ---
 perl: "5.30.0"
 bioperl_tarsources: "202003"
