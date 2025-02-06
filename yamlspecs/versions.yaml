@@ -1,5 +1,6 @@
 # for boostrap installing perl and modules in metacpan/
 ---
+admix: perl-admix
 #perl: "5.30.0"
 #bioperl_tarsources: "202003"
 #metacpan_tarsources: "202004"
