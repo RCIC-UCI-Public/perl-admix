@@ -12,6 +12,7 @@ system:
   - libXpm-devel
   - zlib-devel
   - libxslt-devel
+  - wget
 bootstrap:
 build:
 manifest:
