@@ -13,6 +13,8 @@ system:
   - zlib-devel
   - libxslt-devel
   - wget
+  - expat-devel 
+
 bootstrap:
 build:
 manifest:
