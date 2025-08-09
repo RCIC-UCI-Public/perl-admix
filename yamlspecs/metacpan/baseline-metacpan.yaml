@@ -40,6 +40,7 @@
     - perl_{{version}}-Data-Dump
     - perl_{{version}}-Data-OptList
     - perl_{{version}}-Data-Printer
+    - perl_{{version}}-DBI
     - perl_{{version}}-Devel-Caller
     - perl_{{version}}-Devel-GlobalDestruction
     - perl_{{version}}-Devel-LexAlias

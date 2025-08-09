@@ -97,4 +97,5 @@ bootstrap:
   - Sys-Info-Base
   - Sys-Info
   - Clone
+  - DBI
   - baseline-metacpan

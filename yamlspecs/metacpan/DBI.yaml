@@ -1,0 +1,24 @@
+!include common.yaml
+---
+- package: DBI Perl module 
+  name: DBI
+  version: "{{versions.DBI}}"
+  loc: "{{versions.DBI_loc}}"
+  vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
+  build:
+    configure: >
+      rm -f lib/DBD/Gofer/Transport/corostream.pm;
+      sed -i -e '/^lib\/DBD\/Gofer\/Transport\/corostream.pm$/d' MANIFEST;
+      (for F in lib/DBI/W32ODBC.pm lib/Win32/DBIODBC.pm; do rm -f "$F"; sed -i -e '\|^'"$F"'|d' MANIFEST; done);
+      export PERL_MM_USE_DEFAULT=true; 
+      perl Makefile.PL ; \
+      unset PERL_MM_USE_DEFAULT
+  description: >
+    DBI perl module. Database independent interface for Perl
+  filter_requires:
+    -e '/perl(RPC::Pl/d'
+    -e '/perl(Win32/d'
+
+# NOTE: all rm and sed commands are per spec file from perl-DBI-1.643-9.el9.src.rpm 
+# they disable use of Coro, remove Win32 specific files to avoid unwanted dependencies.
+# The filter removes remaining Win32 iand RPC::Pl* reverse dependencies
