@@ -27,13 +27,7 @@ to bootstrap building environment for using MetaCPAN::Client.
    for perl and its bootstrap packages from CPAN.
    ```bash
    cd perl-admix/
-   make sources
-
-   cd yamlspecs/
-   make prep
-   ```
-   After this step,  sources/ is created at the top level directory and all
-   source distribution files for packages are downloaded.
+   make download
 
 1. Compile and install perl and its bootstrap packages
    ```bash
