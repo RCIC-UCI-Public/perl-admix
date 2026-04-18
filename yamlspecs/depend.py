@@ -441,7 +441,7 @@ class BuildDepend(object):
 
     def writeVersions(self):
         verfile=open("versions-desired","w")
-        txt = "The install the specified desired perl modules:\n"
+        txt = "To install the specified desired perl modules:\n"
         for i in self.modnames:
             txt += "\t%s\n" % i
         txt += "\nthe following packages and their versions will need to be installed:\n"
