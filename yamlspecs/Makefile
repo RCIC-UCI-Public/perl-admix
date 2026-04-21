@@ -1,19 +1,14 @@
-# Copyright (c) 2000 - 2019 The Regents of the University of California.
+# Copyright (c) 2000 - 2026 The Regents of the University of California.
 # All rights reserved.	
-# This includes the Generic yaml2rpm Makefile - most packaging should
-# be able to use this.
 
 # redefine BUILDALL_TARGETS
-#ALL_TARGETS = MyConfig.pm bootstrap default
 ALL_TARGETS = bootstrap default
-#manifest :: manifestprep
-#buildall :: prep
-#module-info :: manifestprep
 
+# This includes the Generic yaml2rpm Makefile
 include $(YAML2RPM_HOME)/sys/Makefile
 
-# when building targets for different perl version need to give on a command line
-# set name, for example SET='latest'
+# when building targets for different perl version need
+# to give on a command line set name, for example SET=530
 ifeq ($(SET),)
     VERSIONS := versions.yaml
     GENVERSION = 
@@ -52,7 +47,7 @@ GENOMICSRPMS = $(addprefix perl_$(PERLVER)-,$(GENOMICS)) perl_$(PERLVER)-baselin
 AUTOYAML = $(shell cat buildorder | awk '{print $$2}')
 DRPMS = $(addprefix perl_$(PERLVER)-,$(AUTOYAML))
 
-## The generic makefile will call make thaw.
+## The generic makefile will call 'make thaw'.
 ## $(ADMIXYAMLS) ~ perl-admix/yamlspecs
 ## $(STAGEDIR) - where to stage data
 FROZEN_NAME = 
@@ -73,13 +68,14 @@ ifneq ($(FROZEN_NAME),)
     FREEZEDIR = $(ADMIXYAMLS)/$(FROZEN_NAME)
     FROZENSOURCES = $(ADMIXROOT)/sources/sources-$(FROZEN_NAME)-$(SRCVER).tar.gz
 endif 
-#
+
 # Overrride the default thaw target, only if FREEZEDIR is defined
 ifneq ($(FROZEN_NAME),)
 thawyamls: 
 	for name in $(shell cat $(FREEZEDIR)/buildorder) baseline-$(FROZEN_NAME); do		                \
 	    if [ ! -f $(STAGEDIR)/$${name}.yaml ]; then /bin/cp -p $(FREEZEDIR)/$${name}.yaml $(STAGEDIR); fi;	\
 	done
+
 thawsources:
 	(cd $(ADMIXROOT)/sources; tar xvf $(FROZENSOURCES))
 	for name in $(shell cat $(FREEZEDIR)/buildorder); do				\
@@ -99,6 +95,7 @@ metaprep:
 	for name in $(shell cat metacpan/buildorder) baseline-metacpan; do		\
 	    /bin/cp metacpan/$$name.yaml .;						\
 	done
+
 metadownload: metaprep
 	(cd ../sources; tar xvf sources-metacpan-$(BASE_SRCVER).tar.gz)
 	for name in $(shell cat metacpan/buildorder); do				\
@@ -108,6 +105,7 @@ metadownload: metaprep
 	        make download PKG=$$name $(MAKESET); 					\
 	    fi;										\
 	done
+
 metaclean:
 	for name in $(shell cat metacpan/buildorder) baseline-metacpan; do		\
 	    /bin/rm -f $$name.yaml;							\
@@ -140,6 +138,7 @@ biodownload: bioprep
 	        make download PKG=$$name $(MAKESET);					\
 	    fi;										\
 	done
+
 bioclean:
 	for name in $(shell cat bioperl/buildorder) baseline-bioperl; do 		\
 	    /bin/rm -f $$name.yaml;							\
@@ -171,6 +170,7 @@ gendownload: genprep
 	        make download PKG=$$name $(MAKESET);					\
 	    fi;										\
 	done
+
 genclean:
 	for name in $(shell cat genomics/buildorder) baseline-genomics; do 		\
 	    /bin/rm -f $$name.yaml;							\
