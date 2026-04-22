@@ -29,43 +29,65 @@ to bootstrap building environment for using MetaCPAN::Client.
    cd perl-admix/
    make download
 
-1. Compile and install perl and its bootstrap packages
+1. Compile and install perl and ll the sets of modules for both perl versions.
    ```bash
-   make bootstrap | tee out 2>&1
-   make bootstrap  SET=meta | tee out-meta 2>&1
+   make buildall-parallel &> buildall.log &
    ```
 
-   After this step, perl, perl environment module and 95 additional RPMS are build.
-   They contain a basic perl with additional packages to use MetaCpan::Client module.
+   After this step, perl, perl environment module and perl modules RPMS are build
+   for Perl versiosn 5.30.0 and 5.34.1 (total 400 RPMs).
 
-   In addition, a single RPM  perl_VERSION-metacpan is created. It installs a single README.metacpan
-   file in the perl base install directory and includes all other RPMs from bootstrap build as dependencies.
-   This allows to install all perl bootstrap RPMs via simply installing this one RPM (assuming yum points
+   In addition, the following RPMs are created: 
+   
+     * perl_5.30.0-baseline-bioperl-5.30.0-1.x86_64.rpm
+     * perl_5.30.0-baseline-genomics-5.30.0-3.x86_64.rpm
+     * perl_5.30.0-baseline-metacpan-5.30.0-1.x86_64.rpm
+     * perl_5.34.1-baseline-bioperl-5.34.1-1.x86_64.rpm
+     * perl_5.34.1-baseline-genomics-5.34.1-3.x86_64.rpm
+     * perl_5.34.1-baseline-metacpan-5.34.1-1.x86_64.rpm
+
+   Each instals a single README.<group> file (group is bioperl, metacpan, genomics)
+   in the perl base install directory and includes all other RPMs from 
+   a corresponding group bootstrap build as dependencies.
+   This allows to install all perl RPMs via simply installing these 6 RPMs (assuming yum points
    to the repo where all created perl boostrap RPMS are).
 
-## Build BioPerl and its dependencies
+## Build groups of modules
 
 1. A BioPerl module requires a large number of prerequisites which are not cleanly defined
    in CPAN dependencies. We provide a way to to install all checked dependencies.
    Required yaml files are in `bioperl/` and the following commands wil build and install
-   all needed RPMS. This aassumes that Perl and its metacpan RPMs were already built and installed.
-   The following command will build and install RPMS in the correct dependency order.
+   all needed RPMS. This aassumes that Perl and its metacpan RPMs were already built and installed
+   (they are specified in sets *meta*).
+   The following command will build and install RPMS in the correct dependency order for Perl 5.30.0
+   (a similar approach is for Perl 5.34.1 using set names for that version):
 
    ```bash
    cd yamlspecs/
-   make bootstrap SET=bio | tee out 2>&1
+   make bootstrap SET=530-bio | tee out 2>&1
+   ```
 
    To erase all built and installed BioPerl RPMS
+
    ```bash
-   make bioerase
+   make bioerase SET=530-bio
    ```
+
+1. Another group of perl modules grouped into *genomics* can be built in a similar way via:
+
+   ```bash
+   cd yamlspecs/
+   make bootstrap SET=530-gen | tee out 2>&1
+   ```
+
+   This set must be built after *meta* and *bio* are built and isntalled.
 
 ## Building RPMS for additional modules
 
 The steps below outline how one can automate to a large degree creation of the
 additiona perl modules RPMs. Because the perl modules do not always obey the
 build process and do not provide all the dependency information, there will be
- always case that will need a manual adjustment.
+always case that will need a manual adjustment.
 
 This usually involves overwriting requires/provides or changing the order in a buildorder file.
 For the requires/provides see examples of the filters in the `metacpan/Package-Stash.yaml`
@@ -86,7 +108,7 @@ The standard, no change outline is:
    ```
 
 1. Before the next step make sure there is ~/.cpan/CPAN/MyConfig.pm  file
-   The template for this file is generated when running  `cpan -l` command but is doen interactively.
+   The template for this file is generated when running  `cpan -l` command but is done interactively.
    We can generate this file before running any cpan commands via:
    ```bash
    make MyConfig.pm
@@ -105,26 +127,25 @@ The standard, no change outline is:
    ```
 
    Ater the execution, the following files are generated:
-   - NAME.yaml for each desired module NAME and any found dependent modules
-   - buildorder, shows in what order RPMS will need to be built. This file will need to be included in
-     a new set-SOMENAME,yaml file.
-   - versions-bootstrap, with versions and distro location in cpan. This file will need to be
-     included in versions-SOMENAME.yaml file and referenced in above set-SOMENAME.yaml
-   - versions-desired, summary information about order and versions.
-
+   - *NAME.yaml* for each desired module NAME and any found dependent modules
+   - *buildorder*, shows in what order RPMS will need to be built. This file will need to be included in
+     a new set-SETNAME,yaml file.
+   - *versions-bootstrap*, with versions and source distro location in cpan. This file will need to be
+     included in versions-SETNAME.yaml file and referenced in above set-SETNAME.yaml
+   - *versions-desired*, summary information about order and versions.
 
 1. To download all source distributions for generated yaml files one can execute
    ```bash
-   make desired-download
+   make desired-download SET=SETNAME
    ```
 
 1. To build and install RPMS for desired modules:
    ```bash
-   make desired-build | tee out 2>&1
+   make desired-build SET+SETNAME | tee out 2>&1
    ```
    If the build goes well a new set and its version file can be  created and  the set can be added to packages.yaml.
 
 1. To remove built and install RPMs
    ```bash
-   make desired-erase
+   make desired-erase SET=SETNAME
    ```
