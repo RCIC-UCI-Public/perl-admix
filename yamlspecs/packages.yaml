@@ -1,6 +1,8 @@
 ---
+enablerepo: "epel"
 site: !include site.yaml
 system:
+  - openssl
   - gdbm-devel
   - libdb-devel
   - gd-devel
@@ -12,6 +14,9 @@ system:
   - libXpm-devel
   - zlib-devel
   - libxslt-devel
+  - fontconfig-devel
+  - libXft-devel
+  - freetype-devel
   - wget
   - expat-devel 
 
