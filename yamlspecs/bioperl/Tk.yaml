@@ -9,3 +9,12 @@
     Tk perl module. Tk - a Graphical User Interface Toolkit
   filter_provides:
     - '$ a perl_{{versions.perl}}(Tk::LabRadio)'
+  opts10: !OScmp ">=,10,1,0"
+  build:
+    patchfile: !OScmp ">=,10,{{name}}-{{version}}.patch,"
+    configure: >
+      export PERL_MM_USE_DEFAULT=true;
+      if [ {{opts10}} == 1 ]; then \
+          export PERL_MM_OPT="OPTIMIZE='-O2 -Wno-error=incompatible-pointer-types -Wno-error=implicit-int -Wno-error=implicit-function-declaration'"; \
+      fi;
+      perl Makefile.PL

@@ -1,0 +1,12 @@
+--- Tk-804.036/tkGlue.c	2021-02-07 08:34:04.000000000 -0800
++++ Tk-804.036/tkGlue.c.new	2026-06-12 09:49:51.789533857 -0700
+@@ -5259,7 +5259,8 @@
+  p->op.op_pmdynflags |= PMdf_DYN_UTF8;
+  p->pat = pregcomp(string,string+len,&p->op);
+ #else
+- p->pat = pregcomp(string,string+len,p->flags);
++ SV *tmpl_sv = newSVpvn_flags(string, len, SVs_TEMP);
++ p->pat = Perl_pregcomp(aTHX_ tmpl_sv, p->flags);
+ #endif
+ #if 0
+  LangDebug("/%.*s/ => %p\n",len,string,p->pat);

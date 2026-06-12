@@ -1,0 +1,13 @@
+--- Tk-804.034/tkGlue.c	2017-05-07 04:57:52.000000000 -0700
++++ Tk-804.034/tkGlue.c.new	2026-06-11 17:14:11.414514561 -0700
+@@ -5242,7 +5242,9 @@
+  p->op.op_pmdynflags |= PMdf_DYN_UTF8;
+  p->pat = pregcomp(string,string+len,&p->op);
+ #else
+- p->pat = pregcomp(string,string+len,p->flags);
++	SV *patsv = newSVpvn(string, len);
++	p->pat = Perl_pregcomp(aTHX_ patsv, p->flags);
++	SvREFCNT_dec(patsv);
+ #endif
+ #if 0
+  LangDebug("/%.*s/ => %p\n",len,string,p->pat);

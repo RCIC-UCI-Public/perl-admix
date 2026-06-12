@@ -7,3 +7,12 @@
   vendor_source: https://cpan.metacpan.org/authors/id/{{loc}}/{{name}}-{{version}}.{{extension}}
   description: >
     XML::LibXML::Reader perl module. Interface to Gnome libxml2 xml parsing and DOM library
+
+  opts10: !OScmp ">=,10,1,0"
+  build:
+    configure: >
+      export PERL_MM_USE_DEFAULT=true;
+      if [ {{opts10}} == 1 ]; then \
+          export PERL_MM_OPT="OPTIMIZE='-O2 -Wno-error=incompatible-pointer-types -Wno-error=implicit-int -Wno-error=implicit-function-declaration'"; \
+      fi;
+      perl Makefile.PL
