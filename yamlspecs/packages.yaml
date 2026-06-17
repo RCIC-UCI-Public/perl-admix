@@ -1,6 +1,5 @@
 ---
 enablerepo: "epel"
-site: !include site.yaml
 system:
   - openssl
   - gdbm-devel
@@ -19,17 +18,14 @@ system:
   - freetype-devel
   - wget
   - expat-devel 
-
 bootstrap:
 build:
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
-
 sets:
   - "{{serialsets.perl530}}"
   - "{{serialsets.perl534}}"
-
 serialsets:
    perl530:    
       - "530"
