@@ -15,5 +15,4 @@
       if [ {{opts10}} == 1 ]; then \
           sed -i '169s/exit 0; //' Makefile.PL; \
           export PERL_MM_OPT="OPTIMIZE='-O2 -Wno-error=incompatible-pointer-types -Wno-error=implicit-int -Wno-error=implicit-function-declaration'"; \
-          perl Makefile.PL; \
-      fi;
+      fi; perl Makefile.PL
